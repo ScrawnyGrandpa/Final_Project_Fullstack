@@ -6,7 +6,7 @@ export default class BossSchema extends Schema {
         wowheadID: {
             validation: Joi.string()
                 .ruleset.regex(/^\d{6}$/)
-                .message("Each skill must be exactly 6 digits")
+                .message("Each ID must be exactly 6 digits")
                 .required()
         },
         name: { validation: Joi.string().min(2).max(256).required() },
