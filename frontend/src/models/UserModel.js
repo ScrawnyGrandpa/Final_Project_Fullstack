@@ -5,8 +5,6 @@ export default class UserModel extends Model {
     static api = UsersAPI;
     static cache = {};
 
-    bosses;
-
     constructor({
         _id = "",
         firstName = "",

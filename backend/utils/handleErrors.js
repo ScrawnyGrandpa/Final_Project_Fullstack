@@ -11,4 +11,4 @@ const handleError = (res, status, message = "") => {
     return res.status(status).send(message);
 };
 
-export { createError, handleError }
+export { createError, handleError };

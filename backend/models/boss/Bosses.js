@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { IMAGEURL, DEFAULT_VALIDATION } from './mongooseValidators';
+import { IMAGEURL, DEFAULT_VALIDATION } from '../mongooseValidators.js';
 
 const bossSchema = new mongoose.Schema({
     wowheadID: {
@@ -17,7 +17,7 @@ const bossSchema = new mongoose.Schema({
     description: { ...DEFAULT_VALIDATION, maxlength: 2000, },
     location: DEFAULT_VALIDATION,
     imageURL: IMAGEURL,
-    imageALT: DEFAULT_VALIDATION,
+    imageALT: { ...DEFAULT_VALIDATION, required: false },
     phases: {
         type: Number,
         validate: {

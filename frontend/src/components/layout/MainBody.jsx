@@ -1,4 +1,3 @@
-import HomePage from "../../pages/HomePage";
 
 export default function MainBody({ children }) {
     return (

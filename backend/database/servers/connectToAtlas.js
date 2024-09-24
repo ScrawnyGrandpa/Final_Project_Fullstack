@@ -1,9 +1,10 @@
 import mongoose from "mongoose";
 
+const atlasString = ""
 const connectToDB = async () => {
     try {
-        await mongoose.connect("mongodb://127.0.0.1:27017/scrawnyGrandpaGuides");
-        console.log("Connected to MongoDB");
+        await mongoose.connect(atlasString);
+        console.log("Connected to MongoDB via Atlas and listening to requests");
     } catch (error) {
         console.error("Could not connect to MongoDB", error);
     }

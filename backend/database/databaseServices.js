@@ -1,5 +1,5 @@
-import { connectToDB as dbconnectLocally } from "./servers/connectToMongoDBLocally";
-import { connectToDB as dbconnectAtlas } from "./servers/connectToAtlas";
+import { connectToDB as dbconnectLocally } from "./servers/connectToMongoDBLocally.js";
+import { connectToDB as dbconnectAtlas } from "./servers/connectToAtlas.js";
 
 const ENVIRONMENT = "development"
 

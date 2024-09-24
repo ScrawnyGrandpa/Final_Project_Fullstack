@@ -1,7 +1,7 @@
 import API from "./API";
 
 export default class UsersAPI extends API {
-    static apiUrl = "http//localhost:3000";
+    static apiUrl = "http//localhost:3000/";
 
     static login(data) {
         return this.request(`${this.apiUrl}/login`, { data, method: "post" });
