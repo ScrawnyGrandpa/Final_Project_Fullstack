@@ -1,23 +1,15 @@
 import mongoose from 'mongoose';
+import { baseSchema } from '../trash/Trash.js';
 import { IMAGEURL, DEFAULT_VALIDATION } from '../mongooseValidators.js';
 
 const bossSchema = new mongoose.Schema({
-    wowheadID: {
-        type: String,
-        required: true,
-        unique: true,
-        validate: {
-            validator: function (input) {
-                return /^\d{6}$/.test(input);
-            },
-            message: 'Each skill must be exactly 6 digits'
-        }
-    },
-    name: { ...DEFAULT_VALIDATION, unique: true, },
+    wowheadID: baseSchema.wowheadID,
+    name: baseSchema.name,
     description: { ...DEFAULT_VALIDATION, maxlength: 2000, },
-    location: DEFAULT_VALIDATION,
-    imageURL: IMAGEURL,
-    imageALT: { ...DEFAULT_VALIDATION, required: false },
+    location: baseSchema.location,
+    instanceType: baseSchema.instanceType,
+    imageURL: baseSchema.imageURL,
+    imageALT: baseSchema.imageALT,
     phases: {
         type: Number,
         validate: {
@@ -26,18 +18,9 @@ const bossSchema = new mongoose.Schema({
             },
             message: 'Phases must be a number'
         },
-        default: null
+        default: 0
     },
-    skills: {
-        type: [String],
-        validate: {
-            validator: function (input) {
-                return input.every(skill => /^\d{6}$/.test(skill));
-            },
-            message: 'Each skill must be exactly 6 digits'
-        },
-        default: []
-    }
+    skills: baseSchema.skills
 });
 
 const Boss = mongoose.model('Boss', bossSchema);

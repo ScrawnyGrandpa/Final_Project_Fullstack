@@ -13,6 +13,16 @@ const userSchema = new mongoose.Schema({
     },
     avatarImgURL: IMAGEURL,
     avatarImgALT: { ...DEFAULT_VALIDATION, required: false },
+    likedNPCs: {
+        type: [String],
+        validate: {
+            validator: function (input) {
+                return input.every(skill => /^\d{6}$/.test(skill));
+            },
+            message: 'Each NPC-ID must be exactly 6 digits'
+        },
+        default: []
+    },
     isAdmin: {
         type: Boolean,
         default: false,

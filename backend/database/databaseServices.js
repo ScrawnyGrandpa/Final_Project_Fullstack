@@ -1,13 +1,13 @@
-import { connectToDB as dbconnectLocally } from "./servers/connectToMongoDBLocally.js";
-import { connectToDB as dbconnectAtlas } from "./servers/connectToAtlas.js";
+import { connectToDB as dbconnectLocally } from "./connections/connectToMongoDBLocally.js";
+import { connectToDB as dbconnectAtlas } from "./connections/connectToAtlas.js";
 
-const ENVIRONMENT = "development"
+const ENVIRONMENT = process.env.ENVIRONMENT || "development";
 
 const connectToDB = async () => {
-    if (ENVIRONMENT === "development") {
+    if (ENVIRONMENT == "development") {
         await dbconnectLocally();
     }
-    if (ENVIRONMENT === "production") {
+    if (ENVIRONMENT == "production") {
         await dbconnectAtlas();
     }
 };

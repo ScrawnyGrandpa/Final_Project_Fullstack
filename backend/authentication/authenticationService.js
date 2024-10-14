@@ -6,13 +6,13 @@ const tokenGenerator = "jwt";
 const authentication = (req, res, next) => {
     if (tokenGenerator === "jwt") {
         try {
-            const tokenFromClient = req.header("x-auth-token");
-            if (!tokenFromClient) {
+            const token = req.header("x-auth-token");
+            if (!token) {
                 const error = new Error("Please Login");
                 error.status = 401;
                 return createError("Authentication", error);
             }
-            const userInfo = verifyToken(tokenFromClient);
+            const userInfo = verifyToken(token);
             if (!userInfo) {
                 const error = new Error("Unauthorized user");
                 error.status = 401;

@@ -1,14 +1,14 @@
 import Router from "express";
 import { createUser, getAll, readUser, updateUser, deleteUser, login } from "./userAccessDataService.js"
+import { validateRegistration } from "../../validation/userValidation.js";
 import { handleError } from "../../utils/handleErrors.js";
 import { authentication } from "../../authentication/authenticationService.js";
+import { checkUserAccess } from "../../middlewares/userAccess.js";
 
 const userRouter = Router();
 
-// MUST ADD AUTHENTICATION WHEREVER NEEDED LATER
-
 // get all users
-userRouter.get("/", async (req, res) => {
+userRouter.get("/", authentication, async (req, res) => {
     try {
         res.send(await getAll());
     } catch (error) {
@@ -19,6 +19,8 @@ userRouter.get("/", async (req, res) => {
 // create user
 userRouter.post("/", async (req, res) => {
     try {
+        const error = validateRegistration(req.body);
+        if (error) return handleError(res, 400, `Joi Error: ${error}`);
         res.send(await createUser(req.body));
     }
     catch (error) {
@@ -27,21 +29,16 @@ userRouter.post("/", async (req, res) => {
 });
 
 // get user by ID
-userRouter.get("/:id", async (req, res) => {
+userRouter.get("/:id", authentication, checkUserAccess, async (req, res) => {
     try {
-        const { id } = req.params;
-        const { _id, isAdmin } = req.user;
-        if (_id !== id && !isAdmin) {
-            return handleError(res, 401, "You can't access other user's data");
-        }
-        res.send(await readUser(id));
+        res.send(await readUser(req.params.id));
     } catch (error) {
         handleError(res, 500, error.message);
     }
 });
 
 // update user
-userRouter.put("/:id", async (req, res) => {
+userRouter.put("/:id", authentication, checkUserAccess, async (req, res) => {
     try {
         const updatedUser = await updateUser(req.params.id, req.body);
         if (!updatedUser) {
@@ -54,7 +51,7 @@ userRouter.put("/:id", async (req, res) => {
 });
 
 // update user parameter
-userRouter.patch("/:id", async (req, res) => {
+userRouter.patch("/:id", authentication, checkUserAccess, async (req, res) => {
     try {
         const updatedUser = await updateUser(req.params.id, req.body);
         if (!updatedUser) {
@@ -67,7 +64,7 @@ userRouter.patch("/:id", async (req, res) => {
 });
 
 // delete user
-userRouter.delete('/:id', async (req, res) => {
+userRouter.delete('/:id', authentication, checkUserAccess, async (req, res) => {
     try {
         res.send(await deleteUser(req.params.id));
     } catch (error) {

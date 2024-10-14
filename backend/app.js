@@ -5,8 +5,7 @@ import { connectToDB } from "./database/databaseServices.js";
 import { handleError } from "./utils/handleErrors.js";
 import { router } from "./router.js";
 import "dotenv/config";
-import { getAll } from "./models/user/userAccessDataService.js";
-
+import { populateInitialData } from "./utils/populateDatabase.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -23,10 +22,10 @@ app.use((req, res, next) => {
 
 // homepage
 app.get('/', (req, res) => {
-    res.send(getAll);
+    res.send("Waiting for Requests");
 });
 
-// /user & /npc
+// /user /boss /trash
 app.use(router);
 
 app.use((err, req, res, next) => {
@@ -34,7 +33,8 @@ app.use((err, req, res, next) => {
     return handleError(res, 500, message);
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
     console.log(chalk.blue("App is listening to port " + PORT));
-    connectToDB();
+    await connectToDB();
+    await populateInitialData();
 });

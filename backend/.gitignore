@@ -1,2 +1,4 @@
 .env
+sendingEmail.js
+sandbox.json
 node_modules/

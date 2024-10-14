@@ -2,6 +2,7 @@ import { User } from "./Users.js";
 import { generateAuthToken } from "../../authentication/jwt.js";
 import { createError } from "../../utils/handleErrors.js";
 import { generateUserPassword } from "../../utils/bcrypt.js";
+import { comparePasswords } from "../../utils/bcrypt.js";
 import _ from "lodash";
 
 
@@ -22,7 +23,8 @@ const createUser = async (data) => {
 // get all users
 const getAll = async () => {
     try {
-        return await User.find();
+        const users = await User.find();
+        return users.map(user => _.omit(user.toObject(), ["password"]));
     } catch (e) {
         return createError("Mongoose", e);
     }
@@ -31,7 +33,7 @@ const getAll = async () => {
 // get user by ID
 const readUser = async (id) => {
     try {
-        return await User.findById(id);
+        return _.omit((await User.findById(id)).toObject(), ["password"]);
     }
     catch (e) {
         return createError("Mongoose", e);
@@ -41,7 +43,7 @@ const readUser = async (id) => {
 // update user whole or some params
 const updateUser = async (id, data) => {
     try {
-        return await User.findByIdAndUpdate(id, data, { new: true, runValidators: true });
+        return _.omit((await User.findByIdAndUpdate(id, data, { new: true, runValidators: true })).toObject(), ["password"]);
     } catch (e) {
         return createError("Mongoose", e);
     }
@@ -50,7 +52,7 @@ const updateUser = async (id, data) => {
 // delete user
 const deleteUser = async (id) => {
     try {
-        return await User.findByIdAndDelete(id);
+        return _.omit((await User.findByIdAndDelete(id)).toObject(), ["password"]);
     } catch (e) {
         return createError("Mongoose", e);
     }
@@ -58,19 +60,19 @@ const deleteUser = async (id) => {
 
 const login = async (email, password) => {
     try {
-        const userFromDB = await User.findOne({ email });
-        if (!comaprePasswords(password, userFromDB.password)) {
-            const error = new Error("Authentication Error: Invalid email or password");
-            error.status = 401;
-            return createError("Authentication", error);
-        }
-        if (userFromDB.password !== password) {
-            const error = new Error("Authentication Error: Invalid email or password");
-            error.status = 401;
-            return createError("Authentication", error);
-        }
+        const userFromDb = await User.findOne({ email });
 
-        const token = generateAuthToken(userFromDB);
+        if (!userFromDb) {
+            const error = new Error("Invalid email or password");
+            error.status = 401;
+            return createError("Authentication", error);
+        }
+        if (!comparePasswords(password, userFromDb.password)) {
+            const error = new Error("Invalid email or password");
+            error.status = 401;
+            return createError("Authentication", error);
+        }
+        const token = generateAuthToken(userFromDb);
         return token;
     } catch (error) {
         return createError("Mongoose", error);
