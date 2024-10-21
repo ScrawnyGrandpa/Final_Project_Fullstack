@@ -1,5 +1,5 @@
 import Router from "express";
-import { createTrash, getAll, readTrash, updateTrash, deleteTrash } from "./trashAccessDataService.js"
+import { createTrash, getAll, readTrash, updateTrash, patchTrash, deleteTrash } from "./trashAccessDataService.js"
 import { handleError } from "../../utils/handleErrors.js";
 import { authentication } from "../../authentication/authenticationService.js";
 import { checkAdminAccess } from "../../middlewares/userAccess.js";
@@ -18,8 +18,9 @@ trashRouter.get("/", async (req, res) => {
 // get trash by ID
 trashRouter.get("/:id", async (req, res) => {
     try {
-        const { id } = req.params;
-        res.send(await readTrash(id));
+        const trash = await readTrash(req.params.id);
+        if (!trash) return handleError(res, 404, "Trash not found");
+        res.send(trash);
     } catch (error) {
         handleError(res, 500, error.message);
     }
@@ -48,10 +49,10 @@ trashRouter.put("/:id", authentication, checkAdminAccess, async (req, res) => {
     }
 });
 
-// update trash parameter
+// patch trash parameter
 trashRouter.patch("/:id", authentication, checkAdminAccess, async (req, res) => {
     try {
-        const updatedTrash = await updateTrash(req.params.id, req.body);
+        const updatedTrash = await patchTrash(req.params.id, req.body);
         if (!updatedTrash) {
             return handleError(res, 404, "Trash not found");
         }

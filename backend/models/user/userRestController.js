@@ -1,5 +1,5 @@
 import Router from "express";
-import { createUser, getAll, readUser, updateUser, deleteUser, login } from "./userAccessDataService.js"
+import { createUser, getAll, readUser, updateUser, deleteUser, login, patchUser } from "./userAccessDataService.js"
 import { validateRegistration } from "../../validation/userValidation.js";
 import { handleError } from "../../utils/handleErrors.js";
 import { authentication } from "../../authentication/authenticationService.js";
@@ -31,7 +31,9 @@ userRouter.post("/", async (req, res) => {
 // get user by ID
 userRouter.get("/:id", authentication, checkUserAccess, async (req, res) => {
     try {
-        res.send(await readUser(req.params.id));
+        const user = await readUser(req.params.id);
+        if (!user) return handleError(res, 404, "User not found");
+        res.send(user);
     } catch (error) {
         handleError(res, 500, error.message);
     }
@@ -50,10 +52,10 @@ userRouter.put("/:id", authentication, checkUserAccess, async (req, res) => {
     }
 });
 
-// update user parameter
+// patch user parameter
 userRouter.patch("/:id", authentication, checkUserAccess, async (req, res) => {
     try {
-        const updatedUser = await updateUser(req.params.id, req.body);
+        const updatedUser = await patchUser(req.params.id, req.body);
         if (!updatedUser) {
             return handleError(res, 404, "User not found");
         }

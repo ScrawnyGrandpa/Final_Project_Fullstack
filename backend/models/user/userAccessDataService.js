@@ -24,7 +24,7 @@ const createUser = async (data) => {
 const getAll = async () => {
     try {
         const users = await User.find();
-        return users.map(user => _.omit(user.toObject(), ["password"]));
+        return users.map(user => _.pick(user.toObject(), ["firstName", "lastName", "nickName", "avatarImgURL", "createdAt"]));
     } catch (e) {
         return createError("Mongoose", e);
     }
@@ -44,6 +44,19 @@ const readUser = async (id) => {
 const updateUser = async (id, data) => {
     try {
         return _.omit((await User.findByIdAndUpdate(id, data, { new: true, runValidators: true })).toObject(), ["password"]);
+    } catch (e) {
+        return createError("Mongoose", e);
+    }
+};
+
+// patch user param
+const patchUser = async (id, data) => {
+    try {
+        return _.omit((await User.findByIdAndUpdate(id, data, {
+            new: true,
+            runValidators: true,
+            overwrite: false,
+        })).toObject(), ["password"]);
     } catch (e) {
         return createError("Mongoose", e);
     }
@@ -79,4 +92,4 @@ const login = async (email, password) => {
     }
 };
 
-export { createUser, getAll, readUser, updateUser, deleteUser, login };
+export { createUser, getAll, readUser, updateUser, patchUser, deleteUser, login };

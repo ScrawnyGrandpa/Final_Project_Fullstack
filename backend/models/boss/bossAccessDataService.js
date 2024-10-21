@@ -40,6 +40,19 @@ const updateBoss = async (id, data) => {
     }
 };
 
+// update boss param
+const patchBoss = async (id, data) => {
+    try {
+        return await Boss.findByIdAndUpdate(id, data, {
+            new: true,
+            runValidators: true,
+            overwrite: false,
+        });
+    } catch (e) {
+        return createError("Mongoose", e);
+    }
+};
+
 // delete boss
 const deleteBoss = async (id) => {
     try {
@@ -49,4 +62,4 @@ const deleteBoss = async (id) => {
     }
 };
 
-export { createBoss, getAll, readBoss, updateBoss, deleteBoss };
+export { createBoss, getAll, readBoss, updateBoss, patchBoss, deleteBoss };

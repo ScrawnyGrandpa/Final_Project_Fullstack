@@ -3,8 +3,9 @@ ID: 317261147
 Phone: 050-2212-773
 
 This is the BACKEND ReadMe file. Please follow the instructions below.
+To download the Backend folder from GitHub navigate to https://download-directory.github.io/ and paste the following URL into the text box https://github.com/ScrawnyGrandpa/Final_Project_Fullstack/tree/0e113bde919086e88b72b863b5b28ae54fc55a2e/backend , and hit enter .
 
-Bosses and Trash API
+Bosses, Trash and Users API
 
 Overview
 
@@ -53,18 +54,24 @@ Installation
 
     3. Create a .env file in the root of the project and add your environment variables:
 
-    (Please note that if you are using Atlas MongoDB, please state environment as `production` and provide your MongoDB URI. Otherwise, leave the info as currently displayed) 
+    (Please note that if you are using Atlas MongoDB rather than Compas, please state environment as `production` and provide your MongoDB URI. Otherwise, leave the info as currently displayed) 
 
         PORT=yourPort
-        ADMIN_EMAIL=yourAdminUsername
+        ADMIN_EMAIL=yourAdminUserEmail
         ADMIN_PASSWORD=yourAdminPassword
         MONGODB_URI=
         ENVIRONMENT=development
 
     4. Run the server
-        nodemon app.js
+        nodemon app
 
-API DOcumentation
+API Documentation:
+
+Boss Documentation - https://documenter.getpostman.com/view/37787175/2sAXxWbVSP
+
+Trash Documentation - https://documenter.getpostman.com/view/37787175/2sAXxWbVSX
+
+User Documentation - https://documenter.getpostman.com/view/37787175/2sAXxWbVWo
 
     * Base URL: http://localhost:3000/
     * Endpoints:

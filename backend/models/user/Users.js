@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
         trim: true,
     },
     avatarImgURL: IMAGEURL,
-    avatarImgALT: { ...DEFAULT_VALIDATION, required: false },
+    avatarImgALT: { ...DEFAULT_VALIDATION, minlength: 0, required: false },
     likedNPCs: {
         type: [String],
         validate: {

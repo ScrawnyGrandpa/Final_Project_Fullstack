@@ -40,6 +40,19 @@ const updateTrash = async (id, data) => {
     }
 };
 
+// update trash param
+const patchTrash = async (id, data) => {
+    try {
+        return await Trash.findByIdAndUpdate(id, data, {
+            new: true,
+            runValidators: true,
+            overwrite: false,
+        });
+    } catch (e) {
+        return createError("Mongoose", e);
+    }
+};
+
 // delete boss
 const deleteTrash = async (id) => {
     try {
@@ -49,4 +62,4 @@ const deleteTrash = async (id) => {
     }
 };
 
-export { createTrash, getAll, readTrash, updateTrash, deleteTrash };
+export { createTrash, getAll, readTrash, updateTrash, patchTrash, deleteTrash };

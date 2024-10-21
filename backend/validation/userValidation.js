@@ -20,7 +20,7 @@ const registerValidation = (user) => {
             )
             .rule({
                 message:
-                    'User "password" must be at least 8 characters long and contain an uppercase letter, a lowercase letter, a number and one of the following characters !@#$%^&*-',
+                    'User "password" must be at least 7 characters long and contain an uppercase letter, a lowercase letter, a number and one of the following characters !@#$%^&*-',
             })
             .required(),
         avatarImgURL: Joi.string()

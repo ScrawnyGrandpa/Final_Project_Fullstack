@@ -1,5 +1,5 @@
 import Router from "express";
-import { createBoss, getAll, readBoss, updateBoss, deleteBoss } from "./bossAccessDataService.js"
+import { createBoss, getAll, readBoss, updateBoss, patchBoss, deleteBoss } from "./bossAccessDataService.js"
 import { handleError } from "../../utils/handleErrors.js";
 import { authentication } from "../../authentication/authenticationService.js";
 import { checkAdminAccess } from "../../middlewares/userAccess.js";
@@ -18,8 +18,9 @@ bossRouter.get("/", async (req, res) => {
 // get boss by ID
 bossRouter.get("/:id", async (req, res) => {
     try {
-        const { id } = req.params;
-        res.send(await readBoss(id));
+        const boss = await readBoss(req.params.id);
+        if (!boss) return handleError(res, 404, "Boss not found");
+        res.send(boss);
     } catch (error) {
         handleError(res, 500, error.message);
     }
@@ -48,10 +49,10 @@ bossRouter.put("/:id", authentication, checkAdminAccess, async (req, res) => {
     }
 });
 
-// update boss parameter
+// patch boss parameter
 bossRouter.patch("/:id", authentication, checkAdminAccess, async (req, res) => {
     try {
-        const updatedBoss = await updateBoss(req.params.id, req.body);
+        const updatedBoss = await patchBoss(req.params.id, req.body);
         if (!updatedBoss) {
             return handleError(res, 404, "Boss not found");
         }

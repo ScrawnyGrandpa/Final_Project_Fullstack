@@ -18,7 +18,7 @@ const baseSchema = {
     location: DEFAULT_VALIDATION,
     instanceType: DEFAULT_VALIDATION,
     imageURL: IMAGEURL,
-    imageALT: { ...DEFAULT_VALIDATION, required: false },
+    imageALT: { ...DEFAULT_VALIDATION, minlength: 0, required: false },
     skills: {
         type: [String],
         validate: {

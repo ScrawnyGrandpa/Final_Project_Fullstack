@@ -31,7 +31,7 @@ const NICKNAME = {
 const DEFAULT_VALIDATION = {
     type: String,
     required: true,
-    minlength: 0,
+    minlength: 2,
     maxlength: 256,
     lowercase: true,
     trim: true,
