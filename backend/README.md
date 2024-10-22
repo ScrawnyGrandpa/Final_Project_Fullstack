@@ -54,13 +54,14 @@ Installation
 
     3. Create a .env file in the root of the project and add your environment variables:
 
-    (Please note that if you are using Atlas MongoDB rather than Compas, please state environment as `production` and provide your MongoDB URI. Otherwise, leave the info as currently displayed) 
+    (Please note that the default MongoBD used in this project is Compass and ENVIRONMENT=development is the default choice. For ATLAS usage please change ENVIROMENT=production) 
 
-        PORT=yourPort
-        ADMIN_EMAIL=yourAdminUserEmail
-        ADMIN_PASSWORD=yourAdminPassword
-        MONGODB_URI=
-        ENVIRONMENT=development
+    PORT = 3000
+    ADMIN_EMAIL=YourAdminEmail
+    ADMIN_PASSWORD=YourAdminPassword
+    SECRET_WORD=YourSecretWord
+    MONGODB_URI=
+    ENVIRONMENT=development
 
     4. Run the server
         nodemon app

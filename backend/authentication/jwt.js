@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 
-const SECRET_WORD = "aNeedlesslyLongWordAsTheNameOfAFunctionIWillNeverFindMyselfUsingInThisProject";
+const SECRET_WORD = process.env.SECRET_WORD;
 
 const generateAuthToken = (user) => {
     const payload = {
