@@ -47,7 +47,7 @@ Prerequisites
 
 Installation
 
-    1. Download the repository folder:
+    1. Download the repository folder (via the instructions above, below the student information):
         https://github.com/ScrawnyGrandpa/Final_Project_Fullstack/tree/main/backend
 
     2. Install dependencies:
