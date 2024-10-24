@@ -55,7 +55,7 @@ Installation
 
     3. Create a .env file in the root of the project and add your environment variables:
 
-    (Please note that the default MongoBD used in this project is Compass and ENVIRONMENT=development is the default choice. For ATLAS usage please change ENVIROMENT=production) 
+    (Please note that the default MongoBD used in this project is Compass and ENVIRONMENT=development is the default choice. For ATLAS usage please change ENVIROMENT=production and provide your MongoDB URI) 
 
     PORT = 3000
     ADMIN_EMAIL=YourAdminEmail
