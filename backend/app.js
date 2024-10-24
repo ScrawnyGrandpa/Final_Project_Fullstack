@@ -1,3 +1,4 @@
+import "dotenv/config";
 import express from "express";
 import chalk from 'chalk';
 import cors from "cors";
@@ -8,7 +9,6 @@ import { fileURLToPath } from 'url';
 import { connectToDB } from "./database/databaseServices.js";
 import { handleError } from "./utils/handleErrors.js";
 import { router } from "./router.js";
-import "dotenv/config";
 import { populateInitialData } from "./utils/populateDatabase.js";
 
 const __filename = fileURLToPath(import.meta.url);
