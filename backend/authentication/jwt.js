@@ -1,7 +1,6 @@
 import jwt from "jsonwebtoken";
 
 const SECRET = process.env.SECRET_WORD || "thisBloodyThingLovesFailingAlot";
-console.log('SECRET for signing:', SECRET);
 
 const generateAuthToken = (user) => {
     const payload = {
