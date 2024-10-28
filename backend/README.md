@@ -1,3 +1,5 @@
+PLEASE READ THE INSTALLATION SECTION WITH GREAT CARE !!!!!!!!!!
+
 Full Name: Anastacia Siniagovski 
 ID: 317261147 
 Phone: 050-2212-773
@@ -53,7 +55,7 @@ Installation
     2. Install dependencies:
         npm install
 
-    3. Create a .env file in the root of the project and add your environment variables:
+    3. CREATE A .env FILE IN THE ROOT OF THE PROJECT AND ADD YOUR ENVIRONMENT VARIABLES:
 
     (Please note that the default MongoBD used in this project is Compass and ENVIRONMENT=development is the default choice. For ATLAS usage please change ENVIROMENT=production and provide your MongoDB URI) 
 
