@@ -1,4 +1,4 @@
-PLEASE READ THE INSTALLATION SECTION WITH GREAT CARE !!!!!!!!!!
+** To run the project you need an .env file which is explained in the instalation section **
 
 Full Name: Anastacia Siniagovski 
 ID: 317261147 
