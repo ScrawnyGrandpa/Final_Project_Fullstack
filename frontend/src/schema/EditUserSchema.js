@@ -10,7 +10,7 @@ export default class EditUserSchema extends Schema {
             label: "avatar url",
             validation: Joi.string()
                 .ruleset.regex(/^(https?:\/\/)?([\w.-]+)\.([a-z]{2,})(\/\S*)?$/)
-                .rule({ message: "user image must be a valid url" })
+                .rule({ message: "User Image must be a valid URL" })
                 .allow("")
         },
         avatarImgALT: { label: "avatar alt", validation: Joi.string().min(2).max(256).allow("") },

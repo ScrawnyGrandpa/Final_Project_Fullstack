@@ -3,7 +3,6 @@ import UsersAPI from "../services/UsersAPI";
 
 export default class UserModel extends Model {
     static api = UsersAPI;
-    static cache = {};
 
     constructor({
         _id = "",

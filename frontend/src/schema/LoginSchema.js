@@ -7,7 +7,7 @@ export default class LoginSchema extends Schema {
             type: "email",
             validation: Joi.string()
                 .ruleset.regex(/^([a-zA-Z0-9_\-.]+)@([a-zA-Z0-9_\-.]+)\.([a-zA-Z]{2,5})$/)
-                .rule({ message: "Please enter a valid mail" })
+                .rule({ message: "Please enter a valid E-mail address" })
                 .required(),
             grid: 12,
         },

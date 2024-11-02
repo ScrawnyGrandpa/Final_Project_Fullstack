@@ -14,7 +14,7 @@ export const ROUTES = {
     NERUBAR: "/raids/nerubar",
     TWWDUNGEONS: "/tww-dungs",
     S1DUNGEONS: "/s1-dungs",
-    FAVORITES: "/favorite-items",
+    FAVORITES: "/liked-items",
     SIGNUP: "/signup",
     LOGIN: "/login",
     USER_PROFILE: "/user-profile",

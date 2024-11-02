@@ -70,7 +70,7 @@ Installation
     * "password" must be at least 7 characters long and contain an uppercase letter, a lowercase letter, a number and one of the following characters !@#$%^&*-
 
     4. Run the server
-        nodemon app
+        npm run dev
 
 API Documentation:
 

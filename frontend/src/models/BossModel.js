@@ -1,10 +1,9 @@
 import Model from "./Model";
-import WowheadNPCAPI from "../services/WowheadNPCAPI";
 import UserModel from "./UserModel";
+import BossAPI from "../services/BossAPI";
 
-export default class CardModel extends Model {
-    static api = WowheadNPCAPI;
-    static cache = {};
+export default class BossModel extends Model {
+    static api = BossAPI;
 
     constructor({
         _id = "",
@@ -12,6 +11,7 @@ export default class CardModel extends Model {
         name = "",
         description = "",
         location = "",
+        instanceType = "",
         imageURL = "",
         imageALT = "",
         phases = 0,
@@ -24,6 +24,7 @@ export default class CardModel extends Model {
         this.name = name;
         this.description = description;
         this.location = location;
+        this.instanceType = instanceType;
         this.imageURL = imageURL;
         this.imageALT = imageALT;
         this.phases = phases;
