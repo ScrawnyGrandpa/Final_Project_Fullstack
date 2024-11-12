@@ -19,6 +19,11 @@ export default class Model {
         return data.map(modelData => new this(modelData));
     }
 
+    get api() {
+        return this.constructor.api;
+    }
+
+
     constructor({ _id = "", createdAt = "" } = {}) {
         this._id = _id;
         this.createdAt = createdAt;
@@ -26,9 +31,16 @@ export default class Model {
 
     async save() {
         if (this._id) {
+            console.log("I got _id");
             await this.api.update(this._id, this);
         } else {
-            const data = await this.api.create(this);
+            console.log("I don't have _id");
+            const { _id, createdAt, ...dataToSave } = this;
+
+
+            const data = await this.api.create(dataToSave);
+            console.log("logging data: ", data);
+
             Object.keys(data).forEach(name => this[name] = data[name]);
         }
 
@@ -41,5 +53,9 @@ export default class Model {
         } catch (e) {
             throw e;
         }
+    }
+
+    toObject() {
+        return {};
     }
 }

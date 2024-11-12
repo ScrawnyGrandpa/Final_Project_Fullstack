@@ -18,6 +18,7 @@ export default class BossModel extends Model {
         skills = [],
         likes = [],
         createdAt = "",
+        guide = { normal: [], heroic: [] }
     } = {}) {
         super({ _id, createdAt });
         this.wowheadID = wowheadID;
@@ -30,6 +31,7 @@ export default class BossModel extends Model {
         this.phases = phases;
         this.skills = skills;
         this.likes = likes;
+        this.guide = guide;
     }
 
     async toggleLike(user) {

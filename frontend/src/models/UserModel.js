@@ -19,7 +19,7 @@ export default class UserModel extends Model {
         super({ _id, createdAt });
         this.firstName = firstName;
         this.lastName = lastName;
-        this.nickname = nickName;
+        this.nickName = nickName;
         this.email = email;
         this.password = password;
         this.avatarImgURL = avatarImgURL;
@@ -37,5 +37,26 @@ export default class UserModel extends Model {
         }
 
         return data;
+    }
+
+    cleanup() {
+        const data = {
+            firstName: this.firstName,
+            lastName: this.lastName,
+            nickName: this.nickName,
+            avatarImgURL: this.avatarImgURL,
+            avatarImgALT: this.avatarImgALT,
+        };
+
+        if (!this._id) {
+            data.email = this.email;
+            data.password = this.password;
+            data.isAdmin = this.isAdmin;
+        }
+
+        // Set the cleaned data back to the UserModel instance properties
+        Object.assign(this, data);
+
+        return this;  // Return the instance itself so you can still call .save()
     }
 }
