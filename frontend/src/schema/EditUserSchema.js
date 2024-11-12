@@ -3,16 +3,16 @@ import Schema from "./Schema";
 
 export default class EditUserSchema extends Schema {
     static fields = {
-        firstName: { label: "first name", validation: Joi.string().min(2).max(256).required() },
-        lastName: { label: "last name", validation: Joi.string().min(2).max(256).required() },
-        nickName: { label: "nickname", validation: Joi.string().min(2).max(256).required() },
+        firstName: { label: "First Name", validation: Joi.string().min(2).max(256).required() },
+        lastName: { label: "Last Name", validation: Joi.string().min(2).max(256).required() },
+        nickName: { label: "Nickname", validation: Joi.string().min(2).max(256).required() },
         avatarImgURL: {
-            label: "avatar url",
+            label: "Avatar URL",
             validation: Joi.string()
                 .ruleset.regex(/^(https?:\/\/)?([\w.-]+)\.([a-z]{2,})(\/\S*)?$/)
                 .rule({ message: "User Image must be a valid URL" })
                 .allow("")
         },
-        avatarImgALT: { label: "avatar alt", validation: Joi.string().min(2).max(256).allow("") },
+        avatarImgALT: { label: "Avatar ALT", validation: Joi.string().min(2).max(256).allow("") },
     };
 }

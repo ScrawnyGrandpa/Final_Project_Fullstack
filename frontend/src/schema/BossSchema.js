@@ -13,9 +13,10 @@ export default class BossSchema extends Schema {
         imageALT: TrashSchema.fields.imageALT,
         phases: {
             validation: Joi.number()
-                .ruleset.regex(/^\d+$/)
-                .message("Phases must be a number")
-                .allow('', null)
+                .integer()
+                .min(0)
+                .allow(null)
+                .optional(),
         },
         skills: TrashSchema.fields.skills
     };
