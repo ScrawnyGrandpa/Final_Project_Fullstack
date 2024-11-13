@@ -12,15 +12,41 @@ const bossSchema = new mongoose.Schema({
     imageALT: baseSchema.imageALT,
     phases: {
         type: Number,
-        validate: {
-            validator: function (input) {
-                return /^\d+$/.test(input);
-            },
-            message: 'Phases must be a number'
-        },
-        default: 0
+        default: 0,
     },
-    skills: baseSchema.skills
+    skills: baseSchema.skills,
+    guide: {
+        normal: {
+            type: [{
+                phase: {
+                    type: String,
+                },
+                description: {
+                    type: String,
+                    minlength: 2,
+                    maxlength: 7000,
+                    trim: true,
+                    default: '',
+                }
+            }],
+            default: []
+        },
+        heroic: {
+            type: [{
+                phase: {
+                    type: String,
+                },
+                description: {
+                    type: String,
+                    minlength: 2,
+                    maxlength: 7000,
+                    trim: true,
+                    default: '',
+                }
+            }],
+            default: []
+        }
+    }
 });
 
 const Boss = mongoose.model('Boss', bossSchema);
