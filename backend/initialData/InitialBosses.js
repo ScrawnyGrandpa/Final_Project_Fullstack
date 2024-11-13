@@ -35,7 +35,32 @@ export const InitialBosses = [
             "438324",
             "455870",
             "443842"
-        ]
+        ],
+        "guide": {
+            "normal": [
+                {
+                    "phase": "Phase 1",
+                    "description": `
+                    In this phase there are a few primary mechanics to watch for:
+                    * [434697] - Ulgrax crushes the current tank for big physical damage and leaves stacks of [434705] each stack reduces healing taken by 10%. Tanks swap on this mechanic.
+                    * [434776] - Ulgrax will target a random player and put a large white swirly circle around them which needs to be shared with other allies in the group. The targeted player wants to move a small distance away from the boss and wait for the mechanic to finish casting. At the end all players within the circle will be bound and pulled towards Ulgrax. Reaching Ulgrax while still bound will cause the player to die. The stength of the pull is reduced for each player that soaks the ability.
+                    * [439502] - Ulgrax shoots web across the platform at random locations and leaves [439419] at the locations that were hit. Stepping on [439419] will cause a player to take damage and be rooted for 8 seconds.
+                    * [435138] - Ulgrax belches Digestive Acid at serveral random players which will appear as green circles around them. Use those circles to remove [439419] from the platform by standing near them when [435138] expires.
+                    `,
+                },
+                {
+                    "phase": "Intermission",
+                    "description": `
+                    Once Ulgrax runs out of energy he leaps to the center of the platform using [435341], dealing raid wide damage and knocking players back. The further the players are from the center, the less damage they receive. Ulgrax then disappears and reapears from rifts at the edges of the platform, performing a [436217] inflicting heavy shadow damage to players caught in his path and re-entering the Darkness portal on opposite side of the arena. During this stage of the phase Ulgrax will spawn eggs on one side of the platform which in turn will spawn {216205}
+                    * {216205} - These adds need to be tanked because they apply a stacking debuff called [439037]. Tanks need to be mindful of [439037] stacks and ask for a dispell if one is available when needed.
+                    * After {216205} is killed, it leaves behind a [438657] which players need to pick up and carry to Ulgrax in order to feed him when he leaves his Darkness portal for the last time.
+                    * [438012] - Upon leaving the Darkness portal Ulgrax will begin to scream for food, inflicting increasing physical damage to the entire raid until fed to full energy use [438657] which players previously picked up from the {216205} corpses.
+                    * While screaming for food Ulgrax will continue to gain stacks of [438041] increasing the raid wide damage taken by 10% each stack until fully fed.
+                    * Once Ulgrax is fully fed, the fight returns to Phase 1 again and continues as before. 
+                    `
+                }
+            ]
+        }
     },
     // Blood Hound
     {
@@ -68,7 +93,34 @@ export const InitialBosses = [
             "443061",
             "438696",
             "438679"
-        ]
+        ],
+        "guide": {
+            "normal": [
+                {
+                    "phase": "Phase 1",
+                    "description": `The Bloodhound Horror fight consists of a single phase fight with two parallel realms. 
+Begin the fight by splitting into two preferably even groups with each group having a tank, a healer and half the DPS. A few seconds after the fight begins The Bloodhound Horror will cast a frontal cone on the currently active tank.
+
+* [444363] - The Bloodhound Horror will cast a frontal cone on the currently active tank which does damage and applies a 40 seconds debuff on the tank and everyone who stood in the frontal. The players affected by the debuff will then be phased into [462306] for its entire duration. Tanks swap after this ability was cast.
+
+* While in [462306], players will be able to see and attack the adds that the boss spawns. The adds are:
+-- {221667} - Which casts [451288] that shields the boss for a large amount of damage and needs to be interrupted. And casts [445016] on the current highest threat target inflicting a large amount of single target damage. This add needs to be tanked!
+-- {221945} - This add is stationary and all it does is cast [445174] which summons {221986}'s that slowly move towards the boss, and if they reach the boss, they will explode moderate for raid wide damage. These adds need to be killed before reaching the boss, and both {221945}'s need to be killed before the players debuff runs out and they leave the [462306]. All adds that did not die during the debuff phase, will continue casting their abilities until the next group of players enters [462306].
+
+* In the meantime players that are in the normal realm and not affected by [444363] continue fighting the boss as before while some players will be targeted by [443042] which is 12 seconds debuff that causes tentacles to spawn under the player to impale them for a moderate amount of damage. The tentacles spring out after 3 seconds from the moment a dark patch spawned under the player therefor simply move out and continue moving out of the dark patches until the debuff runs out. Please be mindful of other players you might hit with your debuff spawns.
+
+* Occasionally The Bloodhound Horror will cast [443305] which coats the player with blood and causes them to have a heal-absord which needs to be healed through.
+
+Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appears like an expanding circle from the boss. Simply move out to the back of the boss platform and wait for the cast to be over. At the end of it, all players within it will receive a huge amount of damage and a debuff which will continue ticking for moderate amounts of damage. And all players who were within a safe distance will receive a debuff that will deal a small amount of overtime damage that needs to be healed through.
+
+                    `,
+                }
+            ],
+            "heroic": [{
+                "phase": "",
+                "description": ""
+            }]
+        }
     },
     // Sikran
     {
@@ -90,7 +142,16 @@ export const InitialBosses = [
             "432969",
             "439559",
             "459273"
-        ]
+        ],
+        "guide": {
+            "normal": [
+                {
+                    "phase": "Phase 1",
+                    "description": "Boop"
+                }
+            ],
+            "heroic": []
+        },
     },
     // Rasha'nan
     {
