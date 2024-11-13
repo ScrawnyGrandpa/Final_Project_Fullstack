@@ -1,0 +1,90 @@
+[
+  {
+    "_id": "673325764765670ffb97bc0d",
+    "wowheadID": "214503",
+    "name": "Sikran, Captain of the Sureki",
+    "description": "Sikran established himself as an arrogant duelist within Queen Ansurek's court. Never knowing the cut of an enemy's blade, Sikran dispatched his rivals one-by-one and was proclaimed Captain of the Sureki by the queen herself. This indomitable fighter now ensures that any who threaten his queen fall before the throne's might.",
+    "location": "Nerub'ar Palace",
+    "instanceType": "Raid",
+    "imageURL": "https://bnetcmsus-a.akamaihd.net/cms/content_entry_media/BSHP9U2S6KIL1726093900884.png",
+    "imageALT": "Sikran, Captain of the Sureki",
+    "phases": 1,
+    "skills": [
+      "464233",
+      "464839",
+      "458272",
+      "458277",
+      "439511",
+      "435401",
+      "432969",
+      "439559",
+      "459273"
+    ],
+    "guide": {
+      "normal": [
+        {
+          "phase": "Phase 1",
+          "description": "Sikran is a single phase boss fight with few abilities.\n* [439511] is a tank combo that consists of two [435401] hits which increase physical damage taken by 50% for each stack for 6 seconds and one [432969] which places a debuff that increase the damage of [432969] by 100% for 30 seconds. Tanks swap after the 2nd [435401] so that the offtank may receive the [432969] debuff and continue tanking the boss.\n\n* [433475] - marks random players with a red arrow. These players need to move together as a group to the edge of the platform. The boss then charges into them in turn, leaving a 20 seconds debuff which inflicts damage and reduces healing received. And leaves behind a [458272] which looks like the player and pulses damage until destroyed. \n\n* [442428] - marks random players with blue arrows. The boss then unleashes a barrage of cosmic eruptions inflicting shadow damage to all players between himself and the targeted [442428] player. Any [458272] that are hit by this eruption is destroyed leaving a 6 seconds [459273] ticking dot on all players of the raid.  \n\n* Every so often Sikran will cast [439559] which is a volley of arrows that deals high moderate damage to any players standing within 3 yards of the impact. \n\n* When Sikran reaches 100% energy he swings his polearm in a deadly arc, inflicting moderate Shadow damage to all enemies. This damage is decreased based on distance from Sikran. And any remaining [458272]s are destroyed by this effect, increasing the damage of [459273] by 25% for each destroyed [458272]."
+        }
+      ],
+      "heroic": [
+        {
+          "phase": "Phase 1",
+          "description": "On heroic difficulty, any [433475] that hit additional non-marked players, will also spawn [458272]."
+        }
+      ]
+    },
+    "__v": 0
+  },
+  {
+    "_id": "673325764765670ffb97bc09",
+    "wowheadID": "215657",
+    "name": "Ulgrax the Devourer",
+    "description": "Queen Ansurek's evolutionary experimentation created a number of monstrous guardians for her throne, none more voracious than Ulgrax the Devourer. Driven mad by endless hunger, Ulgrax is now the ravenous protector of Queen Ansurek's court.",
+    "location": "Nerub'ar Palace",
+    "instanceType": "Raid",
+    "imageURL": "https://bnetcmsus-a.akamaihd.net/cms/content_entry_media/DF2H305UK7471726093901017.png",
+    "imageALT": "Ulgrax the Devourer",
+    "phases": 2,
+    "skills": [
+      "434799",
+      "439502",
+      "436217",
+      "458074",
+      "439037",
+      "455831",
+      "435138",
+      "438041",
+      "434705",
+      "434776",
+      "455847",
+      "440849",
+      "441451",
+      "439419",
+      "435136",
+      "434697",
+      "435341",
+      "440177",
+      "438012",
+      "436255",
+      "438657",
+      "438324",
+      "455870",
+      "443842"
+    ],
+    "guide": {
+      "normal": [
+        {
+          "phase": "Phase 1",
+          "description": "In this phase there are a few primary mechanics to watch for:\n* [434697] - Ulgrax crushes the current tank for big physical damage and leaves stacks of [434705] each stack reduces healing taken by 10%. Tanks swap on this mechanic.\n\n* [434776] - Ulgrax will target a random player and put a large white swirly circle around them which needs to be shared with other allies in the group. The targeted player wants to move a small distance away from the boss and wait for the mechanic to finish casting. At the end all players within the circle will be bound and pulled towards Ulgrax. Reaching Ulgrax while still bound will cause the player to die. The stength of the pull is reduced for each player that soaks the ability.\n\n* [439502] - Ulgrax shoots web across the platform at random locations and leaves [439419] at the locations that were hit. Stepping on [439419] will cause a player to take damage and be rooted for 8 seconds.\n\n* [435138] - Ulgrax belches Digestive Acid at serveral random players which will appear as green circles around them. Use those circles to remove [439419] from the platform by standing near them when [435138] expires."
+        },
+        {
+          "phase": "Intermission",
+          "description": "Once Ulgrax runs out of energy he leaps to the center of the platform using [435341], dealing raid wide damage and knocking players back. The further the players are from the center, the less damage they receive. Ulgrax then disappears and reapears from rifts at the edges of the platform, performing a [436217] inflicting heavy shadow damage to players caught in his path and re-entering the Darkness portal on opposite side of the arena. During this stage of the phase Ulgrax will spawn eggs on one side of the platform which in turn will spawn {216205}.\n\n* {216205} - These adds need to be tanked because they apply a stacking debuff called [439037]. Tanks need to be mindful of [439037] stacks and ask for a dispell if one is available when needed.\n\n* After {216205} is killed, it leaves behind a [438657] which players need to pick up and carry to Ulgrax in order to feed him when he leaves his Darkness portal for the last time.\n\n* [438012] - Upon leaving the Darkness portal Ulgrax will begin to scream for food, inflicting increasing physical damage to the entire raid until fed to full energy use [438657] which players previously picked up from the {216205} corpses.\n\n* While screaming for food Ulgrax will continue to gain stacks of [438041] increasing the raid wide damage taken by 10% each stack until fully fed.\n\n* Once Ulgrax is fully fed, the fight returns to Phase 1 again and continues as before."
+        }
+      ],
+      "heroic": []
+    },
+    "__v": 0
+  }
+]
