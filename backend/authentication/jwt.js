@@ -8,7 +8,7 @@ const generateAuthToken = (user) => {
         isAdmin: user.isAdmin,
     };
 
-    const token = jwt.sign(payload, SECRET, { expiresIn: '1h' });
+    const token = jwt.sign(payload, SECRET); //, { expiresIn: '1h' } - add this before submitting
     return token;
 };
 

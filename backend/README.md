@@ -1,11 +1,10 @@
-** To run the project you need an .env file which is explained in the instalation section **
+** Important: To run the project you need an .env file which is explained in the instalation section **
+** Important: If this isn't the first time you run this project, please make sure to PURGE your mongoDB database of the "scrawnyGrandpaGuides" collection first.
 
-Full Name: Anastacia Siniagovski 
-ID: 317261147 
-Phone: 050-2212-773
+Full Name: Anastacia Siniagovski.
 
 This is the BACKEND ReadMe file. Please follow the instructions below.
-To download the Backend folder from GitHub navigate to https://download-directory.github.io/ and paste the following URL into the text box https://github.com/ScrawnyGrandpa/Final_Project_Fullstack/tree/0e113bde919086e88b72b863b5b28ae54fc55a2e/backend , and hit enter .
+To download the Backend folder from GitHub navigate to https://download-directory.github.io/ and paste the permalink of the Backend Folder. Hit enter t download the ZIP file.
 
 Bosses, Trash and Users API
 
@@ -49,13 +48,12 @@ Prerequisites
 
 Installation
 
-    1. Download the repository folder (via the instructions above, below the student information):
-        https://github.com/ScrawnyGrandpa/Final_Project_Fullstack/tree/main/backend
+    1. Download the repository folder as requested above.
 
     2. Install dependencies:
         npm install
 
-    3. CREATE A .env FILE IN THE ROOT OF THE PROJECT AND ADD YOUR ENVIRONMENT VARIABLES:
+    3. Create a .env file in the root of the project and fill in the variables correctly:
 
     (Please note that the default MongoBD used in this project is Compass and ENVIRONMENT=development is the default choice. For ATLAS usage please change ENVIROMENT=production and provide your MongoDB URI) 
 
@@ -63,7 +61,7 @@ Installation
     ADMIN_EMAIL=YourAdminEmail
     ADMIN_PASSWORD=YourAdminPassword
     SECRET_WORD=YourSecretWord
-    MONGODB_URI=
+    MONGODB_URI=YourAtlasDBLink
     ENVIRONMENT=development
 
     * "email" must be in the valid Email address form. Example: abc@abc.abc
