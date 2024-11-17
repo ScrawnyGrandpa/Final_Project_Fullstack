@@ -7,11 +7,14 @@ import rehypeRaw from 'rehype-raw';
 import { SPELL, NPC } from "../../utils/wowheadLinks";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import GuideForm from '../../components/Form/GuideForm';
+import { useAuthentication } from '../../providers/AuthenticationProvider';
+import { ROUTES } from '../../router';
 
 export default function BossGuide() {
     const [boss, setBoss] = useState(null);
     const [loading, setLoading] = useState(true);
     const { id } = useParams();
+    const { user } = useAuthentication();
     const [orderedNormalPhases, setOrderedNormalPhases] = useState([]);
     const [orderedHeroicPhases, setOrderedHeroicPhases] = useState([]);
     const navigate = useNavigate();
@@ -71,8 +74,12 @@ export default function BossGuide() {
 
     if (loading || !boss) return <div>Loading...</div>;
 
+    if (!user || !user.isAdmin) {
+        return navigate(`${ROUTES.BOSS_INFO}/${boss._id}`);
+    }
+
     return (
-        <div className="container mx-auto px-4 max-w-4xl bg-[#202020] rounded-sm">
+        user.isAdmin && (<div className="container mx-auto px-4 max-w-4xl bg-[#202020] rounded-sm min-w-[70vw]">
             {/* Render the guide form for admin editing */}
             <GuideForm boss={boss} initialGuide={boss.guide} submitGuide={submitGuide} />
             <div className="mx-3">
@@ -153,6 +160,6 @@ export default function BossGuide() {
                     Save Guide
                 </button>
             </div>
-        </div>
+        </div>)
     );
 }
