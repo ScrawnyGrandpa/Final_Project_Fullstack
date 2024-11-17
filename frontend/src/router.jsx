@@ -4,12 +4,12 @@ import AboutPage from "./pages/AboutPage";
 import S1Dungeons from "./pages/dungeons/S1Dungeons";
 import TwwDungeons from "./pages/dungeons/TwwDungeons";
 import Raids from "./pages/raids/Raids";
-import NerubarPalaceRaid from "./pages/raids/NerubarPalaceRaid";
 import BossPage from "./pages/bosses/BossPage";
 import BossForm from "./pages/bosses/BossForm";
 import BossGuide from "./pages/bosses/BossGuide";
 import RegisterPage from "./pages/user/RegisterPage";
 import LoginPage from "./pages/user/LoginPage";
+import CRM from "./pages/admin/CRM";
 
 
 export const ROUTES = {
@@ -26,6 +26,7 @@ export const ROUTES = {
     SIGNUP: "/signup",
     LOGIN: "/login",
     USER_PROFILE: "/user-profile",
+    CRM: "/admin-portal",
 
     // TWW Dungeons
     ARA_KARA_ECHOES: "/tww-dungeons/ara-kara-city-of-echoes",
@@ -51,7 +52,6 @@ export default function Router() {
             <Route path={ROUTES.ROOT} element={<HomePage />} />
             <Route path={ROUTES.ABOUT} element={<AboutPage />} />
             <Route path={ROUTES.RAIDS} element={<Raids />} />
-            <Route path={ROUTES.NERUBAR} element={<NerubarPalaceRaid />} />
             <Route path={ROUTES.TWWDUNGEONS} element={<TwwDungeons />} />
             <Route path={ROUTES.S1DUNGEONS} element={<S1Dungeons />} />
             <Route path={ROUTES.BOSS_INFO + "/:id"} element={<BossPage />} />
@@ -59,6 +59,7 @@ export default function Router() {
             <Route path={ROUTES.BOSS_GUIDE + "/:id"} element={<BossGuide />} />
             <Route path={ROUTES.SIGNUP} element={<RegisterPage />} />
             <Route path={ROUTES.LOGIN} element={<LoginPage />} />
+            <Route path={ROUTES.CRM} element={<CRM />} />
             {/*<Route path={ROUTES.FAVORITES} element={< />} />
             <Route path={ROUTES.USER_PROFILE} element={< />} /> 
             {/*<Route path='*' element={<ErrorPage />} />*/}
