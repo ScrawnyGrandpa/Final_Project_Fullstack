@@ -1,13 +1,11 @@
 import { Boss } from "./Bosses.js";
 import { createError } from "../../utils/handleErrors.js";
-import _ from "lodash";
 
 // create new boss
 const createBoss = async (data) => {
     try {
         return await new Boss(data).save();
-    }
-    catch (e) {
+    } catch (e) {
         return createError("Mongoose", e);
     }
 };
@@ -25,8 +23,7 @@ const getAll = async () => {
 const readBoss = async (id) => {
     try {
         return await Boss.findById(id);
-    }
-    catch (e) {
+    } catch (e) {
         return createError("Mongoose", e);
     }
 };
@@ -34,7 +31,29 @@ const readBoss = async (id) => {
 // update boss whole or some params
 const updateBoss = async (id, data) => {
     try {
-        return await Boss.findByIdAndUpdate(id, data, { new: true, runValidators: true });
+        const updatedBoss = await Boss.findByIdAndUpdate(id, data, { new: true, runValidators: true }).lean();
+
+        if (!updatedBoss) {
+            throw new Error('Boss not found');
+        }
+
+        if (updatedBoss.guide) {
+            if (updatedBoss.guide.normal) {
+                updatedBoss.guide.normal = updatedBoss.guide.normal.map(item => {
+                    const { _id, ...rest } = item;
+                    return rest;
+                });
+            }
+
+            if (updatedBoss.guide.heroic) {
+                updatedBoss.guide.heroic = updatedBoss.guide.heroic.map(item => {
+                    const { _id, ...rest } = item;
+                    return rest;
+                });
+            }
+        }
+
+        return updatedBoss;
     } catch (e) {
         return createError("Mongoose", e);
     }
@@ -43,11 +62,33 @@ const updateBoss = async (id, data) => {
 // update boss param
 const patchBoss = async (id, data) => {
     try {
-        return await Boss.findByIdAndUpdate(id, data, {
+        const updatedBoss = await Boss.findByIdAndUpdate(id, data, {
             new: true,
             runValidators: true,
             overwrite: false,
-        });
+        }).lean();
+
+        if (!updatedBoss) {
+            throw new Error("Boss not found");
+        }
+
+        if (updatedBoss.guide) {
+            if (updatedBoss.guide.normal) {
+                updatedBoss.guide.normal = updatedBoss.guide.normal.map(item => {
+                    const { _id, ...rest } = item;
+                    return rest;
+                });
+            }
+
+            if (updatedBoss.guide.heroic) {
+                updatedBoss.guide.heroic = updatedBoss.guide.heroic.map(item => {
+                    const { _id, ...rest } = item;
+                    return rest;
+                });
+            }
+        }
+        return updatedBoss;
+
     } catch (e) {
         return createError("Mongoose", e);
     }

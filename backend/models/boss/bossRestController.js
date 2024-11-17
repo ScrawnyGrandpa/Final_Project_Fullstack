@@ -1,6 +1,5 @@
 import Router from "express";
 import { createBoss, getAll, readBoss, updateBoss, patchBoss, deleteBoss } from "./bossAccessDataService.js"
-import { Boss } from "./Bosses.js"
 import { handleError } from "../../utils/handleErrors.js";
 import { saveUpdatedData } from "../../utils/populateDatabase.js";
 import { authentication } from "../../authentication/authenticationService.js";
@@ -41,57 +40,30 @@ bossRouter.post("/", authentication, checkAdminAccess, async (req, res) => {
 // Update a boss (PUT)
 bossRouter.put("/:id", authentication, checkAdminAccess, async (req, res) => {
     try {
-        const updatedBoss = await Boss.findByIdAndUpdate(req.params.id, req.body, {
-            new: true,
-            runValidators: true,
-        }).lean();
+        const updatedBoss = await updateBoss(req.params.id, req.body);
 
         if (!updatedBoss) {
             return handleError(res, 404, "Boss not found");
         }
 
-        if (updatedBoss.guide) {
-            updatedBoss.guide.normal = updatedBoss.guide.normal.map(item => {
-                const { _id, ...rest } = item;
-                return rest;
-            });
-            updatedBoss.guide.heroic = updatedBoss.guide.heroic.map(item => {
-                const { _id, ...rest } = item;
-                return rest;
-            });
-        }
-
-        saveUpdatedData(updatedBoss);
+        saveUpdatedData(updatedBoss, "Bosses");
         res.send(updatedBoss);
     } catch (error) {
         return handleError(res, 500, error.message);
     }
 });
 
+
 // Patch a boss (PATCH)
 bossRouter.patch("/:id", authentication, checkAdminAccess, async (req, res) => {
     try {
-        const updatedBoss = await Boss.findByIdAndUpdate(req.params.id, req.body, {
-            new: true,
-            runValidators: true,
-        }).lean();
+        const updatedBoss = await patchBoss(req.params.id, req.body);
 
         if (!updatedBoss) {
             return handleError(res, 404, "Boss not found");
         }
 
-        if (updatedBoss.guide) {
-            updatedBoss.guide.normal = updatedBoss.guide.normal.map(item => {
-                const { _id, ...rest } = item;
-                return rest;
-            });
-            updatedBoss.guide.heroic = updatedBoss.guide.heroic.map(item => {
-                const { _id, ...rest } = item;
-                return rest;
-            });
-        }
-
-        saveUpdatedData(updatedBoss);
+        saveUpdatedData(updatedBoss, "Bosses");
         res.send(updatedBoss);
     } catch (error) {
         return handleError(res, 500, error.message);
