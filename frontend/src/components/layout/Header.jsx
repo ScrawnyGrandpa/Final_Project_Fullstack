@@ -3,6 +3,7 @@ import { ROUTES } from "../../router";
 import { useAuthentication } from "../../providers/AuthenticationProvider";
 import { useRef, useState } from "react";
 import { Settings, Logout } from "@mui/icons-material";
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 
 export default function Header() {
     const { user } = useAuthentication();
@@ -145,6 +146,9 @@ export function AccountMenu() {
     const userProfile = () => {
         navigate(ROUTES.USER_PROFILE);
     };
+    const adminPortal = () => {
+        navigate(ROUTES.CRM);
+    };
 
     return (
         <>
@@ -180,6 +184,13 @@ export function AccountMenu() {
                         <span className="text-sm">{user.email}</span>
                     </div>
                     <hr className="border-t border-gray-200" />
+                    {user.isAdmin && <button
+                        onClick={adminPortal}
+                        className="flex items-center p-3 text-white hover:bg-gray-700 w-full text-left"
+                    >
+                        <AdminPanelSettingsIcon fontSize="small" className="mr-2" />
+                        Admin Portal
+                    </button>}
                     <button
                         onClick={userProfile}
                         className="flex items-center p-3 text-white hover:bg-gray-700 w-full text-left"
