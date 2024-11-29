@@ -12,6 +12,15 @@ export default function Form({
     const [errors, setErrors] = useState({});
     const [data, setData] = useState(defaultValue);
 
+    const onChange = useCallback((name, value) => {
+        if (name === 'skills' || name === 'NPCs') {
+            const skillsArray = value ? value.split(',').map(skill => skill.trim()) : [];
+            setData(prev => ({ ...prev, [name]: skillsArray }));
+        } else {
+            setData(prev => ({ ...prev, [name]: value }));
+        }
+    }, []);
+
     const validateFields = useCallback(() => {
         const { error } = schema.validate(data);
         if (error) {
@@ -27,15 +36,6 @@ export default function Form({
     }, [schema, data]);
 
     const isValid = useMemo(() => validateFields(), [validateFields]);
-
-    const onChange = useCallback((name, value) => {
-        if (name === 'skills') {
-            const skillsArray = value ? value.split(',').map(skill => skill.trim()) : [];
-            setData(prev => ({ ...prev, [name]: skillsArray }));
-        } else {
-            setData(prev => ({ ...prev, [name]: value }));
-        }
-    }, []);
 
     const handleSubmit = useCallback((e) => {
         if (isValid) {
@@ -63,7 +63,11 @@ export default function Form({
                     className={`border border-gray-300 p-2 w-full text-black bg-gray-100 ${errors[fieldName] ? 'border-red-500' : ''}`}
                     onChange={e => onChange(fieldName, e.target.value)}
                 />
-                {errors[fieldName] && <p className="text-red-500 text-sm">{errors[fieldName]}</p>}
+                {errors[fieldName] && (
+                    <p className="text-red-500 text-sm">
+                        <strong>{label || fieldName.charAt(0).toUpperCase() + fieldName.slice(1)}</strong> is required
+                    </p>
+                )}
             </div>
         );
     };
