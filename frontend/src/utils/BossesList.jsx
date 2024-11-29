@@ -22,32 +22,29 @@ export default function BossesList({ bosses, instanceType = "Raid", filter = [] 
                     if (!hasValidBosses) return null;
 
                     return (
-                        <>
-                            <div key={location} className="mb-2 p-3 rounded bg-black">
-                                <h2 className="text-white text-xl mb-3">{location}</h2>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2">
-                                    {bossesAtLocation.map((boss) => (
-                                        <Link
-                                            key={boss._id}
-                                            to={`/boss/${boss._id}`}
-                                            className="relative flex items-center justify-center min-h-[450px]"
-                                        >
-                                            <img
-                                                src={boss.imageURL}
-                                                alt={boss.imageALT || boss.name}
-                                                className="rounded h-full w-full object-cover object-center"
-                                            />
-                                            <h3 className="absolute text-white text-center 
-                                        bg-black bg-opacity-50 p-2 rounded bottom-0 w-full 
-                                        h-1/5 flex items-center justify-center">
-                                                {boss.name}
-                                            </h3>
-                                        </Link>
-                                    ))}
-                                </div>
+                        <div key={location} className="mb-2 p-3 rounded bg-black">
+                            <h2 className="text-white text-xl mb-3">{location}</h2>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2">
+                                {bossesAtLocation.map((boss) => (
+                                    <Link
+                                        key={boss._id} // This is fine, you need a key here
+                                        to={`/boss/${boss._id}`}
+                                        className="relative flex items-center justify-center min-h-[450px]"
+                                    >
+                                        <img
+                                            src={boss.imageURL}
+                                            alt={boss.imageALT || boss.name}
+                                            className="rounded h-full w-full object-cover object-center"
+                                        />
+                                        <h3 className="absolute text-white text-center 
+                                            bg-black bg-opacity-50 p-2 rounded bottom-0 w-full 
+                                            h-1/5 flex items-center justify-center">
+                                            {boss.name}
+                                        </h3>
+                                    </Link>
+                                ))}
                             </div>
-                            <hr className="w-[200px] mx-auto my-5" />
-                        </>
+                        </div>
                     );
                 })
             ) : (

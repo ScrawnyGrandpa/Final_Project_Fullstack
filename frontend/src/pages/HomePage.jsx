@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import BossModel from "../models/BossModel";
 import RaidComponent from './raids/RaidComponent';
+import DungeonModel from '../models/DungeonModel';
+import { s1DungeonsList, twwDungeonsList } from '../utils/dungeonLists';
+import DungeonComponent from './dungeons/DungeonComponent';
 
 export default function HomePage() {
     const [bosses, setBosses] = useState([]);
+    const [allDungeons, setAllDungeons] = useState([]);
+    const [twwDungeons, setTwwDungeons] = useState([]);
+    const [s1Dungeons, setS1Dungeons] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [location, setLocation] = useState("Nerub'ar Palace");
@@ -18,6 +24,26 @@ export default function HomePage() {
         } catch (error) {
             console.error('Error fetching bosses:', error);
             setError(error.message);
+        }
+    };
+
+    const fetchDungeons = async () => {
+        try {
+            const dungeons = await DungeonModel.loadAll();
+            setAllDungeons(dungeons);
+
+            const filteredTwwDungeons = dungeons.filter(dungeon =>
+                twwDungeonsList.includes(dungeon.name)
+            );
+            const filteredS1Dungeons = dungeons.filter(dungeon =>
+                s1DungeonsList.includes(dungeon.name)
+            );
+            setTwwDungeons(filteredTwwDungeons);
+            setS1Dungeons(filteredS1Dungeons);
+
+        } catch (error) {
+            console.error('Error fetching dungeons:', error);
+            setError(error.message);
         } finally {
             setLoading(false);
         }
@@ -25,6 +51,7 @@ export default function HomePage() {
 
     useEffect(() => {
         fetchBosses();
+        fetchDungeons();
     }, []);
 
     useEffect(() => {
@@ -58,14 +85,10 @@ export default function HomePage() {
             <RaidComponent bosses={bosses} />
 
             <div className="m-3 text-xl">The War Within Dungeons</div>
-            <div className="bg-[#2d2a2e] h-60 mb-7 flex flex-col justify-center items-center">
-                <p> Dungeon images and names here</p>
-            </div>
+            <DungeonComponent dungeons={twwDungeons} />
 
             <div className="m-3 text-xl">Season 1 Dungeons</div>
-            <div className="bg-[#343536] h-60 flex flex-col justify-center items-center">
-                <p> Dungeon images and names here</p>
-            </div>
+            <DungeonComponent dungeons={s1Dungeons} />
         </>
     );
 }

@@ -1,28 +1,26 @@
 import { useEffect, useState } from "react";
-import BossModel from "../../models/BossModel";
-import BossesList from "../../utils/BossesList";
+import { s1DungeonsList, twwDungeonsList } from "../../utils/dungeonLists";
+import DungeonComponent from "./DungeonComponent";
+import DungeonModel from "../../models/DungeonModel";
 
-export default function TWWDungeons() {
-    const [bosses, setBosses] = useState([]);
+export default function WwwDungeons() {
+    const [allDungeons, setAllDungeons] = useState([]);
+    const [twwDungeons, setTwwDungeons] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-    const TWWDungeons = [
-        "Ara-Kara, City of Echoes",
-        "City of Threads",
-        "Cinderbrew Meadery",
-        "Darkflame Cleft",
-        "Priory of the Sacred Flame",
-        "The Dawnbreaker",
-        "The Rookery",
-        "The Stonevault",
-    ]
-
-    const fetchBosses = async () => {
+    const fetchDungeons = async () => {
         try {
-            const allBosses = await BossModel.loadAll();
-            setBosses(allBosses);
+            const dungeons = await DungeonModel.loadAll();
+            setAllDungeons(dungeons);
+
+            const filteredTwwDungeons = dungeons.filter(dungeon =>
+                twwDungeonsList.includes(dungeon.name)
+            );
+            setTwwDungeons(filteredTwwDungeons);
+
         } catch (error) {
-            console.error('Error fetching bosses:', error);
+            console.error('Error fetching dungeons:', error);
             setError(error.message);
         } finally {
             setLoading(false);
@@ -30,19 +28,13 @@ export default function TWWDungeons() {
     };
 
     useEffect(() => {
-        fetchBosses();
+        fetchDungeons();
     }, []);
 
     return (
         <>
-            <p>TWW Dungeons</p>
-            <div>
-                <BossesList
-                    bosses={bosses}
-                    instanceType="Dungeon"
-                    filter={TWWDungeons}
-                />
-            </div>
+            <p className="my-3">The War Within Dungeons</p>
+            <DungeonComponent dungeons={twwDungeons} />
         </>
     )
 }

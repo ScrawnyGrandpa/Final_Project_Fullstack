@@ -3,21 +3,21 @@ import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { useLoadCallback, useLoadEffect } from "../../providers/PageUIProvider";
 import { ROUTES } from "../../router";
 import PageContent from "../../components/layout/PageContent";
-import BossModel from "../../models/BossModel";
-import BossSchema from "../../schema/BossSchema";
-import Form from "../../components/Form/Form"; // Using the new Form component
+import DungeonModel from "../../models/DungeonModel";
+import DungeonSchema from "../../schema/DungeonSchema";
+import Form from "../../components/Form/Form";
 
-export default function BossForm() {
-    const [boss, setBoss] = useState(null);
+export default function DungeonForm() {
+    const [dungeon, setDungeon] = useState(null);
     const [defaultValue, setDefaultValue] = useState({});
     const [initialData, setInitialData] = useState(null);
     const { id } = useParams();
-    const schema = useMemo(() => new BossSchema(), []);
+    const schema = useMemo(() => new DungeonSchema(), []);
     const navigate = useNavigate();
 
-    const onBossLoaded = useCallback(async () => {
-        const data = id ? await BossModel.load(id) : new BossModel();
-        setBoss(data);
+    const onDungeonLoaded = useCallback(async () => {
+        const data = id ? await DungeonModel.load(id) : new DungeonModel();
+        setDungeon(data);
         setDefaultValue(data);
         setInitialData(data);
     }, [id]);
@@ -38,29 +38,29 @@ export default function BossForm() {
 
         const completeData = { ...data };
 
-        const updatedBoss = new BossModel(completeData);
-        console.log("boss complete data", completeData);
+        const updatedDungeon = new DungeonModel(completeData);
+        console.log("Dungeon complete data", completeData);
 
-        await updatedBoss.save();
-        navigate(`${ROUTES.BOSS_INFO}/${updatedBoss._id}`);
-    }, [id, boss]);
+        await updatedDungeon.save();
+        navigate(`${ROUTES.DUNGEON_INFO}/${updatedDungeon._id}`);
+    }, [id, dungeon]);
 
-    useLoadEffect(onBossLoaded, [id]);
+    useLoadEffect(onDungeonLoaded, [id]);
 
     return (
         <PageContent>
-            {boss ? (
+            {dungeon ? (
                 <div className="max-w-3xl mx-auto p-5 md:w-[95vw]">
-                    <h1 className="text-left text-2xl font-bold mb-5">Boss Page</h1>
+                    <h1 className="text-left text-2xl font-bold mb-5">Dungeon Page</h1>
                     <div className="flex flex-col gap-5">
                         <div className="flex-1">
                             {/* Form Component */}
                             <Form
-                                title={`${id ? "Edit" : "Create"} Boss`}
+                                title={`${id ? "Edit" : "Create"} Dungeon`}
                                 schema={schema}
                                 defaultValue={defaultValue}
                                 onReset={handleReset}
-                                onCancel={() => navigate(`${ROUTES.BOSS_INFO}/${boss._id}`)}
+                                onCancel={() => navigate(`${ROUTES.DUNGEON_INFO}/${dungeon._id}`)}
                                 onSubmit={onSubmit}
                                 onChange={handleFormChange}
                             />
@@ -69,12 +69,12 @@ export default function BossForm() {
                 </div>
             ) : (
                 <div className="max-w-3xl mx-auto p-5 md:w-[95vw]">
-                    <h1 className="text-left text-2xl font-bold mb-5">Boss Page</h1>
+                    <h1 className="text-left text-2xl font-bold mb-5">Dungeon Page</h1>
                     <div className="flex flex-col gap-5">
                         <div className="flex-1">
                             {/* Form Component */}
                             <Form
-                                title={`${id ? "Edit" : "Create"} Boss`}
+                                title={`${id ? "Edit" : "Create"} Dungeon`}
                                 schema={schema}
                                 defaultValue={defaultValue}
                                 onReset={handleReset}
