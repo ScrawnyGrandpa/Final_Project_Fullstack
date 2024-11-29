@@ -10,9 +10,9 @@ export default function MainBody({ children }) {
 
 
     return (
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen min-w-[90vw]">
             <main className="flex-1 flex justify-center w-full h-full bg-[#1a1b1b] text-[white] pt-8">
-                <div className="flex flex-col max-w-[90%]">
+                <div className="flex flex-col max-w-[90vw] min-w-[90vw]">
                     {children}
                 </div>
             </main>
