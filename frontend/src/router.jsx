@@ -10,6 +10,9 @@ import BossGuide from "./pages/bosses/BossGuide";
 import RegisterPage from "./pages/user/RegisterPage";
 import LoginPage from "./pages/user/LoginPage";
 import CRM from "./pages/admin/CRM";
+import DungeonPage from "./pages/dungeons/DungeonPage";
+import DungeonForm from "./pages/dungeons/DungeonForm";
+import DungeonGuide from "./pages/dungeons/DungeonGuide";
 
 
 export const ROUTES = {
@@ -17,8 +20,13 @@ export const ROUTES = {
     ABOUT: "/about",
     RAIDS: "/raids",
     BOSS_INFO: "/boss",
+    BOSS_CREATE: "/create-boss",
     BOSS_FORM: "/boss-form",
     BOSS_GUIDE: "/boss-guide",
+    DUNGEON_INFO: "/dungeon",
+    DUNGEON_CREATE: "/create-dungeon",
+    DUNGEON_FORM: "/dungeon-form",
+    DUNGEON_GUIDE: "/dungeon-guide",
     NERUBAR: "/raids/nerubar",
     TWWDUNGEONS: "/tww-dungeons",
     S1DUNGEONS: "/s1-dungeonss",
@@ -27,22 +35,6 @@ export const ROUTES = {
     LOGIN: "/login",
     USER_PROFILE: "/user-profile",
     CRM: "/admin-portal",
-
-    // TWW Dungeons
-    ARA_KARA_ECHOES: "/tww-dungeons/ara-kara-city-of-echoes",
-    CITY_OF_THREADS: "/tww-dungeons/city-of-threads",
-    MEADERY: "/tww-dungeons/cinderbrew-meadery",
-    DARKFLAME_CLEFT: "/tww-dungeons/darkflame-cleft",
-    PRIORY: "/tww-dungeons/priory-of-the-sacred-flame",
-    THE_DAWNBREAKER: "/tww-dungeons/the-dawnbreaker",
-    THE_ROOKERY: "/tww-dungeons/the-rookery",
-    THE_STONEVAULT: "/tww-dungeons/the-stonevault",
-
-    // S1 Dungeons
-    GRIM_BATOL: "/s1-dungeons/grim-batol",
-    SIEGE: "/s1-dungeons/siege-of-boralus",
-    MISTS: "/s1-dungeons/mists-of-tirna-scithe",
-    NECROTIC_WAKE: "/s1-dungeons/the-necrotic-wake"
 };
 
 export default function Router() {
@@ -55,8 +47,13 @@ export default function Router() {
             <Route path={ROUTES.TWWDUNGEONS} element={<TwwDungeons />} />
             <Route path={ROUTES.S1DUNGEONS} element={<S1Dungeons />} />
             <Route path={ROUTES.BOSS_INFO + "/:id"} element={<BossPage />} />
+            <Route path={ROUTES.BOSS_CREATE} element={<BossForm />} />
             <Route path={ROUTES.BOSS_FORM + "/:id"} element={<BossForm />} />
             <Route path={ROUTES.BOSS_GUIDE + "/:id"} element={<BossGuide />} />
+            <Route path={ROUTES.DUNGEON_INFO + "/:id"} element={<DungeonPage />} />
+            <Route path={ROUTES.DUNGEON_CREATE} element={<DungeonForm />} />
+            <Route path={ROUTES.DUNGEON_FORM + "/:id"} element={<DungeonForm />} />
+            <Route path={ROUTES.DUNGEON_GUIDE + "/:id"} element={<DungeonGuide />} />
             <Route path={ROUTES.SIGNUP} element={<RegisterPage />} />
             <Route path={ROUTES.LOGIN} element={<LoginPage />} />
             <Route path={ROUTES.CRM} element={<CRM />} />
