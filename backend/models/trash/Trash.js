@@ -9,9 +9,9 @@ const baseSchema = {
         unique: true,
         validate: {
             validator: function (input) {
-                return /^\d{5,6}$/.test(input);
+                return /^\d{4,6}$/.test(input);
             },
-            message: 'Each skill must be 5 or 6 digits'
+            message: 'Each WowheadID must be 4 to 6 digits'
         }
     },
     name: DEFAULT_VALIDATION,

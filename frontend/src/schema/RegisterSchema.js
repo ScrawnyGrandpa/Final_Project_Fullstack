@@ -23,6 +23,5 @@ export default class RegisterSchema extends Schema {
         },
         avatarImgURL: EditUserSchema.fields.avatarImgURL,
         avatarImgALT: EditUserSchema.fields.avatarImgALT,
-        /* isAdmin: { label: "signup as admin", validation: Joi.boolean().required() } */
     };
 }

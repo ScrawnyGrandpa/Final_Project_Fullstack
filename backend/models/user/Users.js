@@ -17,9 +17,19 @@ const userSchema = new mongoose.Schema({
         type: [String],
         validate: {
             validator: function (input) {
-                return input.every(skill => /^\d{6}$/.test(skill));
+                return input.every(skill => /^\d{5,6}$/.test(skill));
             },
-            message: 'Each NPC-ID must be exactly 6 digits'
+            message: 'Each NPC-ID must be exactly 5-6 digits'
+        },
+        default: []
+    },
+    likedDungeons: {
+        type: [String],
+        validate: {
+            validator: function (input) {
+                return input.every(skill => /^\d{5,6}$/.test(skill));
+            },
+            message: 'Each NPC-ID must be exactly 5-6 digits'
         },
         default: []
     },

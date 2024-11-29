@@ -5,8 +5,8 @@ export default class TrashSchema extends Schema {
     static fields = {
         wowheadID: {
             validation: Joi.string()
-                .pattern(/^\d{5,6}$/)
-                .message("Each ID must be 5-6 digits")
+                .pattern(/^\d{4,6}$/)
+                .message("Each ID must be 4-6 digits")
                 .required()
         },
         name: { validation: Joi.string().min(2).max(256).required() },

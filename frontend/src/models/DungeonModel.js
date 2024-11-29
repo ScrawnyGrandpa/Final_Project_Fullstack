@@ -1,9 +1,9 @@
 import Model from "./Model";
 import UserModel from "./UserModel";
-import BossAPI from "../services/BossAPI";
+import DungeonAPI from "../services/DungeonAPI";
 
-export default class BossModel extends Model {
-    static api = BossAPI;
+export default class DungeonModel extends Model {
+    static api = DungeonAPI;
 
     constructor({
         _id = "",
@@ -14,10 +14,8 @@ export default class BossModel extends Model {
         instanceType = "",
         imageURL = "",
         imageALT = "",
-        phases = 0,
-        skills = [],
+        NPCs = [],
         createdAt = "",
-        guide = { normal: [], heroic: [] }
     } = {}) {
         super({ _id, createdAt });
         this.wowheadID = wowheadID;
@@ -27,9 +25,7 @@ export default class BossModel extends Model {
         this.instanceType = instanceType;
         this.imageURL = imageURL;
         this.imageALT = imageALT;
-        this.phases = phases;
-        this.skills = skills;
-        this.guide = guide;
+        this.NPCs = NPCs;
     }
 
     matches(search) {

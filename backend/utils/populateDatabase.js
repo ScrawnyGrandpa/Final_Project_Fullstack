@@ -14,7 +14,7 @@ const getUpdatedDataFilePath = (dataType) => {
     const fileNameMap = {
         'Bosses': 'updatedBosses.json',
         'Trash': 'updatedTrash.json',
-        'Dungeon': 'updatedDungeons.json',
+        'Dungeons': 'updatedDungeons.json',
         'Users': 'updatedUsers.json',
     };
 
@@ -34,7 +34,7 @@ const saveUpdatedData = async (updatedData, dataType) => {
     console.log('DataType:', dataType);
     try {
         let identifier;
-        if (dataType === 'Bosses' || dataType === 'Trash' || dataType === 'Dungeon') {
+        if (dataType === 'Bosses' || dataType === 'Trash' || dataType === 'Dungeons') {
             identifier = 'wowheadID';
         } else if (dataType === 'Users') {
             identifier = 'email';

@@ -13,6 +13,8 @@ export default class UserModel extends Model {
         password = "",
         avatarImgURL = "",
         avatarImgALT = "",
+        likedNPCs = [],
+        likedDungeons = [],
         isAdmin = false,
         createdAt = ""
     } = {}) {
@@ -24,6 +26,8 @@ export default class UserModel extends Model {
         this.password = password;
         this.avatarImgURL = avatarImgURL;
         this.avatarImgALT = avatarImgALT;
+        this.likedNPCs = likedNPCs;
+        this.likedDungeons = likedDungeons;
         this.isAdmin = isAdmin;
     }
 
@@ -54,9 +58,7 @@ export default class UserModel extends Model {
             data.isAdmin = this.isAdmin;
         }
 
-        // Set the cleaned data back to the UserModel instance properties
         Object.assign(this, data);
-
-        return this;  // Return the instance itself so you can still call .save()
+        return this;
     }
 }
