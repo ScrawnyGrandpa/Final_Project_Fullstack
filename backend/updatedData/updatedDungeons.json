@@ -1,0 +1,52 @@
+[
+  {
+    "_id": "673b415d30fde5b85dc641c6",
+    "wowheadID": "15093",
+    "name": "Ara-Kara, City of Echoes",
+    "description": "Just beneath the City of Threads lies Ara-Kara, City of Echoes, the deserted ruins of the City's previous layer. There, Ansurek's forces seek to harvest enough deadly materials to put the entirety of nerubian civilization through ascension if necessary—whether they are willing or not.",
+    "location": "Ahj-Kahet",
+    "instanceType": "Dungeon",
+    "imageURL": "https://wow.zamimg.com/uploads/screenshots/normal/1166631.png",
+    "imageALT": "Ara-Kara, City of Echoes",
+    "NPCs": [
+      "213179",
+      "215405",
+      "231649"
+    ],
+    "__v": 0
+  },
+  {
+    "_id": "673b7b65662b8c69a16ba972",
+    "wowheadID": "4950",
+    "name": "Grim Batol",
+    "description": "Don't be fooled by Grim Batol's humble exterior; many of this mountain fortress's desecrated chambers are buried deep in the Twilight Highlands. Once the stronghold of the Wildhammer dwarves, and later seized by orcs as a prison for Alextrasza, the city is now in the clutches of the Twlightl's Hammer cult. Heroes brave enough to infiltrade the brooding depths of the stronghold must confront Deathwing's agents to thwart the mysterious evil within.",
+    "location": "Twilight Highlands",
+    "instanceType": "Dungeon",
+    "imageURL": "https://mitarn.wordpress.com/wp-content/uploads/2010/12/grim-batol-1920x1080.jpg",
+    "imageALT": "Grim Batol",
+    "NPCs": [
+      "39625",
+      "40177",
+      "40319",
+      "40484"
+    ],
+    "__v": 0
+  },
+  {
+    "_id": "673b7efc8ca7ad9e1b05d680",
+    "wowheadID": "9354",
+    "name": "Siege of Boralus",
+    "description": "Lady Ashvane has unleashed her fury against the capital city's waning defenses. As Boralus burns, a small group of heroes must quell the rising chaos and put an end to Ashvane's plan to dominate the region.",
+    "location": "Boralus",
+    "instanceType": "Dungeon",
+    "imageURL": "https://pbs.twimg.com/media/F1VYJ5BXwAQ6wJL?format=jpg&name=large",
+    "imageALT": "Siege of Boralus",
+    "NPCs": [
+      "144160",
+      "129208",
+      "130836",
+      "128652"
+    ],
+    "__v": 0
+  }
+]

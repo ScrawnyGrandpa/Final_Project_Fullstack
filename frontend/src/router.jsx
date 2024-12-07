@@ -13,6 +13,7 @@ import CRM from "./pages/admin/CRM";
 import DungeonPage from "./pages/dungeons/DungeonPage";
 import DungeonForm from "./pages/dungeons/DungeonForm";
 import DungeonGuide from "./pages/dungeons/DungeonGuide";
+import FavoriteItems from "./pages/user/FavoriteItems";
 
 
 export const ROUTES = {
@@ -56,6 +57,7 @@ export default function Router() {
             <Route path={ROUTES.DUNGEON_GUIDE + "/:id"} element={<DungeonGuide />} />
             <Route path={ROUTES.SIGNUP} element={<RegisterPage />} />
             <Route path={ROUTES.LOGIN} element={<LoginPage />} />
+            <Route path={ROUTES.FAVORITES} element={<FavoriteItems />} />
             <Route path={ROUTES.CRM} element={<CRM />} />
             {/*<Route path={ROUTES.FAVORITES} element={< />} />
             <Route path={ROUTES.USER_PROFILE} element={< />} /> 

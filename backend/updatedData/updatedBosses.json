@@ -86,5 +86,375 @@
       "heroic": []
     },
     "__v": 0
+  },
+  {
+    "_id": "673325764765670ffb97bc0e",
+    "wowheadID": "214504",
+    "name": "Rasha'nan",
+    "description": "Twisted by Queen Ansurek's experiments, Rasha'nan was transformed from a proud nerubian into a monstrous, winged horror. Trapped within her new form, shattered memories of her former self drive Rasha'nan into an unquenchable rage.",
+    "location": "Nerub'ar Palace",
+    "instanceType": "Raid",
+    "imageURL": "https://bnetcmsus-a.akamaihd.net/cms/content_entry_media/WTETHCOAKO501725495744210.jpg",
+    "imageALT": "Rasha'nan",
+    "phases": 1,
+    "skills": [
+      "434655",
+      "449734",
+      "434089",
+      "434407",
+      "434096",
+      "438957",
+      "449042",
+      "434668",
+      "438946",
+      "434579",
+      "434576",
+      "448213",
+      "448888",
+      "463428",
+      "449332",
+      "452001",
+      "434119",
+      "435793"
+    ],
+    "guide": {
+      "normal": [
+        {
+          "phase": "Phase 1",
+          "description": "Rasha'nan is a single phase boss fight with a fly-away mechanic during which the boss moves across the platform to a different location on it. The fight starts with Rasha'nan in the middle of the platform where it does not move until the fly-away mechanic. \n\n* [444694] - Is the only tank ability in the fight and tanks should swap after each cast. The effect left from the ability stacks. Rasha'nan smashes the current tank for high physical damage and leaves a dot [458067] the damage of which is calculated based on unmitigated damage; inflicts both physical and nature damage over time. Use a defensive to mitigate the damage before it is applied. \n\n* [439784] - Occasionally Rasha'nan will choose random players to apply [439784] to. Players with the debuff must move out of the raid because at the end of the debuff's duration, [439784] will create a large floor aoe and tether any player hit by it with [446349]. [446349] Slows the players movement speed by 70% and inflicts moderate amounts of damage while players remain tethered and within the area of the aoe. Upon exiting the [446349] the removal of the debuff triggers a [439778] inflicting a small amount of damage to the raid. Please note that since multiple players are tethered, be mindful of raid overall HP before breaking the tether. \n\n* [439789] - Much like the mechanic in The Dawnbreaker, in the raid, not one, but two players are infected by the ability which means 2 waves will be present in the raid. The waves consist of a thick green line, and an animated long thin line. The animated line indicates the direction to which the acid wave will move. So the ideal is that both players will position themselves with the raid between them. Each animated line facing away from the raid.\n\nUpon expiration [439789] the player affected will receive a 1.5 seconds debuff [434576] which will inflict a small amount of damage and a stun. Any other player hit by [439789] will have their movement speed reduced by 50% and gain [434579] for 15 seconds. This effect stacks so players should avoid being hit by more than one wave. Additionally, [439789] will clear any [439784] remaining on the platform.\n\n* Additionally Rasha'nan will infect random players with [439815] which upon expiration deals a small amount of damage to all players around the infected player and spawns {219739} adds which bite the initial infected player and then proceed to hunt random players with [455287] which inflicts damage and reduces movement speed by 5% per stack. The effect stacks. Simply cleave down these adds as soon as possible.\n\n* Occasionally Rasha'nan will spew [439811] on all players, which leaves [440193] on players and drops [439776] in random locations on the platform. Avoid the pools and use defensives in case healers cannot top you up. \n\nWhen Rasha'nan reaches 100% energy she will fly away to a different location on the platform and begin to cast [452806] which needs to be interrupted. Once Rasha'nan relocated to the next point, the fight will continue as before."
+        }
+      ],
+      "heroic": [
+        {
+          "phase": "Phase 1",
+          "description": "On heroic difficulty, Rasha'nan gains a new ability called [439795] which inflicts high amounts of damage and pulls all players inside the effect towards her. The effect's damage and pull strength are split evenly among players present inside the 8 yards impact area. The whole raid must stack together to mitigate this effect."
+        }
+      ]
+    },
+    "__v": 0
+  },
+  {
+    "_id": "673325764765670ffb97bc0f",
+    "wowheadID": "214506",
+    "name": "Broodtwister Ovi'nax",
+    "description": "Deep within the bowels of the queen's palace, Broodtwister Ovi'nax conducts abominable experiments with the black blood found in Azj-kahet. This corpulent horror lumbers through the palace's cavernous depths, regurgitating inky sludge onto hatchlings to observe its gruesome effects.",
+    "location": "Nerub'ar Palace",
+    "instanceType": "Raid",
+    "imageURL": "https://bnetcmsus-a.akamaihd.net/cms/content_entry_media/5VBKA2B0HE441725495744178.jpg",
+    "imageALT": "Broodtwister Ovi'nax",
+    "phases": 1,
+    "skills": [
+      "442526",
+      "442430",
+      "442802",
+      "441362",
+      "438807",
+      "446349",
+      "442257",
+      "450362",
+      "446694",
+      "458212",
+      "446690",
+      "446700",
+      "442263",
+      "442251",
+      "441612",
+      "452802",
+      "442799",
+      "450661",
+      "446351"
+    ],
+    "guide": {
+      "normal": [
+        {
+          "phase": "Room Layout",
+          "description": "Broodtwister Ovi'nax boss room is split into 3 sections. All 3 sections contain 3 types of eggs. Small cluster of eggs, medium eggs and large eggs. Each of the sections has one type of egg that is more dominant than the rest. \n\n- The south-west side has more big eggs which spawn {219045}s for the tanks to pick up. They cast [438807] inflicting moderate damage and receiving a stack of Frenzy which increases its damage by 25% until defeated. The effect stacks. When hatched as a result of coming in contact with [442799] the spiders will mutate, increasing their health and the damage of [438807] until slain.\n\n- The north-west side has more medium eggs which spawn {219046}s that cast a raid wide AOE spell [446700] that needs to be interrupted. When hatched as a result of coming in contact with [442799] the {219046} becomes mutated, increasing their health and the cast speed of [446700] by 50% until slain.\n\n- The east side has more small egg clusters which spawn {220626} that that fixate random players and need to be CCed and killed ASAP. Failure to kill them will cause them to [442257] the fixated target and multiply by incubating inside the bodies of players. When hatched as a result of coming in contact with [442799] the parasites become mutated, increasing their health and movement speed until slain."
+        },
+        {
+          "phase": "Phase 1",
+          "description": "At the start of the fight the tanks want to pull the boss towards the platform they wish to start the encounter on. Once the boss is positioned within the borders of the platform, the boss will then begin by Ingesting Black Blood.\n\n* After the first tank buster ability [441362] Ovi'nax will move towards the cluster of Black Blood and begin devouring it. The tank that received the [441362] needs to be topped up because at the end of its duration the tank will explode for raid wide damage based on the tank's missing health.  This mechanic will persist through the entire fight and it is the tank swap mechanic.\n\n* While [441362] is active the canisters being consumed unleash torrents of [441612] dealing moderate amount of damage on impact and inflicts a healing absorb to all players. Upon finishing, Ovi'nax gains [450362] which causes the boss to emit waves of shadowy energy that deal damage and apply a heal absorb to all players every 7.5 seconds. Alongside this effect, Ovi'nax continues to cast [441612] inflicting shadow damage and a heal adsorb upon impact. \n\n* After ingesting the Black Blood, Ovi'nax will inject 2 random players with [442526]. After 8 seconds the affected player and all those standing within their range will erupt for a moderate amount of damage and receive a large heal absorb. Any eggs that are within the 4 yards range of the eruption will also hatch and cause the corresponding add to spawn. Big eggs will spawn {219045}s for the tanks to pick up. Medium eggs will spawn {219046}s that cast a raid wide AOE spell that needs to be interrupted. And small egg clusters will spawn {220626}s that need to be CCed and killed ASAP. If not tended to will duplicate out of control and thus overrunning the raid.\n\n* After ingesting the Black Blood the canister trigger the [442799], causing the leftover of the Black Blood to slowly leak onto the platform, expanding in side and covering most of the platforms territory. The pool itself inflicts a small amount of damage and places a moderate heal absorb on players who come in contact with it.\nAny leftover eggs that were not broken by [442526] will hatch its relative add and causing a [450661] which inflicts high amounts of raid damage every 2 seconds for the next 30 seconds."
+        }
+      ],
+      "heroic": [
+        {
+          "phase": "Phase 1",
+          "description": "On heroic difficulty, Broodtwister Ovi'nax gains an additional ability called [446349] which applies to 2 random players inflicting nature damage and reducing their movement speed by 70% until dispelled. Upon removal [446349] triggers a [446351] which inflicts moderate amounts of damage to all players within the effect area and roots them for 8 seconds. The root does not apply to the initially affected player."
+        }
+      ]
+    },
+    "__v": 0
+  },
+  {
+    "_id": "673325764765670ffb97bc10",
+    "wowheadID": "218425",
+    "name": "Nexus-Princess Ky'veza",
+    "description": "Nexus-Princess Ky'veza arrived at Nerub-ar Palace only recently, quickly establishing herself as a confidante of Queen Ansurek. However, rumors abound within the inner court that she may harbor a dark and deadly secret. If discovered, the princess is prepared to dispatch all witnesses without mercy...",
+    "location": "Nerub'ar Palace",
+    "instanceType": "Raid",
+    "imageURL": "https://bnetcmsus-a.akamaihd.net/cms/content_entry_media/5h/5H8M5M78FIVE1725495781158.jpg",
+    "imageALT": "Nexus-Princess Ky'veza",
+    "phases": 2,
+    "skills": [
+      "436867",
+      "437620",
+      "438245",
+      "439409",
+      "437343",
+      "435486",
+      "414186",
+      "434645",
+      "436749",
+      "440149",
+      "440377",
+      "440709"
+    ],
+    "guide": {
+      "normal": [
+        {
+          "phase": "Room Layout",
+          "description": "Nexus-Princess Ky'veza's boss room' specifically the center part has a Hexagon shaped platform that should be used as reference to positioning of some of her abilities. Tank the boss on one of the corners of the Hexagon. \n\n*** Any player that drops below 10% will be instantly killed by [436749]. This effect applies throughout the entire fight."
+        },
+        {
+          "phase": "Phase 1",
+          "description": "Nexus-Princess Ky'veza is a pretty straight forward fight with few abilities. Though they are few, they hit hard. \nBegin the fight by positioning the boss on one of the edges of the hexagon. This will be the tanks spot. \n\n* [440377] is a tank buster ability that is also a cast so make sure not to swap before the cast is over. At the end of [440377] Ky'veza applies 4 stacks of [440576] which inflict a small amount of damage over time and increases [440377] damage by 25% for each stack. This debuff lasts for 35 seconds and tanks should swap after each full application.\n\n* In the meantime Ky'veza will target random players with [436867] which upon expiring deals high amounts of damage to the player and leaves a [437371] at the location where the player's debuff expired. After a few moments, these phantoms turn into [437620]s that inflict high damage to anyone standing inside them, small amounts of damage to the entire raid and pulling all players towards the center of the rift. Because of this, players targeted by Ky'veza's [436867] each need to stand on one of the edges of the hexagon on the floor. In addition, the players targeted will also receive [437343] which will inflict moderate amounts of damage and upon expiration after 9 seconds, even more damage. The effect stacks therefor players should about being hit by any abilities that cause [437343].\n\nAt the same time the [437620]s appear, another such rift will also spawn at the current tank's location. Since each rift will try to pull all players towards its own center, positioning the rifts in a near perfect circle around the raid will cause the raid to be pulled in all directions equally and thus remain in the middle of the room unharmed by the rifts. \n\nOnce the [437620] disappear, the tanks should return the boss to the corner of the hexagon they tank her at. \n\n* Additionally, Ky'veza's [437371]s will respawn and target random players from the raid in order to perform [438245]. After 5 seconds the [437371] will charge the targeted player and inflict [437343] and additionally spawn a new [437620] on the location the player was hit by the [437371]. Important to note that any player that will be on the phantom's path will also receive [437343]. Therefore the players targeted need to move out of the raid and position themselves as if they were trying to position [436867] spawns. \n\n* Occasionally Ky'veza will fling [439576] at random players which are 3 lines of players need to dodge. Ky'veza spawns multiple such daggers."
+        },
+        {
+          "phase": "Phase 2",
+          "description": "Upon reaching 100% energy Ky'veza will enter the [435414] phase that will continue for 24 seconds during which all players receive constantly damage every second. If she ever starts Phase 2 a 3rd time, she will enter [442278] which will never end. This is the Enrage mechanic. \n\nDuring [435414] [437371] will dive through the shadows to inflict moderate amounts of damage to targeted players and any player upon their path. These will be visible as long lines that players who are not targeted by the ability should dodge. While the players that are targeted should try to stay still and let others dodge. \n\nAt the end of the phase (24 seconds) the fight continues as it does in Phase 1."
+        }
+      ],
+      "heroic": [
+        {
+          "phase": "Phase 1",
+          "description": "On heroic difficulty all players targeted by [437371] will also receive cast [439409] when [437343] expires, shooting out 3 orbs in a triangular  shape that deal huge amounts of damage to anyone hit by them. Players who were targeted need to stay out of the raid group until the debuffs expire."
+        },
+        {
+          "phase": "Phase 2",
+          "description": "During [435414] Ky'veza will also cast [434645] which veils sections of the room with waves of darkness inflicting high amounts of damage to players caught within. The sections change locations every few seconds and look like pizza slices."
+        }
+      ]
+    },
+    "__v": 0
+  },
+  {
+    "_id": "673325764765670ffb97bc11",
+    "wowheadID": "223779",
+    "name": "The Silken Court",
+    "description": "Scarab Lord Anub'arash and Skeinspinner Takazj are Queen Ansurek's most trusted advisors, yet these two powerful nerubians harbor a hatred for each other even more powerful than their loyalty to the throne. While unleashing their considerable strength onto their enemies, each also fights to ensure their counterpart doesn't survive.",
+    "location": "Nerub'ar Palace",
+    "instanceType": "Raid",
+    "imageURL": "https://bnetcmsus-a.akamaihd.net/cms/content_entry_media/HGJNX3R5ZXYV1725495744125.jpg",
+    "imageALT": "The Silken Court",
+    "phases": 5,
+    "skills": [
+      "439992",
+      "440158",
+      "450980",
+      "438677",
+      "438355",
+      "451277",
+      "449857",
+      "438801",
+      "440179",
+      "440001",
+      "460360",
+      "442994",
+      "438218",
+      "450045",
+      "450483",
+      "455363",
+      "455796",
+      "455849",
+      "460357",
+      "460359",
+      "455850",
+      "460263",
+      "460281",
+      "455863",
+      "440168",
+      "438706",
+      "438773",
+      "455080",
+      "440504",
+      "438656",
+      "438200",
+      "460600",
+      "463461",
+      "438708",
+      "449993",
+      "456235",
+      "441634",
+      "441626",
+      "450129",
+      "441782",
+      "441772",
+      "460364",
+      "463464",
+      "440246",
+      "443092",
+      "443081",
+      "443063"
+    ],
+    "guide": {
+      "normal": [
+        {
+          "phase": "Anub'arash and Skeinspinner Takazj",
+          "description": "The fight consists of 3 phases and 2 intermissions where one of the bosses is more dominant than the other. A dominance that is displayed by a special ability being introduced into each phase. It is important to note that the bosses share their health and the fact that Takazj will prefer to stand still and not move because he is a caster. So you always want to drag Anub'arash to Takazj location in order to cleave the bosses.\n\nIn phase 1 the major Anub'arash ability is [440158] which needs to be stopped by using Skeinspinner Takazj's [439992].\nIn Phase 2 the major Skeinspinner Takazj ability is [438355] which needs to be stopped before the cast is complete by dispelling Anub'arash's [438677].\nIn phase 3 all boss abilities seen throughout the fight are now active with another addition of [443063] by Anub'arash."
+        },
+        {
+          "phase": "Phase 1",
+          "description": "Phase 1 begins with both bosses being present in the room. \n\n<b>Anub'arash</b>:\n\nEach tank will want to agro a single boss and swap upon Anub'arash [438218]. This ability does a moderate amount of tank damage and applies a 35 seconds debuff which increases the damage of the next [438218] by 100% for each stack.\n\nOnce Anub'arash reaches 100% energy he will then burrow underground and begin his [440158]. Anub'arash appears in one of the edges of the room and charges forward inflicting high damage to any player in his path and upon colliding with the wall released a deadly shockwave which inflicts very high amounts of damage to all players. In order to stop the charge, two players must walk into Skeinspinner Takazj's [439992] which looks like a webbed cocoon, and become bound to one another with a set of [440001]. These players then need to stretch the webs out and \"catch\" Anub'arash with them when he charges. Successfully catching him will stop the charge and debuff Anub'arash for 10 seconds causing him to receive 100% more damage for its duration.\n\nApart from the charge, Anub'arash has two more abilities he will use:\n* [440504] which is a large frontal cone that inflicts a moderate amount of damage to any player caught in it. But more importantly it also [449857] the players caught, causing them to be stunned until the spike upon which they were impaled is destroyed by other players. While [449857] players also receive moderate amounts of ticking damage every second and must be spot healed.\n\n* [438801] spawns 3 {218884} that fixate random players and chase them, inflicting damage with [438773] which is a stacking damage taken debuff and [438706]which slowly causes them to become more tanky. These adds need to be kited under the boss and cleaved. If not done by the time they reach 100% energy they receive [455080] making them immune to all CC and increase their movement speed by 25%.\n\n<b>Skeinspinner Takazj</b>:\n\nLike Anub'arash, Skeinspinner Takazj has an ability that needs to be tanked, however not as deadly as Anub'arash. Takazj throughout the entire fight will cast a single spell at the current target. During phase 1 the spell is [438200] which does moderate initial hit damage and leaves a dot that does small amounts of damage every 3 seconds for the duration of 18. Healers can dispel it however it will be applied again and again with each cast. Due to this ability, the tank tanking Takazj might need to occasionally be spot-healed. \n\nEvery so often Takazj will target random players with [438656]. These players will have a green circle around them and take a moderate amount of damage when the cast is done, and apply a debuff that lasts 20 seconds inflicting small amounts of nature damage every 2 seconds.  Any player caught in the green circle when it expires will receive the same debuff even if they were not affected by [438656]. So you might want to spread out a little for that cast.\n\nTakazj will cast [439992] which will spawn webbed cocoons in the areas of impact, that will remain until either players run into them and trigger [440001] or cleared by immuneties.\n\nOnce Anub'arash begins his [] Takazj will recolate using [450045]."
+        },
+        {
+          "phase": "Intermission 1",
+          "description": "At about 65%-70% boss health the first intermission begins. Anub'arash burrows under the boss room and disappears for the duration of this intermission. In the meantime Takazj teleports to the middle of the room and begins his [450980] cast. [450980] shields Takazj for a huge amount of damage and begins to spin cones of webs throughout the chamber. These webs inflict a small amount of damage to players and reduce their movement speed by 20% while. Periodically these webs will explode, knocking all players caught inside them back and inflicting high amounts of damage to the players. In addition this explosion also applies a 12 seconds debuff, inflicting small amounts of damage to the player.\n\nIn the meantime Takazj himself will cast [460600] which deals constant damage for 30 seconds and applies [463461] to all players which increases the damage taken from [460600] by an additional 25%. This effect stacks.\n\nThis essentially is a break the shield before the boss kills you phase."
+        },
+        {
+          "phase": "Phase 2",
+          "description": "After Takazj's shield is broken, Anub'arash reappears and the fight continues. Anub'arash will no longer use [440158] and Takazj will no longer use [439992] and instead they both gain new abilities.\n\n<b>Anub'arash</b>:\n\nAnub'arash gains a new major and important ability [438677]. This debuff causes the player to suffer nature damage every second and increase their damage taken by 20%. This effect stacks. Upon removal the swarm releases a [449993] which does raid wide damage and Jumps to the closest player or Takazj if the player is close enough to him. Once 5 [438677] landed on a single target they suffer from [456235] and become disoriented for 15 seconds and all damage taken by the,m is increased by 100%.\n\n[438677] must be dispelled near Takazj when he teleports to the middle and starts casting [438355] in order to stop the cast.\n\nAnub'arash will continue using all his other abilities during this phase, which are: [438801], [440504] and [438218].\n\n<b>Skeinspinner Takazj</b>:\n\nTakazj's [438200] now transformed into [441772] which does the same as [438200] but instead of Nature damage, it is now Shadow damage. \n\nInstead of [439992] Takazj now uses [441634] which pulls all players to Takazjs location inflicting a small amount of damage, and an even smaller amount every 2 seconds while within the pull range. And binds each player top another player with [440001]. The players must run away from Takazjs [450129] and away from their partner in order to  break the webs.\n\nOn occasion Takazj will cast a frontal cone, just like in Intermission 1, [441782] which will cause a moderate amount of damage and knock back any player caught in it. \n\nThe final and biggest and most dangerous ability of this fight is [438355]. Takazj will teleport to the center of the room and begin casting [438355]. If the cast goes off the raid will receive a huge amount of shadow damage and a ticking dot for another large chunk of damage. In order to prevent the cast from going off, 3 players with [438677] must get close to Takazj and be dispelled. As stated before upon removal the swarm releases a [449993] which does raid wide damage and Jumps to the closest player or Takazj if the player is close enough to him. Therefore only the players with the swarm must be close to Takazj. The rest of the raid must get away in order for the swarm to land on Takazj. \n\nIf the dispels are successful, Takazj will become disoriented for 10 seconds and all damage received by him will increase by 100%."
+        },
+        {
+          "phase": "Intermission 2",
+          "description": "At around 45%-35% boss HP, Intermission 2 will begin. Takazj will disappear from the boss room and only Anub'arak will remain. He will then position himself in the middle of the room and begin casting [451277]. [451277] Will shield Anub'arash for a huge absorb shield and he will begin unleashing [460364] which much like Takazjs [460600] will causing raid-wide periodic damage every second for the next 8 seconds and apply [463464] which will increase the damage from [460364] by 35% for each stack.\n\nAdditionally Anub'arashs [451277] will cause [443071]s which creates large AOE circles that then explode upwards, causing high amounts of damage to players caught in them and impaling them. Played who are [449857] will be taking moderate tick damage and are stunned. In order to free them the spike upon which they are impaled must be destroyed. \n\nThe phase will end once Anub'arashs absorb shield is completely depleted and phase 3 begins."
+        },
+        {
+          "phase": "Phase 3",
+          "description": "This is the final phase of the boss fight and the most complicated mechanically. In this phase both bosses have all of their abilities from all phases except one: Takazj's [439992]. This means that Anub'arash will use his [440158] and this time it needs to be stopped using the [440001] from Takazjs [441634]. What this really means is that at least 1 pair of players needs to stay tethered to each other. Which will result in constant damage to them so they will need to be spot healed.\n\nAdditionally Takazjs [438355] will also be cast during this phase, which means players who have the [438677] debuff on them will have to be spot-healed until the boss begins the cast. The players then need to move to the center and get dispelled to stop the [438355] cast. \n\nFinally, Anub'arash receives another new ability called [443063] which will inflict a small amount of damage to all players every second BUT will increase in damage as the cast continues. This lasts for 8 seconds."
+        }
+      ],
+      "heroic": [
+        {
+          "phase": "Entire Fight",
+          "description": "As of recent patches there is no real difference between the Normal and Heroic modes of the fight. Previously players needed to have 2 tethers to stop Anub'arashs charge on heroics, however it was changed and now the only difference between normal and heroic are the debuff %.  Meaning when one ability increased damage received by 25% it will now be 50%. Etc."
+        }
+      ]
+    },
+    "__v": 0
+  },
+  {
+    "_id": "673325764765670ffb97bc12",
+    "wowheadID": "219778",
+    "name": "Queen Ansurek",
+    "description": "After a revelation of traitors in her court, Queen Ansurek decides she must eradicate the palace's invaders herself. However, paranoia over whom she can trust gnaws at her psyche. With her allies dwindling, Queen Ansurek may delve into dark powers to attain victory, even if that means her most loyal soldiers become her next meal...",
+    "location": "Nerub'ar Palace",
+    "instanceType": "Raid",
+    "imageURL": "https://bnetcmsus-a.akamaihd.net/cms/content_entry_media/N8P9FS1SP0YG1725495744206.png",
+    "imageALT": "Queen Ansurek",
+    "phases": 3,
+    "skills": [
+      "438846",
+      "437417",
+      "447076",
+      "448458",
+      "449940",
+      "449986",
+      "444829",
+      "445422",
+      "445152",
+      "445877",
+      "443915",
+      "441556",
+      "447965",
+      "447456",
+      "447411",
+      "438976",
+      "440607",
+      "445268",
+      "437093",
+      "436799",
+      "443325",
+      "443336",
+      "437592",
+      "451278",
+      "464628",
+      "464638",
+      "464643",
+      "460133",
+      "438481",
+      "437078",
+      "439814",
+      "441958",
+      "440899",
+      "441084",
+      "439299",
+      "447170",
+      "451607",
+      "447240",
+      "460366",
+      "464056",
+      "464055",
+      "447983",
+      "443403",
+      "460218",
+      "448660",
+      "450191",
+      "447950",
+      "447999",
+      "448176",
+      "448046",
+      "448300",
+      "462693",
+      "448488",
+      "448147",
+      "460315",
+      "462692",
+      "451600",
+      "455374",
+      "449235",
+      "443888",
+      "455387",
+      "444507",
+      "444502",
+      "445623",
+      "461408",
+      "446012",
+      "445013",
+      "445021",
+      "441865",
+      "441872",
+      "443667",
+      "443720",
+      "443396",
+      "451832"
+    ],
+    "guide": {
+      "normal": [
+        {
+          "phase": "Phase 1",
+          "description": "Queen Ansurek's fight happens on a rather large first platform for a reason, some of her abilities leave pools of AOE on the floor that will disappear only at the beginning of the 2nd Phase. Additionally, the raid needs to split evenly for Phase 2.\n\nThe queen begins by [440899]ing the currently active tank.  [440899] Inflicts a large amount of damage and applies a 30 seconds debuff which not only damages the tank further but increase their Physical damage taken by 500%. As soon as [440899] is cast, tanks must swap. \n\nIn addition to the tank effect, [440899] creates an [441084] which shoots outwards, inflicting moderate damage to all players and creating large pools of [437078] that tick for high amounts of damage each second a player stands in them. Therefore the whole raid must move as a unit after every [440899]\n\nRight after casting [440899] Queen Ansurek then casts [437093] which deals a HUGE amount of tank damage and applies an even bigger healing absorb on the tank. Healers should be ready to clear the absorb from the tank as soon as possible. \n\nQueen Ansurek then proceeds to infect a random player with [437592] which appears as a green circle. Once the debuff runs out, the player will drop [438846] under their fit and be knocked away. Anyone standing in the debuff will also take damage and get knocked away when it expires.\n\n[438846] is a circle with a small drop of Froth in the middle in the shape of a slime bubble. Toughing the slime bubble will cause it to burst, launching all players withing its 8 yards range into the air and inflicting them with  [464638]. Each player standing within the circle when the bubble was burst, will reduce the damage of [464638]. The burst [438846] will also create [438481] which players need to dodge. \n\nThe player who touched the [438846] will become afflicted with [451278] and must move away from the raid before exploding.\n\nThis [438846] must be untouched by players until Queen Ansurek begins casting [437417]. [437417] will cause a huge amount of damage and debuff damage to all players that tough it. In order to avoid touching it, all players must position themselves inside the [438846] circle, and let a single assigned player burst it by stepping in its center. All players within its ranged will  be flung upwards, above the [437417] therefore dodging its deadly effects. However it must be timed correctly, depending on the Queen's cast and the distance between her and the [438846] blob.\n\nAdditionally, Queen Ansurek will use two more abilities during this phase which are [439299] and [439814].\nUpon cast, [439299] will target random players in the raid and pull bladed webbings towards each player's location. Failing to dodge the blades will cause in moderate amounts of damage to all caught in them and 95% movement speed reduction for 3 seconds.\n[439814] is a raid wide cast that apples webs to all players, rooting them in place. These webs must be destroyed in order to free the players. Since it is a raid wide mechanic, the whole raid wants to stack closely in order to help each other destroy the roots."
+        },
+        {
+          "phase": "Intermission 1",
+          "description": "Once Queen Ansurek cast [437592] three times, or has been brought to 35% health the first intermission phase will begin. \n\nQueen Ansurek retreats to the middle of the platform, shields herself for a large amount of health and begins to cast [447076] which tethers all players to her and begins assaulting the raid with [447532]. [447532] slows all players by 8% and increases the damage taken from [447411] by 20%. Each cast of [447532] also releases [451607] inflicting moderate amounts of damage to players in their path, knocking them away and applying an extra [447532] stack. \n\nEvery few seconds Queen Ansurek will use [447411], violently yanking all players towards her and inflicting a  moderate amount of Nature damage.\n\nThis Phase will end when her shield has been depleted and Phase 2 will begin."
+        },
+        {
+          "phase": "Phase 2",
+          "description": "At the beginning of phase 2, Ansurek will leave the platform, causing all the venom to disappear and spawns 2 adds called {223150}s. These adds must be tanked each in their own corner close enough to the platform behind them. \n\n{223150} cast [447950] which needs to be interrupted or else does a huge amount of damage to a random player. Additionally, while alive the {223150}s [447999] ability will periodically inflict damage to all players withing 45 yards.\n\nUpon death, the {223150} will cause a [448046] inflicting a small about of damage within 45 and knocking all players within the same range back. The platform then becomes covered in [448078], while the players should be safely knocked back to the next platform. \n\nThe next part of the phase consists of 3 platforms. Players must advance through these platforms and reach the Queen again on the highest middle platform. \n\n-- First Platform:\nOn the first platform players will face 2 adds: \n{223204} - Which casts [448147] dealing high amounts of damage to the current tank and knocking them away. And ejecting [460315] which deal a moderate amount of damage on impact and knock anyone who got hit, away.  \n{224368} - Teleports away and casts [451600] which damages anyone who and knocks them away. \n\nWhile fighting those adds, Queen Ansurek will continue to cast [450191] to try and pull players off the platforms so always be mindful of your positioning.\n\nAfter both adds are dead, players must click the web-crystals on the side of the platform in order to create a bridge to the next platform. On the bridge the tank must collect {223674} and let the dps cleave them on the 2nd platform.\n\n-- Second Platform:\nLike the first, on the 2nd platform players will once again fight 2 adds:\n{223318} - Will periodically infect players with [447965] inflicting small amounts of damage every 1.5 seconds for the next 12 seconds. It also casts [448458] and if not killed before the cast is complete the raid will wipe. Prioritize killing this add on the 2nd platform before killing {224368}.\n{224368} - Teleports away and casts [451600] which damages anyone who and knocks them away. \n[447965] - is a dot being cast on a random player that can be dispelled. While active it does small amounts over damage every 15 seconds for the next 12 seconds.\n\nOnce again the Queen continues to cast  [450191] and after the adds are dead, click the web-crystals on the side of the platform in order to create a bridge to the next platform. Let the tank collect the {223674} and continue to the 3rd and last platform in this phase.\n\n-- Third Platform.\nMuch line the initial platform where the boss fight was started, the 3rd platform spawns a {223150} which needs to be tanked, interrupted and positioned so that the [448046] upon {223150}'s death will safely knock back all players to the final platform to face Queen Ansurek again."
+        },
+        {
+          "phase": "Phase 3",
+          "description": "Once the raid arrives on the final platform of the room, phase 3 begins. \nQueen Ansurek jumps onto the platfrom after finishing her [449986] cast , dealing a moderate amount of damage to all players and granting her [445268] which causes her to constantly pulse for a small amount of damage and slowly increase whenever [451802] open. \n\nAnsurek will almost immediately cast [443325] on the current tank which deals a large amount of damage and puts a debuff on them. When the debuff expires [443718] will erupt from the tank spawning {221344}s which slowly move towards the Queen. Should they reach the queen, she will devour them for huge raid wide damage and receive a damage increase buff for the next 20 seconds. Each such hatchling will increase her damage by 20%. The effect stacks.\n\nIn the meantime right after the tanks swapped after [443325] Ansurek will cast [443336] which will do a huge amount of damage and leave 5-6 stacks of [443336] each increasing physical damage taken by 35%. The debuff lasts 45 seconds. Additionally [443336] will cause [443396] which deals raid wide damage with each hit.\n\nAnsurek will next cast [438976] on two random players which will explode for a moderate amount of damage. The further each player is from the explosion the less damage they will receive. \n\nAfter some time into the phase Ansurek will cast [443888] on two random players. Upon expiration an [443915] will spawn on each of these players and knock them forward. These [443915] need to be placed in a manner which the raid would be able to use in order to avoid being hit by [445422]. Namely one towards the inner edge of the platform and one towards the outer edge. Once Ansurek uses [445422], all players will be tethered, slowly and slowly pulled towards her while a wall of shadow is moving towards the center of the platform. Once that wall of shadows passes the outer [443915], the raid needs to walk into the inner [443915] and will be teleported to the outer [443915] after which the portals will explode for moderate raid damage. \n\nIn addition to that, Queen Ansurek will use [444829] which will summon 3 adds called {221863}. They have an absorb shield and will begin to cast [445021] as soon as they arrive. [445021] causes small amounts of raid damage that will continuously increase with each successful cast. A 100% damage increase per cast. They need to be killed, interrupted when possible, and once they die, they drop [445152]. These Essences need to bee picked up by a player and carried through an [443915]. If they are not picked up they will be confused by Queen Ansurek for high raid-wide damage and a 40% movement speed reduction to all players. Additionally she will receive a 100% damage increase buff for the next 20 seconds. Once the player with the essence moves through the portal, it will cause it to explode, so the raid needs to move as one and quickly. \n\nLike in Phase 1 [439299] will be present through this entire phase as well."
+        }
+      ],
+      "heroic": [
+        {
+          "phase": "Phase 1",
+          "description": "On heroic difficulty [437592] targets 2 players, not just one, and in order to trigger [438846] in each [437592] the raid must be split EVENLY between the 2 circles. If the groups are not split evenly when [438846] is triggered the application of [464638] will become deadly. \n\nAdditionally, the person who triggers [438846] will now receive a debuff called [441692] which increases the damage of the next trigger by 1000% should it be the same player. This will KILL the player. Therefor since [437592] is cast 3 times during the first phase, the group will need to assign 2 new people for each set of [437592]. Therefore 6 people from the raid need to be triggering the [437592] in your desired set order.\n\nAnd finally, [439814] leave behind a [441958] AOE that slows all players within by 25% and inflicts small amounts of damage ever 0.5 seconds. Meaning the raid has to move not only on [440899] but now also after [439814] have been dealt with."
+        },
+        {
+          "phase": "Intermission 1:",
+          "description": "On heroic difficulty, when Ansurek casts [447076] and applies [447170] the area around the player is now also a small AOE. Players want to keep a small amount of distance from each other as to not cause extra damage in an already quite difficult phase."
+        },
+        {
+          "phase": "Phase 2",
+          "description": "During the first adds Phase on the main platform {223150} will now also cast [448176] on a random player location. These are orbs that shoot outwards from the location they have spawned in, causing high amounts of damage to any player hit on their path and knocking them away. Dodge them. \n\n-- All Platforms:\nLike the first intermission, Queen Ansurker's [450191] continues to inflict a small area damage around players when she yanks them. Try to spread out a bit.\n\nAdditionally, the {223674} adds now apply a stacking debuff called [449236] which increases damage taken by 2% per stack. This might seem insignificant at first however these adds apply those stacks VERY FAST. CC and cleave them as soon as the tank pulls them to the platform adds. \n\n-- First Platform:\nNo significant changes here.\n\n-- Second Platform:\n[447965] - that is cast on a random target now also causes [447983] upon dispel. [447983] causes a moderate amount of damage raid-wide (100 yards). Make sure the raid is topped before dispelling. \n\n-- Third Platform:\nJust like with the main platform add, here the {223150} will now also cast [448176] on a random player location. Dodge them."
+        },
+        {
+          "phase": "Phase 3",
+          "description": "The main changes on this phase are additional effects to some of Ansureks already existing abilities in this phase.\n\nFirst - [443915], the portals now apply [455387] to players that pass through them, causing them to explode for moderate amounts of damage to themselves and 3 yards around them. Upon existing the portal the raid needs to spread out in order not to damage each other.  Additionally after the [443915]s were used, they explode outwards, flinging [444507] in all directions which cause high amounts of damage and knock players back. Dodge them!\n\nSecond - Any [445152] that were not picked up will cause an even higher amount of raid-wide damage.\n\nThird - [438976] now also causes [441865] tethering all raid players to the location of the [438976], splitting the raid evenly. Each such shackle will slowly pull the players towards it and if touched the player will then be stunned by [441872]. Each player wants to dps the shackle they are NOT bound to, as soon as possible. \n\nAnd finally, both now [443336] and {221344}s spawned as a result of [443325] will leave behind a [443403] puddle upon expiration or death."
+        }
+      ]
+    },
+    "__v": 0
   }
 ]

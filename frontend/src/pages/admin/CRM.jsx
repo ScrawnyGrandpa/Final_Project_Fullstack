@@ -99,6 +99,8 @@ export default function CRM() {
         }
     };
 
+    if (!user) navigate(`${ROUTES.ROOT}`);
+
     return (
         !loading && user.isAdmin && (
             <div className="flex flex-col">
