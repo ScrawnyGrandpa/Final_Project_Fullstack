@@ -5,7 +5,7 @@ import path from "path";
 import { Boss } from "../models/boss/Bosses.js";
 import { Trash } from "../models/trash/Trash.js";
 import { User } from "../models/user/Users.js";
-import { InitialBosses } from "../initialData/InitialBosses.js";
+import { InitialBosses } from "../initialData/initialBosses.js";
 import { InitialTrash } from "../initialData/initialTrash.js";
 import { InitialUsers } from "../initialData/initialUsers.js";
 import { generateUserPassword } from "./bcrypt.js";
