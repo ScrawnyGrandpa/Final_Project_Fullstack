@@ -5,6 +5,7 @@ import { useRef, useState, useEffect } from "react";
 import { AccountMenu } from "./AccountMenu";
 import DungeonModel from "../../models/DungeonModel";
 import { twwDungeonsList, s1DungeonsList } from "../../utils/dungeonLists";
+import FavoriteItems from "../../pages/user/FavoriteItems";
 
 export default function Header() {
     const [allDungeons, setAllDungeons] = useState([]);
@@ -63,7 +64,7 @@ export default function Header() {
 
     return (
         <header className="bg-[#212930] text-white sticky top-0 z-50">
-            <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
+            <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-8">
                 <div className="flex lg:flex-1">
                     <Link to={ROUTES.ROOT} className="pr-2 pl-2 text-md font-medium hover:bg-gray-700 px-3 py-2 rounded-sm">
                         Home
@@ -133,6 +134,11 @@ export default function Header() {
                             </div>
                         )}
                     </div>
+                    {user && (
+                        <Link to={ROUTES.FAVORITES} className="pr-2 pl-2 text-md font-medium hover:bg-gray-700 px-3 py-2 rounded-sm">
+                            Favorites
+                        </Link>
+                    )}
 
                     <Link to={ROUTES.ABOUT} className="pr-2 pl-2 text-md font-medium hover:bg-gray-700 px-3 py-2 rounded-sm">
                         About

@@ -41,7 +41,14 @@ export default function BossPage() {
 export function BossBody({ boss }) {
     const navigate = useNavigate();
     const { user } = useAuthentication();
-    const [isFavBoss, setIsFavBoss] = useState(null);
+    const [isFavBoss, setIsFavBoss] = useState(user.likedNPCs.includes(boss._id));
+
+    useEffect(() => {
+        if (user && boss) {
+            setIsFavBoss(user.likedNPCs.includes(boss._id));
+        }
+    }, [user, boss]);
+
 
     const toggleFav = useErrorCallback(async () => {
         const updatedUser = await user.toggleLikeNPCs(boss._id);

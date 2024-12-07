@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import BossModel from "../../models/BossModel";
-import BossesList from "../../utils/BossesList";
+import BossesList from "../bosses/BossesList";
 
 export default function Raids() {
     const [bosses, setBosses] = useState([]);

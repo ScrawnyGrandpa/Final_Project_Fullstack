@@ -79,7 +79,7 @@ export default function HomePage() {
             <h5 className="text-xl">
                 Here you may learn all you need about Raid Boss strategies and Dungeon strategies. Be it The War Within Dungeons or Season 1 Mythic + Dungeons.
             </h5>
-            <hr className="w-[400px] mx-auto my-16" />
+            <hr className="w-[400px] mx-auto my-10 border-cyan-600" />
 
             <div className="m-3 text-xl">Current Raid: {location}</div>
             <RaidComponent bosses={bosses} />

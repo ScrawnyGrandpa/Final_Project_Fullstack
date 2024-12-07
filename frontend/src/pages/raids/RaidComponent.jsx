@@ -7,7 +7,7 @@ export default function RaidComponent({ bosses }) {
             {bosses.length > 0 ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2">
                     {bosses.map((boss, index) => (
-                        <Link key={boss._id} to={`/boss/${boss._id}`} className="relative flex items-center justify-center min-h-[450px]">
+                        <Link key={boss._id} to={`/boss/${boss._id}`} className="relative flex items-center justify-center min-h-[350px]">
                             <img
                                 src={boss.imageURL}
                                 alt={boss.imageALT || boss.name}
