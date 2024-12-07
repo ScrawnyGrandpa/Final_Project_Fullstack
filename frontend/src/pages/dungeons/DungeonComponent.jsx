@@ -1,5 +1,7 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
+
+const classStyle = "relative flex items-center justify-center min-h-[150px] border border-[#212930] transition-transform duration-300 ease-in-out transform scale-100 hover:scale-[1.04] hover:border-blue-500 rounded-sm opacity-80 hover:opacity-100"
 
 export default function DungeonComponent({ dungeons }) {
     return (
@@ -7,7 +9,7 @@ export default function DungeonComponent({ dungeons }) {
             {dungeons.length > 0 ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-2">
                     {dungeons.map((dungeon) => (
-                        <Link key={dungeon._id} to={`/dungeon/${dungeon._id}`} className="relative flex items-center justify-center min-h-[150px]">
+                        <Link key={dungeon._id} to={`/dungeon/${dungeon._id}`} className={classStyle}>
                             <div className="relative w-full overflow-hidden h-full">
                                 <img
                                     src={dungeon.imageURL}
@@ -15,7 +17,7 @@ export default function DungeonComponent({ dungeons }) {
                                     className="rounded h-full w-full object-cover"
                                     style={{
                                         clipPath: 'inset(15% 0 15% 0)',
-                                        transform: 'scaleY(1.5) scaleX(1.5)',
+                                        transform: 'scaleX(1.5) scaleY(1.5)',
                                     }}
                                 />
                             </div>
