@@ -1,7 +1,7 @@
 import API from "./API";
 
 export default class UsersAPI extends API {
-    static apiUrl = "https://final-project-fullstack.onrender.com/user";
+    static apiUrl = "https://final-project-fullstack-1.onrender.com/user";
 
     static login(data) {
         return this.request(`${this.apiUrl}/login`, { data, method: "post" });
