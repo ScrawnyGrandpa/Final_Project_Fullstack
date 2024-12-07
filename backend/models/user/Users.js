@@ -14,22 +14,23 @@ const userSchema = new mongoose.Schema({
     avatarImgURL: IMAGEURL,
     avatarImgALT: { ...DEFAULT_VALIDATION, minlength: 0, required: false },
     likedNPCs: {
-        type: [String],
+        type: [mongoose.Schema.Types.ObjectId],
+        ref: 'Boss',
         validate: {
-            validator: function (input) {
-                return input.every(skill => /^\d{5,6}$/.test(skill));
+            validator: function (value) {
+                return value.every(id => mongoose.Types.ObjectId.isValid(id));
             },
-            message: 'Each NPC-ID must be exactly 5-6 digits'
+            message: 'Each item in likedNPCs must be a valid ObjectId.',
         },
-        default: []
     },
     likedDungeons: {
-        type: [String],
+        type: [mongoose.Schema.Types.ObjectId],
+        ref: 'Dungeon',
         validate: {
-            validator: function (input) {
-                return input.every(skill => /^\d{5,6}$/.test(skill));
+            validator: function (value) {
+                return value.every(id => mongoose.Types.ObjectId.isValid(id));
             },
-            message: 'Each NPC-ID must be exactly 5-6 digits'
+            message: 'Each item in likedDungeons must be a valid ObjectId.',
         },
         default: []
     },

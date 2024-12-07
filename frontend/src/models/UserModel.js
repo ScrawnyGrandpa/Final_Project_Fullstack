@@ -44,7 +44,9 @@ export default class UserModel extends Model {
     }
 
     cleanup() {
-        const data = {
+        const { likedNPCs, likedDungeons, ...data } = this;
+
+        const cleanedData = {
             firstName: this.firstName,
             lastName: this.lastName,
             nickName: this.nickName,
@@ -58,7 +60,25 @@ export default class UserModel extends Model {
             data.isAdmin = this.isAdmin;
         }
 
-        Object.assign(this, data);
+        Object.assign(this, cleanedData);
         return this;
+    }
+
+    toggleLikeDungeon(dungeonId) {
+        if (this.likedDungeons.includes(dungeonId)) {
+            this.likedDungeons = this.likedDungeons.filter(id => id !== dungeonId);
+        } else {
+            this.likedDungeons.push(dungeonId);
+        }
+        return this.save();
+    }
+
+    toggleLikeNPCs(npcId) {
+        if (this.likedNPCs.includes(npcId)) {
+            this.likedNPCs = this.likedNPCs.filter(id => id !== npcId);
+        } else {
+            this.likedNPCs.push(npcId);
+        }
+        return this.save();
     }
 }

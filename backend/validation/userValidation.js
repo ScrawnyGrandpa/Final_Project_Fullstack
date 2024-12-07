@@ -1,7 +1,9 @@
 import Joi from "joi";
 import config from "config";
 
-const validator = config.get("VALIDATOR")
+const objectIdRegex = /^[0-9a-fA-F]{24}$/;
+const objectIdValidator = Joi.string().regex(objectIdRegex).message('Invalid ObjectId format');
+const validator = config.get("VALIDATOR");
 
 const registerValidation = (user) => {
     const schema = Joi.object({
@@ -30,6 +32,8 @@ const registerValidation = (user) => {
             .rule({ message: "User imageURL mast be a valid URL" })
             .allow(""),
         avatarImgALT: Joi.string().max(256).allow(""),
+        likedNPCs: Joi.array().items(objectIdValidator).default([]),
+        likedDungeons: Joi.array().items(objectIdValidator).default([]),
         isAdmin: Joi.boolean().allow(""),
     });
     return schema.validate(user);

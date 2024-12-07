@@ -4,12 +4,11 @@ import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import DungeonModel from "../../models/DungeonModel";
 import PageContent from "../../components/layout/PageContent";
-import { useLoadEffect } from "../../providers/PageUIProvider";
+import { useErrorCallback, useLoadEffect } from "../../providers/PageUIProvider";
 import { SPELL, NPC } from "../../utils/wowheadLinks";
 import { ROUTES } from "../../router";
 import { useAuthentication } from "../../providers/AuthenticationProvider";
 import BossModel from "../../models/BossModel";
-
 
 export default function DungeonPage() {
     const [dungeon, setDungeon] = useState(null);
@@ -19,8 +18,6 @@ export default function DungeonPage() {
     const [loading, setLoading] = useState(true);
 
     useLoadEffect(async () => {
-
-
         const dungeon = await DungeonModel.load(id);
         setDungeon(dungeon);
         setDungeonBosses(dungeon.NPCs);
@@ -53,6 +50,18 @@ export default function DungeonPage() {
 export function DungeonBody({ dungeon, dungeonBosses }) {
     const navigate = useNavigate();
     const { user } = useAuthentication();
+    const [isFavDungeon, setIsFavDungeon] = useState(null);
+
+    useEffect(() => {
+        if (user && dungeon) {
+            setIsFavDungeon(user.likedDungeons.includes(dungeon._id));
+        }
+    }, [user, dungeon]);
+
+    const toggleFav = useErrorCallback(async () => {
+        const updatedUser = await user.toggleLikeDungeon(dungeon._id);
+        setIsFavDungeon(updatedUser.likedDungeons.includes(dungeon._id));
+    }, [dungeon, isFavDungeon]);
 
     const editDungeon = () => {
         navigate(`${ROUTES.DUNGEON_FORM}/${dungeon._id}`);
@@ -63,18 +72,24 @@ export function DungeonBody({ dungeon, dungeonBosses }) {
             <div className="w-[95vw] p-6 text-white rounded-lg">
                 <h2 className="text-2xl font-bold mb-4 flex justify-between items-center">
                     {dungeon.name}
-                    <div className="text-right">
-                        {user?.isAdmin && (
-                            <>
+                    {user && (
+                        <div className="flex items-center">
+                            <button
+                                onClick={toggleFav}
+                                className={`${isFavDungeon ? 'bg-red-600' : 'bg-gray-600'} text-white text-sm px-3 py-1 mx-2 rounded`}
+                            >
+                                {isFavDungeon ? "Remove from Favs" : "Add to Favs"}
+                            </button>
+                            {user?.isAdmin && (
                                 <button
                                     className="bg-blue-500 text-white text-sm px-3 py-1 mx-2 rounded hover:bg-blue-600"
                                     onClick={editDungeon}
                                 >
                                     Edit Dungeon Info
                                 </button>
-                            </>
-                        )}
-                    </div>
+                            )}
+                        </div>
+                    )}
                 </h2>
                 <p className="mb-2"><b>Location:</b></p>
                 <p className="mb-4">{dungeon.location}</p>
@@ -89,8 +104,6 @@ export function DungeonBody({ dungeon, dungeonBosses }) {
                 {/* Strategy Guide Section */}
                 <div>
                     <h2 className="text-2xl font-bold mb-4">Dungeon Strategy Guide</h2>
-
-                    {/* Loop through each boss in the dungeon */}
                     {dungeonBosses && dungeonBosses.length > 0 ? (
                         dungeonBosses.map((boss) => (
                             <div key={boss._id} className="mb-8 ">

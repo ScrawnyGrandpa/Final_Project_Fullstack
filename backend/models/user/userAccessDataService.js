@@ -3,6 +3,7 @@ import { generateAuthToken } from "../../authentication/jwt.js";
 import { createError } from "../../utils/handleErrors.js";
 import { generateUserPassword } from "../../utils/bcrypt.js";
 import { comparePasswords } from "../../utils/bcrypt.js";
+import bcrypt from "bcryptjs";
 import _ from "lodash";
 
 
@@ -43,7 +44,22 @@ const readUser = async (id) => {
 // update user whole or some params
 const updateUser = async (id, data) => {
     try {
-        return _.omit((await User.findByIdAndUpdate(id, data, { new: true, runValidators: true })).toObject(), ["password"]);
+        if (!data.password) {
+            delete data.password;
+        } else {
+            const salt = await bcrypt.genSalt(10);
+            data.password = await bcrypt.hash(data.password, salt);
+        }
+
+        const updatedUser = await User.findByIdAndUpdate(id, data, {
+            new: true,
+            runValidators: true
+        });
+
+        if (!updatedUser) {
+            throw new Error("User not found");
+        }
+        return _.omit(updatedUser.toObject(), ["password"]);
     } catch (e) {
         return createError("Mongoose", e);
     }
@@ -52,11 +68,23 @@ const updateUser = async (id, data) => {
 // patch user param
 const patchUser = async (id, data) => {
     try {
-        return _.omit((await User.findByIdAndUpdate(id, data, {
+        if (!data.password) {
+            delete data.password;
+        } else {
+            const salt = await bcrypt.genSalt(10);
+            data.password = await bcrypt.hash(data.password, salt);
+        }
+
+        const updatedUser = await User.findByIdAndUpdate(id, data, {
             new: true,
             runValidators: true,
-            overwrite: false,
-        })).toObject(), ["password"]);
+            overwrite: false
+        });
+
+        if (!updatedUser) {
+            throw new Error("User not found");
+        }
+        return _.omit(updatedUser.toObject(), ["password"]);
     } catch (e) {
         return createError("Mongoose", e);
     }

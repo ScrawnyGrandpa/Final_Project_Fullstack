@@ -4,12 +4,11 @@ import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import BossModel from "../../models/BossModel";
 import PageContent from "../../components/layout/PageContent";
-import { useLoadEffect } from "../../providers/PageUIProvider";
+import { useErrorCallback, useLoadEffect } from "../../providers/PageUIProvider";
 import { SPELL, NPC } from "../../utils/wowheadLinks";
 import { ROUTES } from "../../router";
 import { useAuthentication } from "../../providers/AuthenticationProvider";
 import NerubarNav from "../../components/layout/NerubarNav";
-
 
 export default function BossPage() {
     const [boss, setBoss] = useState(null);
@@ -42,6 +41,12 @@ export default function BossPage() {
 export function BossBody({ boss }) {
     const navigate = useNavigate();
     const { user } = useAuthentication();
+    const [isFavBoss, setIsFavBoss] = useState(null);
+
+    const toggleFav = useErrorCallback(async () => {
+        const updatedUser = await user.toggleLikeNPCs(boss._id);
+        setIsFavBoss(updatedUser.likedNPCs.includes(boss._id));
+    }, [boss, isFavBoss]);
 
     const editBoss = () => {
         navigate(`${ROUTES.BOSS_FORM}/${boss._id}`)
@@ -56,24 +61,33 @@ export function BossBody({ boss }) {
             <div className="w-[95vw] p-6 text-white rounded-lg">
                 <h2 className="text-2xl font-bold mb-4 flex justify-between items-center">
                     {boss.name}
-                    <div className="text-right">
-                        {user?.isAdmin &&
-                            <>
-                                <button
-                                    className="bg-blue-500 text-white text-sm px-3 py-1 mx-2 rounded hover:bg-blue-600"
-                                    onClick={editBoss}
-                                >
-                                    Edit Boss Info
-                                </button>
-                                <button
-                                    className="bg-purple-500 text-white text-sm px-3 py-1 rounded hover:bg-purple-600"
-                                    onClick={editBossGuide}
-                                >
-                                    Edit Boss Strategy Guide
-                                </button>
-                            </>
-                        }
-                    </div>
+                    {user && (
+                        <div className="text-right">
+                            <button
+                                onClick={toggleFav}
+                                className={`${isFavBoss ? 'bg-red-600' : 'bg-gray-600'} text-white text-sm px-3 py-1 mx-2 rounded`}
+                            >
+                                {isFavBoss ? "Remove from Favs" : "Add to Favs"}
+                            </button>
+
+                            {user?.isAdmin && (
+                                <>
+                                    <button
+                                        className="bg-blue-500 text-white text-sm px-3 py-1 mx-2 rounded hover:bg-blue-600"
+                                        onClick={editBoss}
+                                    >
+                                        Edit Boss Info
+                                    </button>
+                                    <button
+                                        className="bg-purple-500 text-white text-sm px-3 py-1 rounded hover:bg-purple-600"
+                                        onClick={editBossGuide}
+                                    >
+                                        Edit Boss Strategy Guide
+                                    </button>
+                                </>
+                            )}
+                        </div>
+                    )}
                 </h2>            <p className="mb-2"><b>Instance:</b></p>
                 <p className="mb-4">{boss.location}</p>
                 <img
@@ -113,7 +127,6 @@ export function BossBody({ boss }) {
                     ) : (
                         <p className="mt-2 text-gray-500">No normal guide available for this boss.</p>
                     )}
-
 
                     {/* Heroic Phases */}
                     {boss.guide && boss.guide.heroic && boss.guide.heroic.length > 0 ? (
