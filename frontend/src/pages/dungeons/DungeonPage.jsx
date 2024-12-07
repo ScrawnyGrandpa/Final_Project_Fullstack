@@ -50,7 +50,7 @@ export default function DungeonPage() {
 export function DungeonBody({ dungeon, dungeonBosses }) {
     const navigate = useNavigate();
     const { user } = useAuthentication();
-    const [isFavDungeon, setIsFavDungeon] = useState(user.likedDungeons.includes(dungeon._id));
+    const [isFavDungeon, setIsFavDungeon] = useState(user ? user.likedDungeons.includes(dungeon._id) : false);
 
     useEffect(() => {
         if (user && dungeon) {

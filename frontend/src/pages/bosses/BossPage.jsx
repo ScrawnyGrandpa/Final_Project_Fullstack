@@ -41,7 +41,7 @@ export default function BossPage() {
 export function BossBody({ boss }) {
     const navigate = useNavigate();
     const { user } = useAuthentication();
-    const [isFavBoss, setIsFavBoss] = useState(user.likedNPCs.includes(boss._id));
+    const [isFavBoss, setIsFavBoss] = useState(user ? user.likedNPCs.includes(boss._id) : false);
 
     useEffect(() => {
         if (user && boss) {
@@ -100,7 +100,7 @@ export function BossBody({ boss }) {
                 <img
                     src={boss.imageURL}
                     alt={boss.name}
-                    className="w-full h-[40vh] object-contain rounded-lg mb-4"
+                    className="w-full h-full object-contain rounded-lg mb-4"
                 />
                 <p className="mb-2"><b>Description:</b></p>
                 <p className="mb-4">{boss.description}</p>
