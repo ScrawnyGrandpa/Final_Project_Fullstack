@@ -1,6 +1,6 @@
 export const InitialBosses = [
     // Nerub'ar Palace
-    // Ulgrax
+    // Ulgrax ++
     {
         "wowheadID": "215657",
         "name": "Ulgrax the Devourer",

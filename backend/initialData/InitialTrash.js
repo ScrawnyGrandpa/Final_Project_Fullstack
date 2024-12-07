@@ -1,6 +1,6 @@
 export const InitialTrash = [
     // Nerub'ar Palace
-    //Ulgrax
+    //Ulgrax ++ 
     {
         "wowheadID": "216205",
         "name": "Ravenous Spawn",
