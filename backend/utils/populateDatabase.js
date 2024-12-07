@@ -9,6 +9,8 @@ import { InitialBosses } from "../initialData/initialBosses.js";
 import { InitialTrash } from "../initialData/initialTrash.js";
 import { InitialUsers } from "../initialData/initialUsers.js";
 import { generateUserPassword } from "./bcrypt.js";
+import { Dungeon } from "../models/dungeon/Dungeons.js";
+import { InitialDungoens } from "../initialData/initialDungeons.js";
 
 const getUpdatedDataFilePath = (dataType) => {
     const fileNameMap = {
@@ -59,6 +61,7 @@ const saveUpdatedData = async (updatedData, dataType) => {
             console.log(`Added new ${dataType.toLowerCase()} with ${identifier}: ${updatedData[identifier]}`);
         }
 
+        // Write data as an array of objects to the file
         fs.writeFileSync(updatedDataFilePath, JSON.stringify(existingData, null, 2), 'utf8');
         console.log(`Updated data saved to ${updatedDataFilePath}`);
     } catch (error) {
@@ -68,13 +71,20 @@ const saveUpdatedData = async (updatedData, dataType) => {
 
 // Populate Initial Data
 const populateInitialData = async () => {
-
     const existingBosses = await Boss.findOne({});
     if (!existingBosses) {
         await Boss.insertMany(InitialBosses);
         console.log("Initial Boss-data populated");
     } else {
         console.log("Initial Boss-data already exists");
+    };
+
+    const existingDungeons = await Dungeon.findOne({});
+    if (!existingDungeons) {
+        await Dungeon.insertMany(InitialDungoens);
+        console.log("Initial Dungeon-data populated");
+    } else {
+        console.log("Initial Dungeon-data already exists");
     };
 
     const existingTrash = await Trash.findOne({});
@@ -87,10 +97,10 @@ const populateInitialData = async () => {
 
     const existingUsers = await User.findOne({});
     if (!existingUsers) {
-
-        const newUsers = {
-            ...InitialUsers[0], password: generateUserPassword(InitialUsers[0].password)
-        };
+        const newUsers = InitialUsers.map(user => ({
+            ...user,
+            password: generateUserPassword(user.password)
+        }));
 
         await User.insertMany(newUsers);
         console.log("Initial Users-data populated");

@@ -1,10 +1,18 @@
 import { Dungeon } from "./Dungeons.js";
 import { createError } from "../../utils/handleErrors.js";
+import { saveUpdatedData } from "../../utils/populateDatabase.js";
 
 // create new Dungeon
 const createDungeon = async (data) => {
     try {
-        return await new Dungeon(data).save();
+        const existingDungeon = await Dungeon.findOne({ wowheadID: data.wowheadID });
+        if (existingDungeon) {
+            throw new Error(`Dungeon with wowheadID ${data.wowheadID} already exists.`);
+        }
+
+        const newDungeon = await new Dungeon(data).save();
+        await saveUpdatedData(newDungeon, 'Dungeons');
+        return newDungeon;
     } catch (e) {
         return createError("Mongoose", e);
     }
@@ -28,29 +36,13 @@ const readDungeon = async (id) => {
     }
 };
 
-// update Dungeon whole or some params
+// Update Dungeon whole or some params
 const updateDungeon = async (id, data) => {
     try {
         const updatedDungeon = await Dungeon.findByIdAndUpdate(id, data, { new: true, runValidators: true }).lean();
 
-        if (!updatedDungeon) {
-            throw new Error('Dungeon not found');
-        }
-
-        if (updatedDungeon.guide) {
-            if (updatedDungeon.guide.normal) {
-                updatedDungeon.guide.normal = updatedDungeon.guide.normal.map(item => {
-                    const { _id, ...rest } = item;
-                    return rest;
-                });
-            }
-
-            if (updatedDungeon.guide.heroic) {
-                updatedDungeon.guide.heroic = updatedDungeon.guide.heroic.map(item => {
-                    const { _id, ...rest } = item;
-                    return rest;
-                });
-            }
+        if (updatedDungeon) {
+            await saveUpdatedData(updatedDungeon, 'Dungeons');
         }
 
         return updatedDungeon;
@@ -59,40 +51,21 @@ const updateDungeon = async (id, data) => {
     }
 };
 
-// update Dungeon param
+// Update Dungeon param
 const patchDungeon = async (id, data) => {
     try {
-        const updatedDungeon = await Dungeon.findByIdAndUpdate(id, data, {
-            new: true,
-            runValidators: true,
-            overwrite: false,
-        }).lean();
+        const updatedDungeon = await Dungeon.findByIdAndUpdate(id, data, { new: true, runValidators: true, overwrite: false }).lean();
 
-        if (!updatedDungeon) {
-            throw new Error("Dungeon not found");
+        if (updatedDungeon) {
+            await saveUpdatedData(updatedDungeon, 'Dungeons');
         }
 
-        if (updatedDungeon.guide) {
-            if (updatedDungeon.guide.normal) {
-                updatedDungeon.guide.normal = updatedDungeon.guide.normal.map(item => {
-                    const { _id, ...rest } = item;
-                    return rest;
-                });
-            }
-
-            if (updatedDungeon.guide.heroic) {
-                updatedDungeon.guide.heroic = updatedDungeon.guide.heroic.map(item => {
-                    const { _id, ...rest } = item;
-                    return rest;
-                });
-            }
-        }
         return updatedDungeon;
-
     } catch (e) {
         return createError("Mongoose", e);
     }
 };
+
 
 // delete Dungeon
 const deleteDungeon = async (id) => {

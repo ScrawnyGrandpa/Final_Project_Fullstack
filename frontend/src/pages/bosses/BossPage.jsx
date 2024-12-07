@@ -95,12 +95,13 @@ export function BossBody({ boss }) {
                             )}
                         </div>
                     )}
-                </h2>            <p className="mb-2"><b>Instance:</b></p>
+                </h2>
+                <p className="mb-2"><b>Instance:</b></p>
                 <p className="mb-4">{boss.location}</p>
                 <img
                     src={boss.imageURL}
                     alt={boss.name}
-                    className="w-full h-full object-contain rounded-lg mb-4"
+                    className="w-full object-contain rounded-lg mb-4"
                 />
                 <p className="mb-2"><b>Description:</b></p>
                 <p className="mb-4">{boss.description}</p>

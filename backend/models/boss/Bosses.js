@@ -23,7 +23,7 @@ const bossSchema = new mongoose.Schema({
                 },
                 description: {
                     type: String,
-                    minlength: 2,
+                    minlength: 0,
                     maxlength: 7000,
                     trim: true,
                     default: '',
@@ -38,7 +38,7 @@ const bossSchema = new mongoose.Schema({
                 },
                 description: {
                     type: String,
-                    minlength: 2,
+                    minlength: 0,
                     maxlength: 7000,
                     trim: true,
                     default: '',
