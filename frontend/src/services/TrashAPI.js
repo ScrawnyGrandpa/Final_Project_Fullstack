@@ -1,5 +1,5 @@
 import API from "./API";
 
 export default class TrashAPI extends API {
-    static apiUrl = "https://final-project-fullstack-1.onrender.com/trash";
+    static apiUrl = "http://localhost:3000/trash";
 }
