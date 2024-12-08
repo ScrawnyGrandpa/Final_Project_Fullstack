@@ -76,19 +76,19 @@ export default function GuideForm({ boss, initialGuide }) {
                             placeholder="Phase Name"
                             value={phase.phase}
                             onChange={(e) => handlePhaseChange("normal", index, "phase", e.target.value)}
-                            className="border border-gray-300 p-3 rounded-sm text-black bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="border border-cyan-700 p-2 w-full text-white rounded bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                         <textarea
                             placeholder="Description"
                             value={phase.description}
                             onChange={(e) => handlePhaseChange("normal", index, "description", e.target.value)}
-                            className="border border-gray-300 p-3 rounded-sm text-black bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="border border-cyan-700 p-2 w-full text-white rounded bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
                             rows={4}
                         />
                         <button
                             type="button"
                             onClick={() => removePhase("normal", index)}
-                            className="bg-red-500 text-white py-2 px-4 rounded-sm"
+                            className="bg-red-800 text-white py-2 px-4 rounded-sm"
                         >
                             Remove Phase
                         </button>
@@ -97,7 +97,7 @@ export default function GuideForm({ boss, initialGuide }) {
                 <button
                     type="button"
                     onClick={() => addPhase("normal")}
-                    className="bg-green-500 text-white py-2 px-4 rounded-sm"
+                    className="bg-blue-500 text-white py-2 px-4 rounded-sm"
                 >
                     + Add Normal Phase
                 </button>
@@ -115,19 +115,19 @@ export default function GuideForm({ boss, initialGuide }) {
                             placeholder="Phase Name"
                             value={phase.phase}
                             onChange={(e) => handlePhaseChange("heroic", index, "phase", e.target.value)}
-                            className="border border-gray-300 p-3 rounded-sm text-black bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="border border-cyan-700 p-2 w-full text-white rounded bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                         <textarea
                             placeholder="Description"
                             value={phase.description}
                             onChange={(e) => handlePhaseChange("heroic", index, "description", e.target.value)}
-                            className="border border-gray-300 p-3 rounded-sm text-black bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="border border-cyan-700 p-2 w-full text-white rounded bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"
                             rows={4}
                         />
                         <button
                             type="button"
                             onClick={() => removePhase("heroic", index)}
-                            className="bg-red-500 text-white py-2 px-4 rounded-sm"
+                            className="bg-red-600 text-white py-2 px-4 rounded-sm"
                         >
                             Remove Phase
                         </button>
@@ -136,7 +136,7 @@ export default function GuideForm({ boss, initialGuide }) {
                 <button
                     type="button"
                     onClick={() => addPhase("heroic")}
-                    className="bg-green-500 text-white py-2 px-4 rounded-sm"
+                    className="bg-blue-500 text-white py-2 px-4 rounded-sm"
                 >
                     + Add Heroic Phase
                 </button>
@@ -145,15 +145,8 @@ export default function GuideForm({ boss, initialGuide }) {
             <div className="flex justify-between mt-6">
                 <button
                     type="button"
-                    onClick={handleReset}
-                    className="bg-gray-500 text-white py-2 px-6 rounded-sm"
-                >
-                    Reset
-                </button>
-                <button
-                    type="button"
                     onClick={onSubmit}
-                    className="bg-blue-500 text-white py-2 px-6 rounded-sm"
+                    className="bg-green-500 text-white py-2 px-6 rounded-sm"
                 >
                     Save Guide
                 </button>

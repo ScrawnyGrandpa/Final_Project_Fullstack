@@ -45,7 +45,7 @@ export function AccountMenu() {
                 <img
                     src={user.avatarImgURL || "https://cdn.pixabay.com/photo/2016/04/20/08/21/entrepreneur-1340649_960_720.jpg"}
                     alt="User Avatar"
-                    className="w-10 h-10 rounded-full object-cover"
+                    className="w-10 h-10 rounded-full object-cover border-[2px] border-cyan-600"
                 />
             </button>
 
