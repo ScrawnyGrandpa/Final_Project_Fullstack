@@ -81,4 +81,21 @@ export default class UserModel extends Model {
         }
         return this.save();
     }
+
+    beforeSubmit({
+        _id = "",
+        firstName = "",
+        lastName = "",
+        nickName = "",
+        avatarImgURL = "",
+        avatarImgALT = "",
+    }) {
+        this._id = _id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.nickName = nickName;
+        this.avatarImgURL = avatarImgURL;
+        this.avatarImgALT = avatarImgALT;
+        return this;
+    }
 }

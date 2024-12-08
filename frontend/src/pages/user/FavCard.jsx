@@ -14,7 +14,6 @@ export default function FavCard({ object }) {
                 to={object.skills ? `/boss/${object._id}` : `/dungeon/${object._id}`}
                 className="relative flex flex-col justify-between h-full"
             >
-                {/* Fixed aspect ratio container */}
                 <div className="relative w-full h-0 pb-[60%] overflow-hidden rounded">
                     <img
                         src={object.imageURL}
@@ -23,8 +22,6 @@ export default function FavCard({ object }) {
                         style={imageStyle}
                     />
                 </div>
-
-                {/* Name label */}
                 <h3 className="absolute text-white text-center bg-black bg-opacity-50 p-2 rounded bottom-0 w-full flex items-center justify-center">
                     {object.name}
                 </h3>

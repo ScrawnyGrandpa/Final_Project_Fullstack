@@ -34,7 +34,7 @@ export default function Footer() {
                 {/* Bottom Section */}
                 <div className="absolute bottom-14 left-0 right-0 text-center text-xs text-gray-400 py-4">
                     <p>© 2024 All Rights Reserved | ScrawnyGrandpa Guides</p>
-                    <p>Do not share any personal info on this site.</p>
+                    <p>Do not share any sensitive info on this site.</p>
                 </div>
                 <div className="border-t border-gray-700 mt-8 pt-4 text-center text-gray-400 text-sm">
                     <p>Made with ❤️ by ScrawnyGrandpa Guides</p>

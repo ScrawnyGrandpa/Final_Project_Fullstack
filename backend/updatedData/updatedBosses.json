@@ -456,5 +456,48 @@
       ]
     },
     "__v": 0
+  },
+  {
+    "_id": "67544f0a8b2653fc4b25f8c1",
+    "wowheadID": "214502",
+    "name": "The Bloodbound Horror",
+    "description": "In the dark pits below Nerub-ar Palace, the blood of the Old Gods congeals in foul, black pools. The Bloodbound Horror rises from this vile ooze - drawing everything in its path into The Unseeming.",
+    "location": "Nerub'ar Palace",
+    "instanceType": "Raid",
+    "imageURL": "https://bnetcmsus-a.akamaihd.net/cms/content_entry_media/C9HU17NR1ENL1725495744094.jpg",
+    "imageALT": "The Bloodbound Horror",
+    "phases": 1,
+    "skills": [
+      "462306",
+      "444363",
+      "442530",
+      "445174",
+      "443042",
+      "445936",
+      "445016",
+      "443203",
+      "451288",
+      "445257",
+      "445570",
+      "452237",
+      "452313",
+      "442987",
+      "442604",
+      "461876",
+      "443305",
+      "443061",
+      "438696",
+      "438679"
+    ],
+    "guide": {
+      "normal": [
+        {
+          "phase": "Phase 1",
+          "description": "The Bloodhound Horror fight consists of a single phase fight with two parallel realms. \nBegin the fight by splitting into two preferably even groups with each group having a tank, a healer and half the DPS. A few seconds after the fight begins The Bloodhound Horror will cast a frontal cone on the currently active tank.\n\n* [444363] - The Bloodhound Horror will cast a frontal cone on the currently active tank which does damage and applies a 40 seconds debuff on the tank and everyone who stood in the frontal. The players affected by the debuff will then be phased into [462306] for its entire duration. Tanks swap after this ability was cast.\n\n* While in [462306], players will be able to see and attack the adds that the boss spawns. The adds are:\n-- {221667} - Which casts [451288] that shields the boss for a large amount of damage and needs to be interrupted. And casts [445016] on the current highest threat target inflicting a large amount of single target damage. This add needs to be tanked!\n-- {221945} - This add is stationary and all it does is cast [445174] which summons {221986}'s that slowly move towards the boss, and if they reach the boss, they will explode moderate for raid wide damage. These adds need to be killed before reaching the boss, and both {221945}'s need to be killed before the players debuff runs out and they leave the [462306]. All adds that did not die during the debuff phase, will continue casting their abilities until the next group of players enters [462306].\n\n* In the meantime players that are in the normal realm and not affected by [444363] continue fighting the boss as before while some players will be targeted by [443042] which is 12 seconds debuff that causes tentacles to spawn under the player to impale them for a moderate amount of damage. The tentacles spring out after 3 seconds from the moment a dark patch spawned under the player therefor simply move out and continue moving out of the dark patches until the debuff runs out. Please be mindful of other players you might hit with your debuff spawns.\n\n* Occasionally The Bloodhound Horror will cast [443305] which coats the player with blood and causes them to have a heal-absord which needs to be healed through.\n\nOnce The Bloodhound Horror reaches 100% energy, it will cast [442530] which appears like an expanding circle from the boss. Simply move out to the back of the boss platform and wait for the cast to be over. At the end of it, all players within it will receive a huge amount of damage and a debuff which will continue ticking for moderate amounts of damage. And all players who were within a safe distance will receive a debuff that will deal a small amount of overtime damage that needs to be healed through."
+        }
+      ],
+      "heroic": []
+    },
+    "__v": 0
   }
 ]

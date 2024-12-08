@@ -88,18 +88,6 @@ export default function Form({
                 </button>
 
                 <button
-                    type="button"
-                    onClick={() => {
-                        setErrors({});
-                        setData(defaultValue);
-                        if (onReset) onReset();
-                    }}
-                    className="bg-red-500 text-white py-2 px-4 rounded"
-                >
-                    Reset
-                </button>
-
-                <button
                     type="submit"
                     className={`bg-blue-500 text-white py-2 px-4 rounded ${!isValid ? 'opacity-50 cursor-not-allowed' : ''}`}
                     disabled={!isValid}
