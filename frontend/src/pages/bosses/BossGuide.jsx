@@ -80,10 +80,8 @@ export default function BossGuide() {
 
     return (
         user.isAdmin && (<div className="container mx-auto px-4 max-w-4xl bg-[#202020] rounded-sm min-w-[70vw]">
-            {/* Render the guide form for admin editing */}
             <GuideForm boss={boss} initialGuide={boss.guide} submitGuide={submitGuide} />
             <div className="mx-3">
-                {/* Drag-and-drop for normal phases */}
                 <h3 className="text-cyan-300 text-xl font-bold mb-4">Normal Phases</h3>
 
                 <DragDropContext onDragEnd={(result) => handleDragEnd(result, "normal")}>
@@ -120,7 +118,6 @@ export default function BossGuide() {
                     </Droppable>
                 </DragDropContext>
 
-                {/* Drag-and-drop for heroic phases */}
                 <h3 className="text-cyan-300 text-xl font-bold mb-4">Heroic Phases</h3>
                 <DragDropContext onDragEnd={(result) => handleDragEnd(result, "heroic")}>
                     <Droppable droppableId="heroic-phases">

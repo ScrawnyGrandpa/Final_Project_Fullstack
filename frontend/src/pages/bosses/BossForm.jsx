@@ -47,11 +47,28 @@ export default function BossForm() {
 
     useLoadEffect(onBossLoaded, [id]);
 
+    const goBack = () => {
+        boss._id ?
+            navigate(`${ROUTES.BOSS_INFO}/${boss._id}`) :
+            navigate(`${ROUTES.ROOT}`)
+    }
+
     return (
         <PageContent>
             {boss ? (
                 <div className="max-w-3xl mx-auto p-5 md:w-[95vw]">
-                    <h1 className="text-left text-2xl font-bold mb-5">Boss Page</h1>
+                    <h1 className="text-2xl font-bold mb-4 flex justify-between items-center">
+                        {boss.name}
+                        <div className="text-right">
+                            <button
+                                type="button"
+                                onClick={goBack}
+                                className="bg-gray-800 text-white text-sm px-3 py-1 mx-2 rounded hover:bg-blue-600"
+                            >
+                                Back
+                            </button>
+                        </div>
+                    </h1>
                     <div className="flex flex-col gap-5">
                         <div className="flex-1">
                             {/* Form Component */}

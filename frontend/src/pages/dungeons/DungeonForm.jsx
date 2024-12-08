@@ -47,11 +47,28 @@ export default function DungeonForm() {
 
     useLoadEffect(onDungeonLoaded, [id]);
 
+    const goBack = () => {
+        dungeon._id ?
+            navigate(`${ROUTES.DUNGEON_INFO}/${dungeon._id}`) :
+            navigate(`${ROUTES.ROOT}`)
+    };
+
     return (
         <PageContent>
             {dungeon ? (
                 <div className="max-w-3xl mx-auto p-5 md:w-[95vw]">
-                    <h1 className="text-left text-2xl font-bold mb-5">Dungeon Page</h1>
+                    <h1 className="text-2xl font-bold mb-4 flex justify-between items-center">
+                        {dungeon.name}
+                        <div className="text-right">
+                            <button
+                                type="button"
+                                onClick={goBack}
+                                className="bg-gray-800 text-white text-sm px-3 py-1 mx-2 rounded hover:bg-blue-600"
+                            >
+                                Back
+                            </button>
+                        </div>
+                    </h1>
                     <div className="flex flex-col gap-5">
                         <div className="flex-1">
                             {/* Form Component */}

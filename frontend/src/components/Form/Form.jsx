@@ -60,7 +60,7 @@ export default function Form({
                     type={type === "number" ? "number" : "text"}
                     value={data[fieldName] || ""}
                     required={required}
-                    className={`border border-gray-300 p-2 w-full text-black bg-gray-100 ${errors[fieldName] ? 'border-red-500' : ''}`}
+                    className={`border border-cyan-700 p-2 w-full text-white rounded bg-gray-800 ${errors[fieldName] ? 'border-red-500' : ''}`}
                     onChange={e => onChange(fieldName, e.target.value)}
                 />
                 {errors[fieldName] && (
