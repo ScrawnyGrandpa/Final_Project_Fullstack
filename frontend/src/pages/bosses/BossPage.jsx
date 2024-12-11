@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import BossModel from "../../models/BossModel";
 import PageContent from "../../components/layout/PageContent";
-import { useErrorCallback, useLoadEffect } from "../../providers/PageUIProvider";
+import { useErrorCallback, useLoadEffect, usePageUI } from "../../providers/PageUIProvider";
 import { SPELL, NPC } from "../../utils/wowheadLinks";
 import { ROUTES } from "../../router";
 import { useAuthentication } from "../../providers/AuthenticationProvider";
@@ -41,6 +41,7 @@ export default function BossPage() {
 export function BossBody({ boss }) {
     const navigate = useNavigate();
     const { user } = useAuthentication();
+    const { setNotification } = usePageUI();
     const [isFavBoss, setIsFavBoss] = useState(user ? user.likedNPCs.includes(boss._id) : false);
 
     useEffect(() => {
@@ -53,6 +54,9 @@ export function BossBody({ boss }) {
     const toggleFav = useErrorCallback(async () => {
         const updatedUser = await user.toggleLikeNPCs(boss._id);
         setIsFavBoss(updatedUser.likedNPCs.includes(boss._id));
+
+        !isFavBoss ? setNotification({ message: "Boss added to favorites", severity: "success" }) :
+            setNotification({ message: "Boss removed from favorites", severity: "error" })
     }, [boss, isFavBoss]);
 
     const editBoss = () => {

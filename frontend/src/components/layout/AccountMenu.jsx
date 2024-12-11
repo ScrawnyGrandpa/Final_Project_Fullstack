@@ -4,6 +4,7 @@ import { Settings, Logout } from '@mui/icons-material';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import { useAuthentication } from '../../providers/AuthenticationProvider';
 import { ROUTES } from '../../router';
+import { accMenuButton } from '../../utils/tailwindStylesHelper';
 
 export function AccountMenu() {
     const anchor = useRef(null);
@@ -48,16 +49,14 @@ export function AccountMenu() {
                     className="w-10 h-10 rounded-full object-cover border-[2px] border-cyan-600"
                 />
             </button>
-
-            {/* Menu dropdown */}
             {isOpen && (
                 <div
                     className="absolute mt-2 w-50 bg-[#212930] shadow-lg rounded-sm z-50"
                     style={{
                         top: (anchor.current?.getBoundingClientRect().bottom || 0),
-                        left: (anchor.current?.getBoundingClientRect().left || 0) - 140, // Subtract 200px from the left position
+                        left: (anchor.current?.getBoundingClientRect().left || 0) - 150,
                     }}
-                    onClick={closeMenu} // Close when clicked inside
+                    onClick={closeMenu}
                 >
                     <div className="p-3 flex items-center space-x-2">
                         <img
@@ -70,21 +69,21 @@ export function AccountMenu() {
                     <hr className="border-t border-gray-200" />
                     {user.isAdmin && <button
                         onClick={adminPortal}
-                        className="flex items-center p-3 text-white hover:bg-gray-700 w-full text-left"
+                        className={accMenuButton}
                     >
                         <AdminPanelSettingsIcon fontSize="small" className="mr-2" />
                         Admin Portal
                     </button>}
                     <button
                         onClick={userProfile}
-                        className="flex items-center p-3 text-white hover:bg-gray-700 w-full text-left"
+                        className={accMenuButton}
                     >
                         <Settings fontSize="small" className="mr-2" />
                         User Profile
                     </button>
                     <button
                         onClick={logout}
-                        className="flex items-center p-3 text-white hover:bg-gray-700 w-full text-left"
+                        className={accMenuButton}
                     >
                         <Logout fontSize="small" className="mr-2" />
                         Logout

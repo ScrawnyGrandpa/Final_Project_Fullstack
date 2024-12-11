@@ -4,6 +4,7 @@ import RaidComponent from './raids/RaidComponent';
 import DungeonModel from '../models/DungeonModel';
 import { s1DungeonsList, twwDungeonsList } from '../utils/dungeonLists';
 import DungeonComponent from './dungeons/DungeonComponent';
+import { usePageUI } from '../providers/PageUIProvider';
 
 export default function HomePage() {
     const [bosses, setBosses] = useState([]);
@@ -13,6 +14,8 @@ export default function HomePage() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [location, setLocation] = useState("Nerub'ar Palace");
+    const { setNotification } = usePageUI();
+
 
     const fetchBosses = async () => {
         try {
@@ -52,6 +55,7 @@ export default function HomePage() {
     useEffect(() => {
         fetchBosses();
         fetchDungeons();
+        setNotification({ message: "Homepage Loaded", severity: "success" });
     }, []);
 
     useEffect(() => {

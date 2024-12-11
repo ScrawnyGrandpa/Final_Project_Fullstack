@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
-import { useLoadCallback, useLoadEffect } from "../../providers/PageUIProvider";
+import { useLoadCallback, useLoadEffect, usePageUI } from "../../providers/PageUIProvider";
 import { ROUTES } from "../../router";
 import PageContent from "../../components/layout/PageContent";
 import DungeonModel from "../../models/DungeonModel";
@@ -12,6 +12,7 @@ export default function DungeonForm() {
     const [defaultValue, setDefaultValue] = useState({});
     const [initialData, setInitialData] = useState(null);
     const { id } = useParams();
+    const { setNotification } = usePageUI();
     const schema = useMemo(() => new DungeonSchema(), []);
     const navigate = useNavigate();
 
@@ -42,6 +43,8 @@ export default function DungeonForm() {
         console.log("Dungeon complete data", completeData);
 
         await updatedDungeon.save();
+        setNotification({ message: "Dungeon profile updated", severity: "success" });
+
         navigate(`${ROUTES.DUNGEON_INFO}/${updatedDungeon._id}`);
     }, [id, dungeon]);
 

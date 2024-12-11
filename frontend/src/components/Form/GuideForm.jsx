@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useLoadCallback } from "../../providers/PageUIProvider";
+import { useLoadCallback, usePageUI } from "../../providers/PageUIProvider";
 import BossModel from "../../models/BossModel";
 import { ROUTES } from "../../router";
 
 export default function GuideForm({ boss, initialGuide }) {
     const [guide, setGuide] = useState(initialGuide || { normal: [], heroic: [] });
     const [initialBossData, setInitialBossData] = useState(null);
+    const { setNotification } = usePageUI();
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -32,10 +33,6 @@ export default function GuideForm({ boss, initialGuide }) {
         setGuide(newGuide);
     };
 
-    const handleReset = () => {
-        setGuide({ normal: [{ phase: "", description: "" }], heroic: [{ phase: "", description: "" }] });
-    };
-
     const goBack = () => {
         navigate(`${ROUTES.BOSS_INFO}/${boss._id}`);
     }
@@ -44,10 +41,8 @@ export default function GuideForm({ boss, initialGuide }) {
         const guideData = guide;
         const completeData = { ...initialBossData, guideData };
         const updatedBoss = new BossModel(completeData);
-        console.log("Submitting form with guide data", completeData);
-
-
         await updatedBoss.save();
+        setNotification({ message: "Boss guide updated", severity: "success" })
     }, [guide, boss]);
 
     return (

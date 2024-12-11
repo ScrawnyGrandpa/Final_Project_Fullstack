@@ -10,3 +10,6 @@ export const dungeonContainer = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 
 // NavBar Links [regular]
 export const navLinkStyle = "pr-2 pl-2 text-md font-medium hover:bg-gray-700 px-3 py-2 rounded-sm";
 export const dungeonLinkStyle = "block px-4 py-2 text-sm hover:bg-gray-700 border-t-2";
+
+// Account Menu
+export const accMenuButton = "flex items-center p-3 text-white hover:bg-gray-700 w-full text-left";

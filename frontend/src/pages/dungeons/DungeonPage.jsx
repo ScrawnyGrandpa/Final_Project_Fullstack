@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import DungeonModel from "../../models/DungeonModel";
 import PageContent from "../../components/layout/PageContent";
-import { useErrorCallback, useLoadEffect } from "../../providers/PageUIProvider";
+import { useErrorCallback, useLoadEffect, usePageUI } from "../../providers/PageUIProvider";
 import { SPELL, NPC } from "../../utils/wowheadLinks";
 import { ROUTES } from "../../router";
 import { useAuthentication } from "../../providers/AuthenticationProvider";
@@ -50,6 +50,7 @@ export default function DungeonPage() {
 export function DungeonBody({ dungeon, dungeonBosses }) {
     const navigate = useNavigate();
     const { user } = useAuthentication();
+    const { setNotification } = usePageUI();
     const [isFavDungeon, setIsFavDungeon] = useState(user ? user.likedDungeons.includes(dungeon._id) : false);
 
     useEffect(() => {
@@ -61,6 +62,9 @@ export function DungeonBody({ dungeon, dungeonBosses }) {
     const toggleFav = useErrorCallback(async () => {
         const updatedUser = await user.toggleLikeDungeon(dungeon._id);
         setIsFavDungeon(updatedUser.likedDungeons.includes(dungeon._id));
+
+        !isFavDungeon ? setNotification({ message: "Dungeon added to favorites", severity: "success" }) :
+            setNotification({ message: "Dungeon removed from favorites", severity: "error" })
     }, [dungeon, isFavDungeon]);
 
     const editDungeon = () => {

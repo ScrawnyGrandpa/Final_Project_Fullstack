@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useLoadEffect } from '../../providers/PageUIProvider';
+import { useLoadEffect, usePageUI } from '../../providers/PageUIProvider';
 import BossModel from '../../models/BossModel';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
@@ -15,6 +15,7 @@ export default function BossGuide() {
     const [loading, setLoading] = useState(true);
     const { id } = useParams();
     const { user } = useAuthentication();
+    const { setNotification } = usePageUI();
     const [orderedNormalPhases, setOrderedNormalPhases] = useState([]);
     const [orderedHeroicPhases, setOrderedHeroicPhases] = useState([]);
     const navigate = useNavigate();
@@ -65,10 +66,8 @@ export default function BossGuide() {
             ...boss,
             guide: { normal: orderedNormalPhases, heroic: orderedHeroicPhases }
         });
-
-        console.log("Submitting form with updated guide data", updatedBoss);
-
         await updatedBoss.save();
+        setNotification({ message: "Boss guide updated", severity: "success" });
         setNewAddition(true);
     };
 

@@ -1,17 +1,18 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
-import { useLoadCallback, useLoadEffect } from "../../providers/PageUIProvider";
+import React, { useCallback, useMemo, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useLoadCallback, useLoadEffect, usePageUI } from "../../providers/PageUIProvider";
 import { ROUTES } from "../../router";
-import PageContent from "../../components/layout/PageContent";
 import BossModel from "../../models/BossModel";
 import BossSchema from "../../schema/BossSchema";
-import Form from "../../components/Form/Form"; // Using the new Form component
+import Form from "../../components/Form/Form";
+import PageContent from "../../components/layout/PageContent";
 
 export default function BossForm() {
     const [boss, setBoss] = useState(null);
     const [defaultValue, setDefaultValue] = useState({});
     const [initialData, setInitialData] = useState(null);
     const { id } = useParams();
+    const { setNotification } = usePageUI();
     const schema = useMemo(() => new BossSchema(), []);
     const navigate = useNavigate();
 
@@ -39,9 +40,9 @@ export default function BossForm() {
         const completeData = { ...data };
 
         const updatedBoss = new BossModel(completeData);
-        console.log("boss complete data", completeData);
-
         await updatedBoss.save();
+        setNotification({ message: "Boss profile updated", severity: "success" });
+
         navigate(`${ROUTES.BOSS_INFO}/${updatedBoss._id}`);
     }, [id, boss]);
 
