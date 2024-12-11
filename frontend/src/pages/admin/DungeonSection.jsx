@@ -3,7 +3,6 @@ import InputButton from './InputButton';
 
 export default function DungeonSection({
     editDungeon, setEditDungeon,
-    editDungeonStrategy, setEditDungeonStrategy,
     deleteDungeon, setDeleteDungeon,
     handleCreateDungeon, handleEditDungeon, handleEditDungeonStrategy, handleDeleteDungeon
 }) {
@@ -22,15 +21,6 @@ export default function DungeonSection({
                 buttonLabel="Edit Dungeon Info"
                 handleButtonClick={handleEditDungeon}
                 placeholder="Dungeon ID"
-            />
-
-            <InputButton
-                label="Edit Dungeon Strategy Guide"
-                inputValue={editDungeonStrategy}
-                setInputValue={setEditDungeonStrategy}
-                buttonLabel="Edit Dungeon Strategy Guide"
-                handleButtonClick={handleEditDungeonStrategy}
-                placeholder="Dungeon Strategy ID"
             />
 
             <InputButton

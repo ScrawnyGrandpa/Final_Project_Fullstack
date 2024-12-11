@@ -54,8 +54,8 @@ export function AccountMenu() {
                 <div
                     className="absolute mt-2 w-50 bg-[#212930] shadow-lg rounded-sm z-50"
                     style={{
-                        top: (anchor.current?.getBoundingClientRect().bottom || 0) + 20,
-                        left: (anchor.current?.getBoundingClientRect().left || 0) - 150, // Subtract 200px from the left position
+                        top: (anchor.current?.getBoundingClientRect().bottom || 0),
+                        left: (anchor.current?.getBoundingClientRect().left || 0) - 140, // Subtract 200px from the left position
                     }}
                     onClick={closeMenu} // Close when clicked inside
                 >

@@ -2,12 +2,11 @@ import React from 'react';
 import { FaEnvelope, FaPhoneAlt, FaLinkedin, FaGithub } from 'react-icons/fa';
 
 export default function Footer() {
-
     return (
         <footer className="bg-[#1a1b1b] text-gray-500 pt-16 pb-6 relative">
             <div className="max-w-7xl mx-auto px-4">
                 <div className="flex flex-col sm:flex-row justify-evenly gap-8 py-10">
-                    <div className="flex flex-row space-x-8 pb-6">
+                    <div className="flex flex-col sm:flex-row gap-8 pb-6">
                         <div className="flex items-center space-x-2">
                             <FaEnvelope className="text-cyan-300" />
                             <a href="mailto:nastia1989@gmail.com" className="hover:text-cyan-300">nastia1989@gmail.com</a>

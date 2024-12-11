@@ -12,7 +12,6 @@ import LoginPage from "./pages/user/LoginPage";
 import CRM from "./pages/admin/CRM";
 import DungeonPage from "./pages/dungeons/DungeonPage";
 import DungeonForm from "./pages/dungeons/DungeonForm";
-import DungeonGuide from "./pages/dungeons/DungeonGuide";
 import FavoriteItems from "./pages/user/FavoriteItems";
 import UserProfile from "./pages/user/UserProfile";
 import ErrorPage from "./pages/ErrorPage";
@@ -29,7 +28,6 @@ export const ROUTES = {
     DUNGEON_INFO: "/dungeon",
     DUNGEON_CREATE: "/create-dungeon",
     DUNGEON_FORM: "/dungeon-form",
-    DUNGEON_GUIDE: "/dungeon-guide",
     NERUBAR: "/raids/nerubar",
     TWWDUNGEONS: "/tww-dungeons",
     S1DUNGEONS: "/s1-dungeonss",
@@ -56,7 +54,6 @@ export default function Router() {
             <Route path={ROUTES.DUNGEON_INFO + "/:id"} element={<DungeonPage />} />
             <Route path={ROUTES.DUNGEON_CREATE} element={<DungeonForm />} />
             <Route path={ROUTES.DUNGEON_FORM + "/:id"} element={<DungeonForm />} />
-            <Route path={ROUTES.DUNGEON_GUIDE + "/:id"} element={<DungeonGuide />} />
             <Route path={ROUTES.SIGNUP} element={<RegisterPage />} />
             <Route path={ROUTES.LOGIN} element={<LoginPage />} />
             <Route path={ROUTES.FAVORITES} element={<FavoriteItems />} />

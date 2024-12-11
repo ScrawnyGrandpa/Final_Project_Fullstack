@@ -14,7 +14,6 @@ export default function CRM() {
     const [editStrategy, setEditStrategy] = useState('');
     const [deleteBoss, setDeleteBoss] = useState('');
     const [editDungeon, setEditDungeon] = useState('');
-    const [editDungeonStrategy, setEditDungeonStrategy] = useState('');
     const [deleteDungeon, setDeleteDungeon] = useState('');
 
     useEffect(() => {
@@ -23,6 +22,7 @@ export default function CRM() {
 
     // Boss
     const handleCreateBoss = () => navigate(`${ROUTES.BOSS_CREATE}`);
+
     const handleEditBoss = () => {
         try {
             if (!editBoss.trim()) {
@@ -63,6 +63,7 @@ export default function CRM() {
 
     // Dungeon
     const handleCreateDungeon = () => navigate(`${ROUTES.DUNGEON_CREATE}`);
+
     const handleEditDungeon = () => {
         try {
             if (!editDungeon.trim()) {
@@ -72,18 +73,6 @@ export default function CRM() {
             navigate(`${ROUTES.DUNGEON_FORM}/${editDungeon}`);
         } catch (error) {
             alert("An error occurred while trying to edit the dungeon.");
-        }
-    };
-
-    const handleEditDungeonStrategy = () => {
-        try {
-            if (!editDungeonStrategy.trim()) {
-                alert("Please provide a valid dungeon strategy ID.");
-                return;
-            }
-            navigate(`${ROUTES.DUNGEON_GUIDE}/${editDungeonStrategy}`);
-        } catch (error) {
-            alert("An error occurred while trying to edit the dungeon strategy.");
         }
     };
 
@@ -118,10 +107,9 @@ export default function CRM() {
                 {/* Dungeon Section */}
                 <DungeonSection
                     editDungeon={editDungeon} setEditDungeon={setEditDungeon}
-                    editDungeonStrategy={editDungeonStrategy} setEditDungeonStrategy={setEditDungeonStrategy}
                     deleteDungeon={deleteDungeon} setDeleteDungeon={setDeleteDungeon}
                     handleCreateDungeon={handleCreateDungeon} handleEditDungeon={handleEditDungeon}
-                    handleEditDungeonStrategy={handleEditDungeonStrategy} handleDeleteDungeon={handleDeleteDungeon}
+                    handleDeleteDungeon={handleDeleteDungeon}
                 />
             </div>
         )

@@ -1,15 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-const classStyle = "relative flex items-center justify-center min-h-[150px] border border-[#212930] transition-transform duration-300 ease-in-out transform scale-100 hover:scale-[1.04] hover:border-blue-500 rounded-sm opacity-80 hover:opacity-100"
+import { classStyleDungeon, dungeonContainer, nameTagStyle } from '../../utils/tailwindStylesHelper';
 
 export default function DungeonComponent({ dungeons }) {
     return (
         <div className="bg-[#000000] mb-7 p-3 rounded">
             {dungeons.length > 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-2">
+                <div className={dungeonContainer}>
                     {dungeons.map((dungeon) => (
-                        <Link key={dungeon._id} to={`/dungeon/${dungeon._id}`} className={classStyle}>
+                        <Link key={dungeon._id} to={`/dungeon/${dungeon._id}`} className={classStyleDungeon}>
                             <div className="relative w-full overflow-hidden h-full">
                                 <img
                                     src={dungeon.imageURL}
@@ -21,7 +20,7 @@ export default function DungeonComponent({ dungeons }) {
                                     }}
                                 />
                             </div>
-                            <h3 className="absolute text-white text-center bg-black bg-opacity-50 p-2 rounded bottom-0 w-full h-1/5 flex items-center justify-center">
+                            <h3 className={nameTagStyle}>
                                 {dungeon.name}
                             </h3>
                         </Link>
