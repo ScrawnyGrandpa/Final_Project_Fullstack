@@ -105,7 +105,6 @@ export default function DungeonForm() {
                         </div>
                     </div>
                 </div>
-                /*<Navigate to={ROUTES.ROOT} replace />*/
             )}
         </PageContent>
     );

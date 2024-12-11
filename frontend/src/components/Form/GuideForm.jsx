@@ -60,7 +60,6 @@ export default function GuideForm({ boss, initialGuide }) {
                 </div>
             </h2>
 
-
             {/* Normal Mode Guide */}
             <div className="mb-6">
                 <label className="block text-lg font-semibold mb-2">Normal Mode Guide:</label>

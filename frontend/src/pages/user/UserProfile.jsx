@@ -30,7 +30,9 @@ export default function UserProfile() {
         <PageContent>
             {defaultValue &&
                 <div>
-                    <p className='text-center text-5xl font-bold md:text-5xl lg:text-5xl mb-10'>User Profile Page</p>
+                    <p className='text-4xl font-bold md:text-4xl lg:text-4xl mb-10'>{user.nickName}</p>
+                    <p>Welcome to your profile page {user.nickName}. Here you may edit your basic info.</p>
+                    <p>Currently logged in email - {user.email}</p>
                     <div className="flex flex-col md:flex-row justify-evenly gap-8 py-10">
                         <div className="flex justify-center items-center flex-1">
                             <img

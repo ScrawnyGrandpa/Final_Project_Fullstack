@@ -42,6 +42,7 @@ export default function FavoriteItems() {
     return (
         <PageContent>
             <div>
+                <p>Welcome to your Favorite dungeons & bosses {user.nickName}.</p>
                 <h3 className="my-3 text-purple-500 text-xl font-bold">Your Favorite Bosses:</h3>
                 {favBosses.length === 0 ? (
                     <p>No bosses added to favorites.</p>
