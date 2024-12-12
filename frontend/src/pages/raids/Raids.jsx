@@ -25,13 +25,12 @@ export default function Raids() {
     };
 
     useEffect(() => {
-        fetchBosses();
-    }, [searchText]);
-
-    useEffect(() => {
-        setSearchText("");
         setShowSearch(true);
     }, []);
+
+    useEffect(() => {
+        fetchBosses();
+    }, [searchText]);
 
     return (
         <>

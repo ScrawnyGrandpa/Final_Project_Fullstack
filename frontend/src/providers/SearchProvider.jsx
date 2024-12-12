@@ -1,5 +1,6 @@
 import debounce from "debounce";
-import { createContext, useCallback, useContext, useMemo, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const SearchContext = createContext();
 
@@ -7,7 +8,12 @@ export default function SearchProvider({ children }) {
     const [searchText, setSearchText] = useState("");
     const [showSearch, setShowSearch] = useState(false);
 
-    const setSearchTextDebounced = useCallback(debounce(setSearchText, 100), []);
+    const setSearchTextDebounced = useCallback(debounce(setSearchText, 400), []);
+    const location = useLocation();
+
+    useEffect(() => {
+        setSearchText("");
+    }, [location]);
 
     const ctx = useMemo(() => ({
         searchText,

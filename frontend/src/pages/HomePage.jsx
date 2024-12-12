@@ -8,6 +8,7 @@ import { usePageUI } from '../providers/PageUIProvider';
 import { useSearch } from '../providers/SearchProvider';
 
 export default function HomePage() {
+    const [isFirstLoad, setIsFirstLoad] = useState();
     const [bosses, setBosses] = useState([]);
     const [allDungeons, setAllDungeons] = useState([]);
     const [twwDungeons, setTwwDungeons] = useState([]);
@@ -54,9 +55,13 @@ export default function HomePage() {
     };
 
     useEffect(() => {
-        fetchBosses();
-        fetchDungeons();
-        setNotification({ message: "Homepage Loaded", severity: "info" });
+        if (isFirstLoad) {
+            setIsFirstLoad(false);
+        } else {
+            fetchBosses();
+            fetchDungeons();
+            setNotification({ message: "Homepage Loaded", severity: "info" });
+        }
     }, []);
 
     useEffect(() => {

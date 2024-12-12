@@ -4,6 +4,7 @@ import DungeonAPI from "../services/DungeonAPI";
 
 export default class DungeonModel extends Model {
     static api = DungeonAPI;
+    static cache = {};
 
     constructor({
         _id = "",

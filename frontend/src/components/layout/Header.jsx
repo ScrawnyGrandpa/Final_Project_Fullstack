@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ROUTES } from "../../router";
 import { useAuthentication } from "../../providers/AuthenticationProvider";
 import { useRef, useState, useEffect } from "react";
@@ -16,11 +16,16 @@ export default function Header() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const { user } = useAuthentication();
-    const { searchText, setSearchTextDebounced, showSearch } = useSearch();
+    const { searchText, setSearchTextDebounced, showSearch, setSearchText } = useSearch();
     const [openDropdown, setOpenDropdown] = useState(null);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const location = useLocation();
     const twwRef = useRef(null);
     const s1Ref = useRef(null);
+
+    useEffect(() => {
+        setSearchText("");
+    }, [location, setSearchText]);
 
     const fetchDungeons = async () => {
         try {

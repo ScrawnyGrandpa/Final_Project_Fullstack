@@ -4,6 +4,7 @@ import BossAPI from "../services/BossAPI";
 
 export default class BossModel extends Model {
     static api = BossAPI;
+    static cache = {};
 
     constructor({
         _id = "",

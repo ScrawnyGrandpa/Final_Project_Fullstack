@@ -38,7 +38,6 @@ export default function TwwDungeons() {
     }, [searchText]);
 
     useEffect(() => {
-        setSearchText("");
         setShowSearch(true);
     }, []);
 

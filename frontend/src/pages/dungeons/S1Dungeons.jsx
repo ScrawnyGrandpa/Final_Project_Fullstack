@@ -37,7 +37,6 @@ export default function S1Dungeons() {
     }, [searchText]);
 
     useEffect(() => {
-        setSearchText("");
         setShowSearch(true);
     }, []);
 

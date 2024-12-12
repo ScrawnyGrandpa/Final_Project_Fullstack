@@ -10,46 +10,38 @@ import { useSearch } from '../../providers/SearchProvider';
 
 export default function FavoriteItems() {
     const [favBosses, setFavBosses] = useState([]);
-    const [favDungeons, setfavDungeons] = useState([]);
+    const [favDungeons, setFavDungeons] = useState([]);
     const { user } = useAuthentication();
     const { setSearchText, searchText, setShowSearch } = useSearch();
 
+    const loadAll = useLoadCallback(async () => {
+        const bosses = await BossModel.loadAll();
+        const dungeons = await DungeonModel.loadAll();
 
-    const loadBosses = useLoadCallback(async () => {
         if (user && user.likedNPCs.length > 0) {
-            const bosses = await BossModel.loadAll();
             const favBosses = bosses.filter(boss => user.likedNPCs.includes(boss._id));
-            setFavBosses(
-                favBosses.filter(boss =>
-                    boss.name.toLowerCase().includes(searchText.toLowerCase())
-                )
-            )
+            setFavBosses(favBosses.filter(boss => boss.name.toLowerCase().includes(searchText.toLowerCase())));
         }
-    }, [user, searchText]);
 
-    const loadDungeons = useLoadCallback(async () => {
         if (user && user.likedDungeons.length > 0) {
-            const dungeons = await DungeonModel.loadAll();
             const favDungeons = dungeons.filter(dungeon => user.likedDungeons.includes(dungeon._id));
-            setfavDungeons(
-                favDungeons.filter(dungeon =>
-                    dungeon.name.toLowerCase().includes(searchText.toLowerCase())
-                )
-            )
-        };
+            setFavDungeons(favDungeons.filter(dungeon => dungeon.name.toLowerCase().includes(searchText.toLowerCase())));
+        }
     }, [user, searchText]);
 
     useEffect(() => {
         if (user) {
-            loadBosses();
-            loadDungeons();
+            loadAll();
         }
-    }, [user, loadBosses, loadDungeons]);
+    }, [loadAll]);
+
+    useEffect(() => {
+        setShowSearch(true);
+    }, [setShowSearch]);
 
     useEffect(() => {
         setSearchText("");
-        setShowSearch(true);
-    }, []);
+    }, [setSearchText]);
 
     if (!user) {
         return <Navigate to="/" replace />;
