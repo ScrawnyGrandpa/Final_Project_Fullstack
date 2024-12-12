@@ -49,6 +49,7 @@ export default function Form({
 
     const renderField = (fieldName, fieldConfig) => {
         const { type, label, required } = fieldConfig;
+        const inputType = type === "password" ? "password" : type === "number" ? "number" : "text";
 
         return (
             <div key={fieldName} className="mb-4">
@@ -57,7 +58,7 @@ export default function Form({
                 </label>
                 <input
                     id={fieldName}
-                    type={type === "number" ? "number" : "text"}
+                    type={inputType}
                     value={data[fieldName] || ""}
                     required={required}
                     className={`border border-cyan-700 p-2 w-full text-white rounded bg-gray-800 ${errors[fieldName] ? 'border-red-500' : ''}`}
@@ -86,7 +87,6 @@ export default function Form({
                 >
                     Cancel
                 </button>
-
                 <button
                     type="submit"
                     className={`bg-blue-500 text-white py-2 px-4 rounded ${!isValid ? 'opacity-50 cursor-not-allowed' : ''}`}
@@ -98,4 +98,3 @@ export default function Form({
         </form>
     );
 }
-

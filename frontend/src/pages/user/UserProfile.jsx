@@ -32,6 +32,10 @@ export default function UserProfile() {
         setShowSearch(false);
     }, []);
 
+    if (!user) {
+        return <Navigate to="/" replace />;
+    }
+
     return (
         <PageContent>
             {defaultValue &&
@@ -53,7 +57,6 @@ export default function UserProfile() {
                     </div>
                 </div>
             }
-            {!user && <Navigate to={ROUTES.ROOT} replace />}
         </PageContent>
     );
 }
