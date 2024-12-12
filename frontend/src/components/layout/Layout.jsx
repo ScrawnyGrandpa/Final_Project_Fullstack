@@ -5,6 +5,7 @@ import BackToTopButton from "../helpers/BackToTop";
 import { useCallback, useEffect, useState } from "react";
 import { usePageUI } from "../../providers/PageUIProvider";
 import { Alert, Snackbar } from "@mui/material";
+import SearchProvider from "../../providers/SearchProvider";
 
 export default function Layout({ children }) {
     const { notification } = usePageUI();
@@ -16,7 +17,7 @@ export default function Layout({ children }) {
     }, [notification]);
 
     return (
-        <>
+        <SearchProvider>
             <div className="flex flex-col h-full">
                 <Header />
                 <MainBody>{children}</MainBody>
@@ -39,6 +40,6 @@ export default function Layout({ children }) {
                     {notification?.message}
                 </Alert>
             </Snackbar>
-        </>
+        </SearchProvider>
     );
 }

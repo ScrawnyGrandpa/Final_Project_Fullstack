@@ -1,6 +1,14 @@
+import { useEffect } from "react";
 import PageContent from "../components/layout/PageContent";
+import { useSearch } from "../providers/SearchProvider";
 
 export default function AboutPage() {
+    const { setShowSearch } = useSearch();
+
+    useEffect(() => {
+        setShowSearch(false);
+    }, []);
+
     return (
         <>
             <PageContent>

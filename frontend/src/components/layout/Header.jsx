@@ -6,6 +6,8 @@ import { AccountMenu } from "./AccountMenu";
 import DungeonModel from "../../models/DungeonModel";
 import { twwDungeonsList, s1DungeonsList } from "../../utils/dungeonLists";
 import { dungeonLinkStyle, navLinkStyle } from "../../utils/tailwindStylesHelper";
+import { useSearch } from "../../providers/SearchProvider";
+import SearchInput from "../helpers/SearchInput";
 
 export default function Header() {
     const [allDungeons, setAllDungeons] = useState([]);
@@ -14,6 +16,7 @@ export default function Header() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const { user } = useAuthentication();
+    const { searchText, setSearchTextDebounced, showSearch } = useSearch();
     const [openDropdown, setOpenDropdown] = useState(null);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const twwRef = useRef(null);
@@ -189,6 +192,7 @@ export default function Header() {
                     </Link>
                 </div>
                 <div className="flex space-x-4">
+                    {showSearch && <SearchInput defaultValue={searchText} onChange={setSearchTextDebounced} />}
                     {user ? (
                         <AccountMenu />
                     ) : (

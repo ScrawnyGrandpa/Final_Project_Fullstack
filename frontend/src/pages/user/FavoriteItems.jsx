@@ -6,27 +6,38 @@ import { useLoadCallback } from '../../providers/PageUIProvider';
 import BossModel from '../../models/BossModel';
 import DungeonModel from '../../models/DungeonModel';
 import FavCard from './FavCard';
+import { useSearch } from '../../providers/SearchProvider';
 
 export default function FavoriteItems() {
     const [favBosses, setFavBosses] = useState([]);
     const [favDungeons, setfavDungeons] = useState([]);
     const { user } = useAuthentication();
+    const { setSearchText, searchText, setShowSearch } = useSearch();
+
 
     const loadBosses = useLoadCallback(async () => {
         if (user && user.likedNPCs.length > 0) {
             const bosses = await BossModel.loadAll();
             const favBosses = bosses.filter(boss => user.likedNPCs.includes(boss._id));
-            setFavBosses(favBosses);
+            setFavBosses(
+                favBosses.filter(boss =>
+                    boss.name.toLowerCase().includes(searchText.toLowerCase())
+                )
+            )
         }
-    }, [user]);
+    }, [user, searchText]);
 
     const loadDungeons = useLoadCallback(async () => {
         if (user && user.likedDungeons.length > 0) {
             const dungeons = await DungeonModel.loadAll();
             const favDungeons = dungeons.filter(dungeon => user.likedDungeons.includes(dungeon._id));
-            setfavDungeons(favDungeons);
-        }
-    }, [user]);
+            setfavDungeons(
+                favDungeons.filter(dungeon =>
+                    dungeon.name.toLowerCase().includes(searchText.toLowerCase())
+                )
+            )
+        };
+    }, [user, searchText]);
 
     useEffect(() => {
         if (user) {
@@ -34,6 +45,11 @@ export default function FavoriteItems() {
             loadDungeons();
         }
     }, [user, loadBosses, loadDungeons]);
+
+    useEffect(() => {
+        setSearchText("");
+        setShowSearch(true);
+    }, []);
 
     if (!user) {
         return <Navigate to="/" replace />;

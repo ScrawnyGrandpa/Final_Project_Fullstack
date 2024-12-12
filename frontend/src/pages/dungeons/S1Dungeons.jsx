@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { s1DungeonsList } from "../../utils/dungeonLists";
 import DungeonComponent from "./DungeonComponent";
 import DungeonModel from "../../models/DungeonModel";
+import { useSearch } from "../../providers/SearchProvider";
 
 export default function S1Dungeons() {
     const [allDungeons, setAllDungeons] = useState([]);
     const [s1Dungeons, setS1Dungeons] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const { setSearchText, searchText, setShowSearch } = useSearch();
 
     const fetchDungeons = async () => {
         try {
@@ -17,8 +19,11 @@ export default function S1Dungeons() {
             const filteredS1Dungeons = dungeons.filter(dungeon =>
                 s1DungeonsList.includes(dungeon.name)
             );
-            setS1Dungeons(filteredS1Dungeons);
-
+            setS1Dungeons(
+                filteredS1Dungeons.filter(dungeon =>
+                    dungeon.name.toLowerCase().includes(searchText.toLowerCase())
+                )
+            );
         } catch (error) {
             console.error('Error fetching dungeons:', error);
             setError(error.message);
@@ -29,6 +34,11 @@ export default function S1Dungeons() {
 
     useEffect(() => {
         fetchDungeons();
+    }, [searchText]);
+
+    useEffect(() => {
+        setSearchText("");
+        setShowSearch(true);
     }, []);
 
     return (

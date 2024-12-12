@@ -9,6 +9,7 @@ import { SPELL, NPC } from "../../utils/wowheadLinks";
 import { ROUTES } from "../../router";
 import { useAuthentication } from "../../providers/AuthenticationProvider";
 import BossModel from "../../models/BossModel";
+import { useSearch } from "../../providers/SearchProvider";
 
 export default function DungeonPage() {
     const [dungeon, setDungeon] = useState(null);
@@ -16,6 +17,7 @@ export default function DungeonPage() {
     const [filteredBosses, setFilteredBosses] = useState([]);
     const { id } = useParams();
     const [loading, setLoading] = useState(true);
+    const { setShowSearch } = useSearch();
 
     useLoadEffect(async () => {
         const dungeon = await DungeonModel.load(id);
@@ -35,6 +37,10 @@ export default function DungeonPage() {
         }
         setLoading(false);
     }, [dungeon]);
+
+    useEffect(() => {
+        setShowSearch(false);
+    }, []);
 
     return (
         <PageContent>
@@ -63,7 +69,7 @@ export function DungeonBody({ dungeon, dungeonBosses }) {
         const updatedUser = await user.toggleLikeDungeon(dungeon._id);
         setIsFavDungeon(updatedUser.likedDungeons.includes(dungeon._id));
 
-        !isFavDungeon ? setNotification({ message: "Dungeon added to favorites", severity: "success" }) :
+        !isFavDungeon ? setNotification({ message: "Dungeon added to favorites", severity: "info" }) :
             setNotification({ message: "Dungeon removed from favorites", severity: "error" })
     }, [dungeon, isFavDungeon]);
 

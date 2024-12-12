@@ -9,6 +9,7 @@ import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import GuideForm from '../../components/Form/GuideForm';
 import { useAuthentication } from '../../providers/AuthenticationProvider';
 import { ROUTES } from '../../router';
+import { useSearch } from "../../providers/SearchProvider";
 
 export default function BossGuide() {
     const [boss, setBoss] = useState(null);
@@ -20,6 +21,7 @@ export default function BossGuide() {
     const [orderedHeroicPhases, setOrderedHeroicPhases] = useState([]);
     const navigate = useNavigate();
     const [newAddition, setNewAddition] = useState(false);
+    const { setShowSearch } = useSearch();
 
     useLoadEffect(async () => {
         const boss = await BossModel.load(id);
@@ -70,6 +72,10 @@ export default function BossGuide() {
         setNotification({ message: "Boss guide updated", severity: "success" });
         setNewAddition(true);
     };
+
+    useEffect(() => {
+        setShowSearch(false);
+    }, []);
 
     if (loading || !boss) return <div>Loading...</div>;
 

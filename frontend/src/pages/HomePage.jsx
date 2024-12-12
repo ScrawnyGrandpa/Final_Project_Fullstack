@@ -5,6 +5,7 @@ import DungeonModel from '../models/DungeonModel';
 import { s1DungeonsList, twwDungeonsList } from '../utils/dungeonLists';
 import DungeonComponent from './dungeons/DungeonComponent';
 import { usePageUI } from '../providers/PageUIProvider';
+import { useSearch } from '../providers/SearchProvider';
 
 export default function HomePage() {
     const [bosses, setBosses] = useState([]);
@@ -15,7 +16,7 @@ export default function HomePage() {
     const [error, setError] = useState(null);
     const [location, setLocation] = useState("Nerub'ar Palace");
     const { setNotification } = usePageUI();
-
+    const { setShowSearch } = useSearch();
 
     const fetchBosses = async () => {
         try {
@@ -55,17 +56,20 @@ export default function HomePage() {
     useEffect(() => {
         fetchBosses();
         fetchDungeons();
-        setNotification({ message: "Homepage Loaded", severity: "success" });
+        setNotification({ message: "Homepage Loaded", severity: "info" });
     }, []);
 
     useEffect(() => {
-
         if (!loading) {
             WH.Tooltips.refreshLinks();
             console.log("I triggered refreshLinks();");
             console.log(bosses);
         }
     }, [loading]);
+
+    useEffect(() => {
+        setShowSearch(false);
+    }, []);
 
     if (loading) {
         return <div>Loading...</div>;

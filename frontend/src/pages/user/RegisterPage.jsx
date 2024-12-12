@@ -8,6 +8,7 @@ import { useLoadCallback, usePageUI } from "../../providers/PageUIProvider";
 import PageContent from "../../components/layout/PageContent";
 import Form from "../../components/Form/Form";
 import { ROUTES } from "../../router";
+import { useSearch } from "../../providers/SearchProvider";
 
 export default function RegisterPage() {
     const [defaultValue, setDefaultValue] = useState(new UserModel().toObject());
@@ -15,6 +16,7 @@ export default function RegisterPage() {
     const { user, login } = useAuthentication();
     const { setNotification } = usePageUI();
     const navigate = useNavigate();
+    const { setShowSearch } = useSearch();
 
     const onCancel = useCallback(() => {
         console.log("Clicked Cancel");
@@ -32,10 +34,17 @@ export default function RegisterPage() {
         console.log("Saving to Databse");
 
 
-        setNotification({ message: "Registration complete", severity: "success" });
+        setNotification({ message: "Registration complete", severity: "info" });
         await login(newUser.email, newUser.password);
     }, []);
 
+    useEffect(() => {
+        setShowSearch(false);
+    }, []);
+
+    useEffect(() => {
+        setShowSearch(false);
+    }, []);
 
     return (
         <PageContent>

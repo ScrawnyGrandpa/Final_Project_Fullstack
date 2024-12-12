@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useLoadCallback, useLoadEffect, usePageUI } from "../../providers/PageUIProvider";
 import { ROUTES } from "../../router";
@@ -6,6 +6,7 @@ import BossModel from "../../models/BossModel";
 import BossSchema from "../../schema/BossSchema";
 import Form from "../../components/Form/Form";
 import PageContent from "../../components/layout/PageContent";
+import { useSearch } from "../../providers/SearchProvider";
 
 export default function BossForm() {
     const [boss, setBoss] = useState(null);
@@ -15,6 +16,7 @@ export default function BossForm() {
     const { setNotification } = usePageUI();
     const schema = useMemo(() => new BossSchema(), []);
     const navigate = useNavigate();
+    const { setShowSearch } = useSearch();
 
     const onBossLoaded = useCallback(async () => {
         const data = id ? await BossModel.load(id) : new BossModel();
@@ -53,6 +55,10 @@ export default function BossForm() {
             navigate(`${ROUTES.BOSS_INFO}/${boss._id}`) :
             navigate(`${ROUTES.ROOT}`)
     }
+
+    useEffect(() => {
+        setShowSearch(false);
+    }, []);
 
     return (
         <PageContent>

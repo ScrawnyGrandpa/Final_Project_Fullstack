@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaHome } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import { useSearch } from "../providers/SearchProvider";
 
 export default function ErrorPage() {
     const navigate = useNavigate();
+    const { setShowSearch } = useSearch();
+
+    useEffect(() => {
+        setShowSearch(false);
+    }, []);
 
     return (
         <div className="bg-[#1a1b1b] text-white h-screen flex flex-col justify-center items-center">

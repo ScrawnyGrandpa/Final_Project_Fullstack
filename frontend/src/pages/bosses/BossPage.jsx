@@ -9,11 +9,13 @@ import { SPELL, NPC } from "../../utils/wowheadLinks";
 import { ROUTES } from "../../router";
 import { useAuthentication } from "../../providers/AuthenticationProvider";
 import NerubarNav from "../../components/layout/NerubarNav";
+import { useSearch } from "../../providers/SearchProvider";
 
 export default function BossPage() {
     const [boss, setBoss] = useState(null);
     const { id } = useParams();
     const [loading, setLoading] = useState(true);
+    const { setShowSearch } = useSearch();
 
     useLoadEffect(async () => {
         const boss = await BossModel.load(id);
@@ -26,6 +28,10 @@ export default function BossPage() {
         }
         setLoading(false);
     }, [boss]);
+
+    useEffect(() => {
+        setShowSearch(false);
+    }, []);
 
     return (
         <PageContent>
@@ -50,12 +56,11 @@ export function BossBody({ boss }) {
         }
     }, [user, boss]);
 
-
     const toggleFav = useErrorCallback(async () => {
         const updatedUser = await user.toggleLikeNPCs(boss._id);
         setIsFavBoss(updatedUser.likedNPCs.includes(boss._id));
 
-        !isFavBoss ? setNotification({ message: "Boss added to favorites", severity: "success" }) :
+        !isFavBoss ? setNotification({ message: "Boss added to favorites", severity: "info" }) :
             setNotification({ message: "Boss removed from favorites", severity: "error" })
     }, [boss, isFavBoss]);
 

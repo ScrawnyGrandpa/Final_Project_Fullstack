@@ -6,6 +6,7 @@ import PageContent from "../../components/layout/PageContent";
 import DungeonModel from "../../models/DungeonModel";
 import DungeonSchema from "../../schema/DungeonSchema";
 import Form from "../../components/Form/Form";
+import { useSearch } from "../../providers/SearchProvider";
 
 export default function DungeonForm() {
     const [dungeon, setDungeon] = useState(null);
@@ -15,6 +16,7 @@ export default function DungeonForm() {
     const { setNotification } = usePageUI();
     const schema = useMemo(() => new DungeonSchema(), []);
     const navigate = useNavigate();
+    const { setShowSearch } = useSearch();
 
     const onDungeonLoaded = useCallback(async () => {
         const data = id ? await DungeonModel.load(id) : new DungeonModel();
@@ -55,6 +57,10 @@ export default function DungeonForm() {
             navigate(`${ROUTES.DUNGEON_INFO}/${dungeon._id}`) :
             navigate(`${ROUTES.ROOT}`)
     };
+
+    useEffect(() => {
+        setShowSearch(false);
+    }, []);
 
     return (
         <PageContent>

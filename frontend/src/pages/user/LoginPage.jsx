@@ -8,6 +8,7 @@ import PageContent from "../../components/layout/PageContent";
 import Form from "../../components/Form/Form";
 import { ROUTES } from "../../router";
 import LoginSchema from "../../schema/LoginSchema";
+import { useSearch } from "../../providers/SearchProvider";
 
 export default function RegisterPage() {
     const [defaultValue, setDefaultValue] = useState(new UserModel().toObject());
@@ -15,6 +16,7 @@ export default function RegisterPage() {
     const { user, login } = useAuthentication();
     const { setNotification } = usePageUI();
     const navigate = useNavigate();
+    const { setShowSearch } = useSearch();
 
     const onCancel = useCallback(() => {
         console.log("Clicked Cancel");
@@ -24,9 +26,12 @@ export default function RegisterPage() {
     const onSubmit = useLoadCallback(async ({ email, password }) => {
         setDefaultValue({ email, password });
         await login(email, password);
-        setNotification({ message: "Logged In", severity: "success" });
+        setNotification({ message: "Logged In", severity: "info" });
     }, []);
 
+    useEffect(() => {
+        setShowSearch(false);
+    }, []);
 
     return (
         <PageContent>
