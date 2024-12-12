@@ -58,6 +58,7 @@ export function DungeonBody({ dungeon, dungeonBosses }) {
     const { user } = useAuthentication();
     const { setNotification } = usePageUI();
     const [isFavDungeon, setIsFavDungeon] = useState(user ? user.likedDungeons.includes(dungeon._id) : false);
+    const [isSmallScreen, setIsSmallScreen] = useState(false);
 
     useEffect(() => {
         if (user && dungeon) {
@@ -77,30 +78,78 @@ export function DungeonBody({ dungeon, dungeonBosses }) {
         navigate(`${ROUTES.DUNGEON_FORM}/${dungeon._id}`);
     };
 
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 550) {
+                setIsSmallScreen(true);
+            } else {
+                setIsSmallScreen(false);
+            }
+        };
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    useEffect(() => {
+        if (dungeon) {
+            WH.Tooltips.refreshLinks();
+        }
+    }, [dungeon]);
+
     return (
         <>
             <div className="w-[95vw] p-6 text-white rounded-lg">
-                <h2 className="text-2xl font-bold mb-4 flex justify-between items-center">
-                    {dungeon.name}
-                    {user && (
-                        <div className="flex items-center">
-                            <button
-                                onClick={toggleFav}
-                                className={`${isFavDungeon ? 'bg-red-600' : 'bg-gray-600'} text-white text-sm px-3 py-1 mx-2 rounded`}
-                            >
-                                {isFavDungeon ? "Remove from Favs" : "Add to Favs"}
-                            </button>
-                            {user?.isAdmin && (
-                                <button
-                                    className="bg-blue-500 text-white text-sm px-3 py-1 mx-2 rounded hover:bg-blue-600"
-                                    onClick={editDungeon}
-                                >
-                                    Edit Dungeon Info
-                                </button>
+                <div>
+                    {isSmallScreen ? (
+                        <>
+                            <h2 className="text-2xl font-bold mb-4">{dungeon.name}</h2>
+                            {user && (
+                                <div className="text-right flex flex-col gap-2">
+                                    <button
+                                        onClick={toggleFav}
+                                        className={`${isFavDungeon ? 'bg-red-600' : 'bg-gray-600'} text-white text-sm px-3 py-1 rounded`}
+                                    >
+                                        {isFavDungeon ? "Remove from Favs" : "Add to Favs"}
+                                    </button>
+
+                                    {user?.isAdmin && (
+                                        <button
+                                            className="bg-blue-500 text-white text-sm px-3 py-1 rounded hover:bg-blue-600 mb-2"
+                                            onClick={editDungeon}
+                                        >
+                                            Edit Dungeon Info
+                                        </button>
+                                    )}
+                                </div>
                             )}
-                        </div>
+                        </>
+                    ) : (
+                        <h2 className="text-2xl font-bold mb-4 flex justify-between items-center">
+                            {dungeon.name}
+                            {user && (
+                                <div className="flex items-center">
+                                    <button
+                                        onClick={toggleFav}
+                                        className={`${isFavDungeon ? 'bg-red-600' : 'bg-gray-600'} text-white text-sm px-3 py-1 mx-2 rounded`}
+                                    >
+                                        {isFavDungeon ? "Remove from Favs" : "Add to Favs"}
+                                    </button>
+                                    {user?.isAdmin && (
+                                        <button
+                                            className="bg-blue-500 text-white text-sm px-3 py-1 mx-2 rounded hover:bg-blue-600"
+                                            onClick={editDungeon}
+                                        >
+                                            Edit Dungeon Info
+                                        </button>
+                                    )}
+                                </div>
+                            )}
+                        </h2>
                     )}
-                </h2>
+                </div>
                 <p className="mb-2"><b>Location:</b></p>
                 <p className="mb-4">{dungeon.location}</p>
                 <img

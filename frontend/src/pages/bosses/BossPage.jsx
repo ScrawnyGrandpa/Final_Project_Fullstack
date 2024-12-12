@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
@@ -49,6 +49,22 @@ export function BossBody({ boss }) {
     const { user } = useAuthentication();
     const { setNotification } = usePageUI();
     const [isFavBoss, setIsFavBoss] = useState(user ? user.likedNPCs.includes(boss._id) : false);
+    const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 550) {
+                setIsSmallScreen(true);
+            } else {
+                setIsSmallScreen(false);
+            }
+        };
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
 
     useEffect(() => {
         if (user && boss) {
@@ -71,40 +87,82 @@ export function BossBody({ boss }) {
         navigate(`${ROUTES.BOSS_GUIDE}/${boss._id}`)
     }
 
+    useEffect(() => {
+        if (boss) {
+            WH.Tooltips.refreshLinks();
+        }
+    }, [boss]);
+
     return (
         <>
             {boss.location === "Nerub'ar Palace" ? <NerubarNav /> : null}
             <div className="w-[95vw] p-6 text-white rounded-lg">
-                <h2 className="text-2xl font-bold mb-4 flex justify-between items-center">
-                    {boss.name}
-                    {user && (
-                        <div className="text-right">
-                            <button
-                                onClick={toggleFav}
-                                className={`${isFavBoss ? 'bg-red-600' : 'bg-gray-600'} text-white text-sm px-3 py-1 mx-2 rounded`}
-                            >
-                                {isFavBoss ? "Remove from Favs" : "Add to Favs"}
-                            </button>
+                <div>
+                    {isSmallScreen ? (
+                        <>
+                            <h2 className="text-2xl font-bold mb-4">{boss.name}</h2>
+                            {user && (
+                                <div className="text-right flex flex-col gap-2">
+                                    <button
+                                        onClick={toggleFav}
+                                        className={`${isFavBoss ? 'bg-red-600' : 'bg-gray-600'} text-white text-sm px-3 py-1 rounded`}
+                                    >
+                                        {isFavBoss ? "Remove from Favs" : "Add to Favs"}
+                                    </button>
 
-                            {user?.isAdmin && (
-                                <>
-                                    <button
-                                        className="bg-blue-500 text-white text-sm px-3 py-1 mx-2 rounded hover:bg-blue-600"
-                                        onClick={editBoss}
-                                    >
-                                        Edit Boss Info
-                                    </button>
-                                    <button
-                                        className="bg-purple-500 text-white text-sm px-3 py-1 rounded hover:bg-purple-600"
-                                        onClick={editBossGuide}
-                                    >
-                                        Edit Boss Strategy Guide
-                                    </button>
-                                </>
+                                    {user?.isAdmin && (
+                                        <>
+                                            <button
+                                                className="bg-blue-500 text-white text-sm px-3 py-1 rounded hover:bg-blue-600"
+                                                onClick={editBoss}
+                                            >
+                                                Edit Boss Info
+                                            </button>
+                                            <button
+                                                className="bg-purple-500 text-white text-sm px-3 py-1 rounded hover:bg-purple-600 mb-2"
+                                                onClick={editBossGuide}
+                                            >
+                                                Edit Boss Strategy Guide
+                                            </button>
+                                        </>
+                                    )}
+                                </div>
                             )}
-                        </div>
+                        </>
+                    ) : (
+                        // On larger screens, render everything in one line
+                        <h2 className="text-2xl font-bold mb-4 flex justify-between items-center">
+                            {boss.name}
+                            {user && (
+                                <div className="text-right flex">
+                                    <button
+                                        onClick={toggleFav}
+                                        className={`${isFavBoss ? 'bg-red-600' : 'bg-gray-600'} text-white text-sm px-3 py-1 rounded`}
+                                    >
+                                        {isFavBoss ? "Remove from Favs" : "Add to Favs"}
+                                    </button>
+
+                                    {user?.isAdmin && (
+                                        <>
+                                            <button
+                                                className="bg-blue-500 text-white text-sm px-3 py-1 mx-2 rounded hover:bg-blue-600"
+                                                onClick={editBoss}
+                                            >
+                                                Edit Boss Info
+                                            </button>
+                                            <button
+                                                className="bg-purple-500 text-white text-sm px-3 py-1 rounded hover:bg-purple-600"
+                                                onClick={editBossGuide}
+                                            >
+                                                Edit Boss Strategy Guide
+                                            </button>
+                                        </>
+                                    )}
+                                </div>
+                            )}
+                        </h2>
                     )}
-                </h2>
+                </div>
                 <p className="mb-2"><b>Instance:</b></p>
                 <p className="mb-4">{boss.location}</p>
                 <img
@@ -118,7 +176,6 @@ export function BossBody({ boss }) {
                 {/* Strategy Guide Section */}
                 <div>
                     <h2 className="text-2xl font-bold mb-4">Boss Strategy Guide</h2>
-
                     {/* Normal Phases */}
                     {boss.guide && boss.guide.normal && boss.guide.normal.length > 0 ? (
                         <div className="mt-4">
@@ -144,7 +201,6 @@ export function BossBody({ boss }) {
                     ) : (
                         <p className="mt-2 text-gray-500">No normal guide available for this boss.</p>
                     )}
-
                     {/* Heroic Phases */}
                     {boss.guide && boss.guide.heroic && boss.guide.heroic.length > 0 ? (
                         <div className="mt-4">
