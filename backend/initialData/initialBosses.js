@@ -104,10 +104,7 @@ Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appe
                     `,
                 }
             ],
-            "heroic": [{
-                "phase": "",
-                "description": ""
-            }]
+            "heroic": []
         }
     },
     // Sikran

@@ -188,7 +188,7 @@ export function DungeonBody({ dungeon, dungeonBosses }) {
                                         ))}
                                     </div>
                                 ) : (
-                                    <p className="mt-2 text-gray-500">No guide available available or is <span className="text-red-600">under construction</span>.</p>
+                                    <p className="mt-2 text-gray-500">No guide available or is <span className="text-red-600">under construction</span>.</p>
                                 )}
                             </div>
                         ))
