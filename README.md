@@ -4,11 +4,11 @@
 
 #### Prerequisites:
 
-Before you begin, make sure you have the following installed on your machine:
+Before you begin, make sure you clear your local storage and have the following installed on your machine:
 
 - VSCode
 - Node.js (Recommended version: v16.x.x or later)
-- MongoDB
+- MongoDB Compass
 
 #### Installation:
 
@@ -37,6 +37,15 @@ Before you begin, make sure you have the following installed on your machine:
     ADMIN_EMAIL=Your Email Here
     ADMIN_PASSWORD=Your Password Here
     SECRET_WORD=Your Secret Word Here
+    ENVIRONMENT=development
+    ```
+
+    example:
+    ```plaintext
+    PORT=3000
+    ADMIN_EMAIL=admin@gmail.com
+    ADMIN_PASSWORD=Abcd1234!
+    SECRET_WORD=justASecretWordIPicked
     ENVIRONMENT=development
     ```
 

@@ -199,7 +199,7 @@ export function BossBody({ boss }) {
                             })}
                         </div>
                     ) : (
-                        <p className="mt-2 text-gray-500">No normal guide available for this boss.</p>
+                        <p className="mt-2 text-gray-500">No normal guide available available or is <span className="text-red-600">under construction</span>.</p>
                     )}
                     {/* Heroic Phases */}
                     {boss.guide && boss.guide.heroic && boss.guide.heroic.length > 0 ? (
@@ -222,7 +222,7 @@ export function BossBody({ boss }) {
                             ))}
                         </div>
                     ) : (
-                        <p className="mt-2 text-gray-500">No heroic guide available for this boss.</p>
+                        <p className="mt-2 text-gray-500">No heroic guide available or is <span className="text-red-600">under construction</span>.</p>
                     )}
                 </div>
             </div>
