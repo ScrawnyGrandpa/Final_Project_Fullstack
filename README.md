@@ -53,11 +53,18 @@ Before you begin, make sure you clear your local storage and have the following 
     - `"ADMIN_EMAIL"` must be in a valid email address format. Example: `abc@abc.abc`
     - `"ADMIN_PASSWORD"` must be at least 7 characters long and contain an uppercase letter, a lowercase letter, a number, and one of the following special characters: `!@#$%^&*-`
     - `"PORT"`: Choose your desired localhost port (default: 3000).
-    
-4. To start the project, type the following command in the **root terminal**:
+
+4. Create an `.env` file in the **./frontend** folder with the following variables (default: 3000):
+**Please make sure the VITE_APP_BACKEND_PORT is the same as the ./backend .env file PORT**
+
+    ```plaintext
+    VITE_APP_BACKEND_PORT=3000
+    ```
+
+5. To start the project, type the following command in the **root terminal**:
     
     ```bash
     npm start
     ```
 
-    This will start both the frontend and backend, and you can access the project via your localhost.
+    This will start both the frontend and backend, and you can access the project via your localhost address recieved froom vite (default http://localhost:5173/).

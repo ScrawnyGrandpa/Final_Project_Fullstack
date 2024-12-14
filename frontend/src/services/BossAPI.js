@@ -1,5 +1,7 @@
 import API from "./API";
 
+const backendPort = import.meta.env.VITE_APP_BACKEND_PORT;
+
 export default class BossAPI extends API {
-    static apiUrl = "http://localhost:3000/boss";
+    static apiUrl = `http://localhost:${backendPort}/boss`;
 }
