@@ -1,7 +1,6 @@
 import Router from "express";
-import { createBoss, getAll, readBoss, updateBoss, patchBoss, deleteBoss } from "./bossAccessDataService.js"
+import { createBoss, getAllBosses, readBoss, updateBoss, patchBoss, deleteBoss } from "./bossAccessDataService.js"
 import { handleError } from "../../utils/handleErrors.js";
-import { saveUpdatedData } from "../../utils/populateDatabase.js";
 import { authentication } from "../../authentication/authenticationService.js";
 import { checkAdminAccess } from "../../middlewares/userAccess.js";
 
@@ -10,7 +9,7 @@ const bossRouter = Router();
 // get all bosses
 bossRouter.get("/", async (req, res) => {
     try {
-        res.send(await getAll());
+        res.send(await getAllBosses());
     } catch (error) {
         res.status(500).send({ error: "An error occurred" });
     }
@@ -41,12 +40,9 @@ bossRouter.post("/", authentication, checkAdminAccess, async (req, res) => {
 bossRouter.put("/:id", authentication, checkAdminAccess, async (req, res) => {
     try {
         const updatedBoss = await updateBoss(req.params.id, req.body);
-
         if (!updatedBoss) {
             return handleError(res, 404, "Boss not found");
         }
-
-        saveUpdatedData(updatedBoss, "Bosses");
         res.send(updatedBoss);
     } catch (error) {
         return handleError(res, 500, error.message);
@@ -58,12 +54,9 @@ bossRouter.put("/:id", authentication, checkAdminAccess, async (req, res) => {
 bossRouter.patch("/:id", authentication, checkAdminAccess, async (req, res) => {
     try {
         const updatedBoss = await patchBoss(req.params.id, req.body);
-
         if (!updatedBoss) {
             return handleError(res, 404, "Boss not found");
         }
-
-        saveUpdatedData(updatedBoss, "Bosses");
         res.send(updatedBoss);
     } catch (error) {
         return handleError(res, 500, error.message);

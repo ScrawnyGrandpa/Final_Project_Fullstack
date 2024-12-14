@@ -49,7 +49,6 @@ export const InitialBosses = [
             ],
             "heroic": []
         },
-        "__v": 0
     },
     // Blood Hound
     {
@@ -146,7 +145,6 @@ Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appe
                 }
             ]
         },
-        "__v": 0
     },
     // Rasha'nan
     {
@@ -192,7 +190,6 @@ Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appe
                 }
             ]
         },
-        "__v": 0
     },
     // Broodtwister
     {
@@ -243,7 +240,6 @@ Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appe
                 }
             ]
         },
-        "__v": 0
     },
     // Princess 
     {
@@ -295,7 +291,6 @@ Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appe
                 }
             ]
         },
-        "__v": 0
     },
     // Silken Court
     {
@@ -390,7 +385,6 @@ Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appe
                 }
             ]
         },
-        "__v": 0
     },
     // Queen Ansurek
     {
@@ -516,7 +510,6 @@ Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appe
                 }
             ]
         },
-        "__v": 0
     },
     // TWW Season 1 Dungeon Bosses //
     //•	Ara-Kara, City of Echoes

@@ -1,25 +1,17 @@
 import { Dungeon } from "./Dungeons.js";
 import { createError } from "../../utils/handleErrors.js";
-import { saveUpdatedData } from "../../utils/populateDatabase.js";
 
 // create new Dungeon
 const createDungeon = async (data) => {
     try {
-        const existingDungeon = await Dungeon.findOne({ wowheadID: data.wowheadID });
-        if (existingDungeon) {
-            throw new Error(`Dungeon with wowheadID ${data.wowheadID} already exists.`);
-        }
-
-        const newDungeon = await new Dungeon(data).save();
-        await saveUpdatedData(newDungeon, 'Dungeons');
-        return newDungeon;
+        return await new Dungeon(data).save();
     } catch (e) {
         return createError("Mongoose", e);
     }
 };
 
-// get all Dungeones
-const getAll = async () => {
+// get all Dungeons
+const getAllDungeons = async () => {
     try {
         return await Dungeon.find();
     } catch (e) {
@@ -39,13 +31,7 @@ const readDungeon = async (id) => {
 // Update Dungeon whole or some params
 const updateDungeon = async (id, data) => {
     try {
-        const updatedDungeon = await Dungeon.findByIdAndUpdate(id, data, { new: true, runValidators: true }).lean();
-
-        if (updatedDungeon) {
-            await saveUpdatedData(updatedDungeon, 'Dungeons');
-        }
-
-        return updatedDungeon;
+        return await Dungeon.findByIdAndUpdate(id, data, { new: true, runValidators: true });
     } catch (e) {
         return createError("Mongoose", e);
     }
@@ -54,18 +40,11 @@ const updateDungeon = async (id, data) => {
 // Update Dungeon param
 const patchDungeon = async (id, data) => {
     try {
-        const updatedDungeon = await Dungeon.findByIdAndUpdate(id, data, { new: true, runValidators: true, overwrite: false }).lean();
-
-        if (updatedDungeon) {
-            await saveUpdatedData(updatedDungeon, 'Dungeons');
-        }
-
-        return updatedDungeon;
+        return await Dungeon.findByIdAndUpdate(id, data, { new: true, runValidators: true });
     } catch (e) {
         return createError("Mongoose", e);
     }
 };
-
 
 // delete Dungeon
 const deleteDungeon = async (id) => {
@@ -76,4 +55,4 @@ const deleteDungeon = async (id) => {
     }
 };
 
-export { createDungeon, getAll, readDungeon, updateDungeon, patchDungeon, deleteDungeon };
+export { createDungeon, getAllDungeons, readDungeon, updateDungeon, patchDungeon, deleteDungeon };

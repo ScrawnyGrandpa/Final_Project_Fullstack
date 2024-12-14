@@ -1,7 +1,6 @@
 import Router from "express";
-import { createDungeon, getAll, readDungeon, updateDungeon, patchDungeon, deleteDungeon } from "./dungeonAccessDataService.js"
+import { createDungeon, getAllDungeons, readDungeon, updateDungeon, patchDungeon, deleteDungeon } from "./dungeonAccessDataService.js"
 import { handleError } from "../../utils/handleErrors.js";
-import { saveUpdatedData } from "../../utils/populateDatabase.js";
 import { authentication } from "../../authentication/authenticationService.js";
 import { checkAdminAccess } from "../../middlewares/userAccess.js";
 
@@ -10,7 +9,7 @@ const dungeonRouter = Router();
 // get all dungeons
 dungeonRouter.get("/", async (req, res) => {
     try {
-        res.send(await getAll());
+        res.send(await getAllDungeons());
     } catch (error) {
         res.status(500).send({ error: "An error occurred" });
     }
@@ -41,12 +40,9 @@ dungeonRouter.post("/", authentication, checkAdminAccess, async (req, res) => {
 dungeonRouter.put("/:id", authentication, checkAdminAccess, async (req, res) => {
     try {
         const updatedDungeon = await updateDungeon(req.params.id, req.body);
-
         if (!updatedDungeon) {
             return handleError(res, 404, "Dungeon not found");
         }
-
-        saveUpdatedData(updatedDungeon, "Dungeons");
         res.send(updatedDungeon);
     } catch (error) {
         return handleError(res, 500, error.message);
@@ -61,8 +57,6 @@ dungeonRouter.patch("/:id", authentication, checkAdminAccess, async (req, res) =
         if (!updatedDungeon) {
             return handleError(res, 404, "Dungeon not found");
         }
-
-        saveUpdatedData(updatedDungeon, "Dungeons");
         res.send(updatedDungeon);
     } catch (error) {
         return handleError(res, 500, error.message);

@@ -11,7 +11,7 @@ const createBoss = async (data) => {
 };
 
 // get all bosses
-const getAll = async () => {
+const getAllBosses = async () => {
     try {
         return await Boss.find();
     } catch (e) {
@@ -31,29 +31,7 @@ const readBoss = async (id) => {
 // update boss whole or some params
 const updateBoss = async (id, data) => {
     try {
-        const updatedBoss = await Boss.findByIdAndUpdate(id, data, { new: true, runValidators: true }).lean();
-
-        if (!updatedBoss) {
-            throw new Error('Boss not found');
-        }
-
-        if (updatedBoss.guide) {
-            if (updatedBoss.guide.normal) {
-                updatedBoss.guide.normal = updatedBoss.guide.normal.map(item => {
-                    const { _id, ...rest } = item;
-                    return rest;
-                });
-            }
-
-            if (updatedBoss.guide.heroic) {
-                updatedBoss.guide.heroic = updatedBoss.guide.heroic.map(item => {
-                    const { _id, ...rest } = item;
-                    return rest;
-                });
-            }
-        }
-
-        return updatedBoss;
+        return await Boss.findByIdAndUpdate(id, data, { new: true, runValidators: true });
     } catch (e) {
         return createError("Mongoose", e);
     }
@@ -62,33 +40,7 @@ const updateBoss = async (id, data) => {
 // update boss param
 const patchBoss = async (id, data) => {
     try {
-        const updatedBoss = await Boss.findByIdAndUpdate(id, data, {
-            new: true,
-            runValidators: true,
-            overwrite: false,
-        }).lean();
-
-        if (!updatedBoss) {
-            throw new Error("Boss not found");
-        }
-
-        if (updatedBoss.guide) {
-            if (updatedBoss.guide.normal) {
-                updatedBoss.guide.normal = updatedBoss.guide.normal.map(item => {
-                    const { _id, ...rest } = item;
-                    return rest;
-                });
-            }
-
-            if (updatedBoss.guide.heroic) {
-                updatedBoss.guide.heroic = updatedBoss.guide.heroic.map(item => {
-                    const { _id, ...rest } = item;
-                    return rest;
-                });
-            }
-        }
-        return updatedBoss;
-
+        return await Boss.findByIdAndUpdate(id, data, { new: true, runValidators: true });
     } catch (e) {
         return createError("Mongoose", e);
     }
@@ -103,4 +55,4 @@ const deleteBoss = async (id) => {
     }
 };
 
-export { createBoss, getAll, readBoss, updateBoss, patchBoss, deleteBoss };
+export { createBoss, getAllBosses, readBoss, updateBoss, patchBoss, deleteBoss };
