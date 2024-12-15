@@ -8,7 +8,7 @@ export const classStyleDungeon = "relative flex items-center justify-center min-
 export const dungeonContainer = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-2";
 
 // NavBar Links [regular]
-export const navLinkStyle = "pr-2 pl-2 text-md font-medium hover:bg-gray-700 px-3 py-2 rounded-sm";
+export const navLinkStyle = "pr-2 pl-2 text-md font-medium hover:bg-gray-700 hover:text-cyan-500 px-3 py-2 rounded-sm";
 export const dungeonLinkStyle = "block px-4 py-2 text-sm hover:bg-gray-700 border-t-2";
 
 // Account Menu

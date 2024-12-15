@@ -18,7 +18,7 @@ export default function Layout({ children }) {
 
     return (
         <SearchProvider>
-            <div className="flex flex-col h-full">
+            <div className="flex flex-col min-h-screen">
                 <Header />
                 <MainBody>{children}</MainBody>
                 <Footer />

@@ -130,7 +130,6 @@ export function BossBody({ boss }) {
                             )}
                         </>
                     ) : (
-                        // On larger screens, render everything in one line
                         <h2 className="text-2xl font-bold mb-4 flex justify-between items-center">
                             {boss.name}
                             {user && (
@@ -179,7 +178,7 @@ export function BossBody({ boss }) {
                     {/* Normal Phases */}
                     {boss.guide && boss.guide.normal && boss.guide.normal.length > 0 ? (
                         <div className="mt-4">
-                            <h3 className="text-green-300 text-xl font-bold mb-2">Normal Difficulty:</h3>
+                            {boss.instanceType === "Dungeon" ? null : (<h3 className="text-green-300 text-xl font-bold mb-2">Normal Difficulty:</h3>)}
                             {boss.guide.normal.map((phaseInfo, index) => {
                                 return (
                                     <div key={index} className="mb-4 p-4">
@@ -199,7 +198,7 @@ export function BossBody({ boss }) {
                             })}
                         </div>
                     ) : (
-                        <p className="mt-2 text-gray-500">No normal guide available available or is <span className="text-red-600">under construction</span>.</p>
+                        <p className="mt-2 text-gray-500">No normal guide available or is <span className="text-red-600">under construction</span>.</p>
                     )}
                     {/* Heroic Phases */}
                     {boss.guide && boss.guide.heroic && boss.guide.heroic.length > 0 ? (
@@ -222,7 +221,7 @@ export function BossBody({ boss }) {
                             ))}
                         </div>
                     ) : (
-                        <p className="mt-2 text-gray-500">No heroic guide available or is <span className="text-red-600">under construction</span>.</p>
+                        boss.instanceType === "Dungeon" ? null : (<p className="mt-2 text-gray-500">No heroic guide available or is <span className="text-red-600">under construction</span>.</p>)
                     )}
                 </div>
             </div>

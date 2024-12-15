@@ -86,26 +86,16 @@ export const InitialBosses = [
             "normal": [
                 {
                     "phase": "Phase 1",
-                    "description": `The Bloodhound Horror fight consists of a single phase fight with two parallel realms. 
-Begin the fight by splitting into two preferably even groups with each group having a tank, a healer and half the DPS. A few seconds after the fight begins The Bloodhound Horror will cast a frontal cone on the currently active tank.
-
-* [444363] - The Bloodhound Horror will cast a frontal cone on the currently active tank which does damage and applies a 40 seconds debuff on the tank and everyone who stood in the frontal. The players affected by the debuff will then be phased into [462306] for its entire duration. Tanks swap after this ability was cast.
-
-* While in [462306], players will be able to see and attack the adds that the boss spawns. The adds are:
--- {221667} - Which casts [451288] that shields the boss for a large amount of damage and needs to be interrupted. And casts [445016] on the current highest threat target inflicting a large amount of single target damage. This add needs to be tanked!
--- {221945} - This add is stationary and all it does is cast [445174] which summons {221986}'s that slowly move towards the boss, and if they reach the boss, they will explode moderate for raid wide damage. These adds need to be killed before reaching the boss, and both {221945}'s need to be killed before the players debuff runs out and they leave the [462306]. All adds that did not die during the debuff phase, will continue casting their abilities until the next group of players enters [462306].
-
-* In the meantime players that are in the normal realm and not affected by [444363] continue fighting the boss as before while some players will be targeted by [443042] which is 12 seconds debuff that causes tentacles to spawn under the player to impale them for a moderate amount of damage. The tentacles spring out after 3 seconds from the moment a dark patch spawned under the player therefor simply move out and continue moving out of the dark patches until the debuff runs out. Please be mindful of other players you might hit with your debuff spawns.
-
-* Occasionally The Bloodhound Horror will cast [443305] which coats the player with blood and causes them to have a heal-absord which needs to be healed through.
-
-Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appears like an expanding circle from the boss. Simply move out to the back of the boss platform and wait for the cast to be over. At the end of it, all players within it will receive a huge amount of damage and a debuff which will continue ticking for moderate amounts of damage. And all players who were within a safe distance will receive a debuff that will deal a small amount of overtime damage that needs to be healed through.
-
-                    `,
+                    "description": "The Bloodhound Horror fight consists of a single phase fight with two parallel realms. \nBegin the fight by splitting into two preferably even groups with each group having a tank, a healer and half the DPS. A few seconds after the fight begins The Bloodhound Horror will cast a frontal cone on the currently active tank.\n\n* [444363] - The Bloodhound Horror will cast a frontal cone on the currently active tank which does damage and applies a 40 seconds debuff on the tank and everyone who stood in the frontal. The players affected by the debuff will then be phased into [462306] for its entire duration. Tanks swap after this ability was cast.\n\n* While in [462306], players will be able to see and attack the adds that the boss spawns. The adds are:\n-- {221667} - Which casts [451288] that shields the boss for a large amount of damage and needs to be interrupted. And casts [445016] on the current highest threat target inflicting a large amount of single target damage. This add needs to be tanked!\n-- {221945} - This add is stationary and all it does is cast [445174] which summons {221986}'s that slowly move towards the boss, and if they reach the boss, they will explode moderate for raid wide damage. These adds need to be killed before reaching the boss, and both {221945}'s need to be killed before the players debuff runs out and they leave the [462306]. All adds that did not die during the debuff phase, will continue casting their abilities until the next group of players enters [462306].\n\n* In the meantime players that are in the normal realm and not affected by [444363] continue fighting the boss as before while some players will be targeted by [443042] which is 12 seconds debuff that causes tentacles to spawn under the player to impale them for a moderate amount of damage. The tentacles spring out after 3 seconds from the moment a dark patch spawned under the player therefor simply move out and continue moving out of the dark patches until the debuff runs out. Please be mindful of other players you might hit with your debuff spawns.\n\n* Occasionally The Bloodhound Horror will cast [443305] which coats the player with blood and causes them to have a heal-absord which needs to be healed through.\n\nOnce The Bloodhound Horror reaches 100% energy, it will cast [442530] which appears like an expanding circle from the boss. Simply move out to the back of the boss platform and wait for the cast to be over. At the end of it, all players within it will receive a huge amount of damage and a debuff which will continue ticking for moderate amounts of damage. And all players who were within a safe distance will receive a debuff that will deal a small amount of overtime damage that needs to be healed through."
                 }
             ],
-            "heroic": []
-        }
+            "heroic": [
+                {
+                    "phase": "Phase 1",
+                    "description": "On heroic difficulty The Bloodbound Horror gains a new ability called [445936] which occurs a few seconds after [444363]. [445936] forms two geysers of Black Blood on each side of the boss that slowly rotate around itself for 20 sec. Standing within a geyser inflicts huge amounts of Shadow damage every 0.25 sec. Getting hit will most likely result in death unless you use a huge defensive CD. The tank must position the [445936] in a manner so it corresponds with the positioning of the adds without blocking the team killing them from killing the adds."
+                }
+            ]
+        },
     },
     // Sikran
     {
@@ -519,6 +509,7 @@ Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appe
         "instanceType": "Dungeon",
         "imageURL": "https://bnetcmsus-a.akamaihd.net/cms/content_entry_media/j6/J62U5IJR2X071723561214954.png",
         "imageALT": "Avanoxx",
+        "phases": 0,
         "skills": [
             "438471",
             "438476",
@@ -527,7 +518,20 @@ Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appe
             "434830",
             "446788",
             "436614"
-        ]
+        ],
+        "guide": {
+            "normal": [
+                {
+                    "phase": "Normal and Heroic difficulty",
+                    "description": "Avanoxx has a few abilities to deal with during the fight. One of the most important of them is [438476] which causes Avanoxx to release a loud screech, calling forth {218961}s from their eggs and inflicting Physical damage every 0.5 sec to all players for 3 sec. The {218961}s must be killed as soon as possible without reaching their fixated target. When they do reach their target they start biting their target with increasing damage each bite.\n\n[438471] - is a tank ability during which she leaps to her primary target and unleashes 3 consecutive bites. Each bite inflicts Physical damage and the final bite further increases damage taken by 50% for 10 sec. Use a solid defensive. \n\n[438473] - Avanoxx slings toxic webs in all directions, inflicting Nature damage every 1 sec to all players for 5 sec. Additionally, this leaves behind [434830] at the targets' locations, which inflict Nature damage to players within 2.5 yards of each impact. [434830] ensnares players standing within, reducing movement speed by 30% and inflicting Nature damage every 1 sec. This effect stacks. Upon reaching 5 applications, the webbing develops into a [436614]. [436614] fully encases the player, incapacitating them for 10 sec. Do not stand in the webs."
+                },
+                {
+                    "phase": "Mythic difficulty",
+                    "description": "On Mythic difficulty Avanoxx gets the ability [446788] which causes her to feast on any {218961}s that reach her, increasing her damage done by 50% for 12 sec. This effect stacks which adds even more urgency to killing the adds as soon as possible."
+                }
+            ],
+            "heroic": []
+        },
     },
     // Anub'zekt
     {
@@ -572,12 +576,13 @@ Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appe
     //Orator Krix'vizk 
     {
         "wowheadID": "216619",
-        "name": "Orator Krix'vizk ",
-        "description": " Orator Krix'vizk of the Fifth Strand desires nothing more than ascension, and spends his days extolling the virtues of Queen Ansurek in hopes of gaining her favor. Despite his obsession, he is not without his defenses. Should any cross the Orator, they will find the sound of his bark is far, far worse than his bite.",
+        "name": "Orator Krix'vizk",
+        "description": "Orator Krix'vizk of the Fifth Strand desires nothing more than ascension, and spends his days extolling the virtues of Queen Ansurek in hopes of gaining her favor. Despite his obsession, he is not without his defenses. Should any cross the Orator, they will find the sound of his bark is far, far worse than his bite.",
         "location": "City of Threads",
         "instanceType": "Dungeon",
         "imageURL": "https://bnetcmsus-a.akamaihd.net/cms/content_entry_media/pi/PI374LG2PUZU1723561400369.png",
-        "imageALT": "Orator Krix'vizk ",
+        "imageALT": "Orator Krix'vizk",
+        "phases": 0,
         "skills": [
             "434710",
             "434779",
@@ -585,7 +590,20 @@ Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appe
             "434926",
             "434722",
             "448561"
-        ]
+        ],
+        "guide": {
+            "normal": [
+                {
+                    "phase": "Normal and Heroic difficulty",
+                    "description": "The boss begins by casting [434710] which binds all players with dark magic. Whenever a player is more than 10 yards away from the boss for more than 1 sec, Krix'vizk inflicts a small amount of Shadow damage and forces them back into range. You must stay within the effective circle around the boss at all times. \n\n[434722] is a tank ability inflicting moderate amounts of Shadow damage and Physical damage and reducing their movement speed by 30% for 10 sec. Use a defensive to reduce the damage. \n\n[434779] causes the boss to unleash a terrifying screech toward a player, inflicting Shadow damage to players in a cone in front of him and forcing them to cower in fear for 4 sec. Dodge this frontal.\n\n[434829] causes Orator Krix'vizk to torment all players with a litany of dark propaganda, inflicting small amounts of Shadow damage every 1 sec for 4 sec.  At the end of this cast Orator Krix'vizk leaves behind an area of [434926] which causes moderates amounts of Shadow damage every 1 sec to players who remain within the area. Do not stand in it and the tank must move the boss away from it."
+                },
+                {
+                    "phase": "Mythic difficulty",
+                    "description": "On Mythic difficulty Orator Krix'vizk receives a new dispellable ability called [448561] which marks two players and inflicts moderate amounts of Shadow damage every 1 sec for 6 sec. Upon expiration or removal, 5 orbs explode outward from the target inflicting moderate amounts of Shadow damage to players hit and stunning them for 3 sec. Try to position yourself so that the orbs will not hit you. You may see the indication of the orbs flight path based on the debuffed player appearance."
+                }
+            ],
+            "heroic": []
+        },
     },
     // Nx Vx
     {
@@ -661,13 +679,23 @@ Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appe
         "instanceType": "Dungeon",
         "imageURL": "https://wow.zamimg.com/uploads/screenshots/normal/1183812-e-d-n-a.jpg",
         "imageALT": "E.D.N.A",
+        "phases": 0,
         "skills": [
             "424879",
             "464888",
             "424889",
             "424888",
             "424903"
-        ]
+        ],
+        "guide": {
+            "normal": [
+                {
+                    "phase": "Normal and Heroic difficulty",
+                    "description": "E.D.N.A has a handful of skills. First the boss will begin by casting [424903] which creates volatile spikes that erupt from the earth. Any players who come into contact with a spike causes it to erupt, knocking the player back and inflicting high amounts of Fire damage to all players within 4 yards and inflicting 126137 Fire damage every 1 sec to all players.\n\nE.D.N.A will then cast [424805], targeting all players and unleashing a beam of fiery energy , inflicting a moderate amount of Fire damage to players caught in the effect. [424903] hit with this effect are destroyed. Since the boss spawns roughly 4 [424903], to mitigate the damage, during each [424805] cast players must destroy half the present spikes (usually the maximum each turn is 2-3 spikes depending on the situation). \n\nLater the boss will cast [424879] slamming the ground, inflicting moderate amounts of Nature damage to all players and sending out seismic pulses that destroy all remaining [424903]. \n\nAnd finally E.D.N.A will periodically cast [424888] on the tank, inflicting high amounts of Physical damage and afflicting them with [424889] which does a small amount of ticking damage every 3 seconds. Once dispelled the effect applied on the tank  is called [424893] reducing the target-player damage taken by 50% for 6 sec. Healers must time the dispel right before the next [424888] to reduce its damage."
+                }
+            ],
+            "heroic": []
+        },
     },
     // Skarmorak
     {
@@ -747,6 +775,7 @@ Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appe
         "instanceType": "Dungeon",
         "imageURL": "https://wow.zamimg.com/uploads/screenshots/normal/1185620-speaker-shadowcrown.jpg",
         "imageALT": "Speaker Shadowcrown",
+        "phases": 0,
         "skills": [
             "451026",
             "426734",
@@ -760,7 +789,20 @@ Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appe
             "426712",
             "453140",
             "428086"
-        ]
+        ],
+        "guide": {
+            "normal": [
+                {
+                    "phase": "Normal and Heroic difficulty",
+                    "description": "Speaker Shadowcrown has few very powerful mechanics that make this fight among the hardest fights in this dungeon and in general.  The fight is extremely intense on the healing side.\n\nFirst of all her key ability that will happen upon reaching 50% hp and 1% hp is [451026] during which Shadowcrown unleashes a massive explosion of shadow magic in an attempt to destroy any players aboard the Dawnbreaker. While casting Shadowcrown is immune to damage. To avoid being killed by this ability, all players must take flight and stir clear of the range of the explosion. In order to survive the darkness around the ship players will need to pick up golden orbs called [452001].\n\n[425264] is a tank ability which Speaker Shadowcrown casts on the tank the same moment she begins casting [453212]. The tank and the healer both must be ready for this cast as it is usualy much stronger than it initially seems in case the tank has no mitigation of any sort active. [425264] inflicting high amounts of Shadow damage and an additional 182109 Shadow damage to all other players.\n\n[453212] will then continue to be cast for 7 seconds radiates shadow damage in targeted directions, inflicting 728434 Shadow damage and an additional 182108 Shadow damage every 1 sec for 9 sec upon contact. This effect stacks so do not get hit by it. \n\nAside from that Speaker Shadowcrown will cast [426734] which inflicts small amounts of shadow damage and reduces their movement speed by 50% for 15 seconds.  And [428086] which deals a moderate amount of shadow damage to the targeted player and needs to be interrupted."
+                },
+                {
+                    "phase": "Mythic difficulty",
+                    "description": "On Mythic difficulty Speaker Shadowcrown's [425264] is much much higher and healers need to be prepared for it. And alongside that, dispelling [426734] will cause a debuff called [426736] to appear on 4 players, absorbing a moderate amount of healing."
+                }
+            ],
+            "heroic": []
+        },
     },
     // Anub'ikkaj
     {
@@ -865,6 +907,7 @@ Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appe
         "instanceType": "Dungeon",
         "imageURL": "https://wow.zamimg.com/uploads/screenshots/normal/1189921-tredova.jpg",
         "imageALT": "Tred'ova",
+        "phases": 0,
         "skills": [
             "322450",
             "322648",
@@ -878,7 +921,20 @@ Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appe
             "326309",
             "322614",
             "322655"
-        ]
+        ],
+        "guide": {
+            "normal": [
+                {
+                    "phase": "Normal and Heroic difficulty",
+                    "description": "Tred'ova starts the fight by casting [322655] which causes the boss to spit a glob of acid at all nearby players' location, inflicting high amounts of Nature damage to any player within 4 yards of impact. As Tred'ova gains intelligence she will attempt to predict where her enemies will move and also fire globs of acid at those locations which means every cast of [322655] will have more globs each time and they will move tin the same direction the player moves to avoid the previous globs. This mechanic will keep you on our toes! Players need to try and move as little as possible while the globs are being shot as to not cause them to move too far and accidentally hit a different player in the next cast.\n\nAdditionally Tred'ova will cast [322550] which will cause nearby eggs to hatch, summoning 4 {165560}. These Larva will focus a player and run to them for the next 20 seconds, biting them for small amounts of damage until killed. When killed {165560} will then explode into [326308] inflicting moderate amounts of Nature damage every 1.5 sec to anyone in the pool.\n\nIn the meantime The tank will be the main target for Tred'ova's [322614] which tethers them to multiple allies, inflicting small amounts of Shadow damage every 1 sec. All damage taken is duplicated to main targeted player as Shadow damage. Moving more than 40 yards from the player dispels the [322614] from that ally. In order to get rid of this quickly, the tank must run in the opposite direction of all other players while the players must all run roughly in the same direction as a group to make it easier to deal with. \n\nFinally Tred'ova will cast [322450] running to the depleted Cocoon in the center of the room and beginning its consumption. This causes anima to erupt from the boss, inflicting moderate amounts of Nature every 2 sec to all enemies for 10 min. While this occurs Tred'ova will launch missile of anima at random locations around them. In order to end the [322450] phase players must break through the boss's [322527] which equals to 3%-5% of Tred'ovas maximum health. Once broken the fight continues as before."
+                },
+                {
+                    "phase": "Mythic difficulty",
+                    "description": "On Mythic difficulty, Tred'ova gains an extra ability called [463602] which causes the boss to gathers poison on itself and pull players in. The concentrated poison explodes after 5 sec, inflicting 3603911 Nature damage to all players within 15 yards of impact. Many times this ability will overlap with [322614] which can complicate things. Players must always be ready to move in the correct direction and save movement buffs and abilities for that moment."
+                }
+            ],
+            "heroic": []
+        },
     },
     // The Necrotic Wake
     // Blightbone
@@ -890,6 +946,7 @@ Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appe
         "instanceType": "Dungeon",
         "imageURL": "https://wow.zamimg.com/uploads/screenshots/normal/1169245-blightbone.jpg",
         "imageALT": "Blightbone",
+        "phases": 0,
         "skills": [
             "320596",
             "320631",
@@ -898,7 +955,20 @@ Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appe
             "320614",
             "328146",
             "320646"
-        ]
+        ],
+        "guide": {
+            "normal": [
+                {
+                    "phase": "Normal and Heroic difficulty",
+                    "description": "Blightbone boss room is part of the dungeon room full of adds. The group should want to clear enough of the trash around the room for the team to battle Blightbone comfortably seeing as some of his abilities will take up room space and make it accessible. \n\n[320655] is a tank buster Blightbone uses to inflict high amounts of Physical damage. \n\nOccasionally Blightbone will cast [320637] which unleashes gas that last for up to 2 minuntes.  Standing within the area inflicts moderates amount of Nature damage every 2 sec and prevents all actions and spell casting. The tank wants to move the boss out of [320637] and all players must avoid standing in it.\n\nBlightbones final and most important ability is [320596]. It is a frontal cone that targets a random player and inflicts a high amount of Nature damage and an additional 449522 Nature damage every 2 sec for 12 sec. Along with the damage, Blightbone also spews forth up to 3 {164702}s which fixate on players, chasing them and biting them. The bite is called [320614] and each application of it causes the worm to grow in size, permanently increasing its Physical damage done by 30%. Upon 5 applications of the bite the worm will then cause a [320631] exploding, spraying all players with noxious goo that inflicts moderate amounts of Nature damage every 2 sec for 30 sec. This explosion cannot be allowed to happen. And when it does it will most likely cause a wipe."
+                },
+                {
+                    "phase": "Mythic difficulty",
+                    "description": "On Mythic difficulty, any {164702} that dies also causes [320637], much like Blightbone, leaving behind a large area filled with gas, inflicting moderate amounts of damage every 2 seconds and preventing all actions and spell casting within it. Players must try to kite the worms and kill them in a position that will conserve as much of the boss room as possible."
+                }
+            ],
+            "heroic": []
+        },
     },
     // Amarth The Harvester
     {
@@ -1027,11 +1097,21 @@ Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appe
         "instanceType": "Dungeon",
         "imageURL": "https://wow.zamimg.com/uploads/screenshots/normal/918156-hadal-darkfathom.jpg",
         "imageALT": "Hadal Darkfathom",
+        "phases": 0,
         "skills": [
             "257882",
             "276068",
             "261563"
-        ]
+        ],
+        "guide": {
+            "normal": [
+                {
+                    "phase": "Heroic and Mythic difficulty",
+                    "description": "Hadal Darkfathom has only three abilities in his fight. However the arena of the boss is an important one. All players should try to stay away from the center which has a statue any period of the fight that isnt [276068], in order to keep that area around the statue clear of any bad AOE.\n\n[261563] - Which is cast upon the player currently tanking the boss, creating a wave of water that surges over enemies in a line in front of the boss, dealing high amounts of Frost damage and also leaving brine pools at the destinations that continue to inflict moderate amounts of Frost damage every 1 sec to enemies within them. The tank must try and aim that ability away form the team and the center of the room.\n\n[257882] is an ability the boss casts throughout the fight, targeting all players except the tank and spawning Roiling water under each player.Upon eruption these waters inflicting high amounts of Frost damage to enemies within 5 yards and knocks them into the air as well as inflicting 594646 Frost damage to everyone. This ability also leaves brine pools at the destinations that continue to inflict moderate amounts of Frost damage every 1 sec  to enemies within them.\n\nOnce the boss reaches 100% energy he casts [276068]  conjuring a wall of water that surges across the space, inflicting very high amounts of Frost damage to all enemies caught in the wave. In order to dodge this ability players must hide behind the statue in the center of the room. Also important to note this wave is cast twice, each time from a different direction. So once the first wave begins moving players must look for the location of the 2nd wave in order to quickly reposition after the first wave."
+                }
+            ],
+            "heroic": []
+        },
     },
     // Viq'Goth
     {
@@ -1064,6 +1144,7 @@ Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appe
         "instanceType": "Dungeon",
         "imageURL": "https://wow.zamimg.com/uploads/screenshots/normal/1182267-general-umbriss.jpg",
         "imageALT": "General Umbriss",
+        "phases": 0,
         "skills": [
             "448847",
             "448566",
@@ -1074,7 +1155,20 @@ Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appe
             "454782",
             "448877",
             "447268"
-        ]
+        ],
+        "guide": {
+            "normal": [
+                {
+                    "phase": "Normal and Heroic difficulty",
+                    "description": "General Umbriss has three abilities in his fight. \n\n[447261] which is a tank buster that  inflicting high Physical damage every 1 sec for 2 sec. The tank becomes severely wounded, bleeding for small amounts of Physical damage every 1 sec for 8 sec. This effect stacks.\n\n[448847] - General Umbriss lets out a terrifying roar, inflicting moderate amounts of Sonic damage to all players. This effect ignores armor. {223389}s heed the call of General Umbriss and descend on the platform and blast players with [448566] which inflicts very high amounts of Shadowlfame damage to all players within the impact area. The drakes will appear in trios and the platform will be split into 4 pieces. Players must move to the part of the platform that does not have a drake targeting it.\n\nThe General's final ability is [448882] which causes Earth to erupt underneath players, inflicting a small amount of Physical damage and knocking them forward."
+                },
+                {
+                    "phase": "Mythic difficulty",
+                    "description": "On Mythic difficulty, the General's [448882] also leave [448953] upon expiration which causes the terrain to become difficult to traverse, inflicting moderate amounts of Physical damage every 1 sec and reducing movement speed by 30% to players within. These AOE patches remain through the entire fight therefor players must position them in a manner that will not block their path when moving from the generals other abilities."
+                }
+            ],
+            "heroic": []
+        },
     },
     // Forgemaster Throngus
     {
@@ -1150,6 +1244,7 @@ Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appe
         "instanceType": "Dungeon",
         "imageURL": "https://wow.zamimg.com/uploads/screenshots/normal/1171035-kyrioss.jpg",
         "imageALT": "Kyrioss",
+        "phases": 0,
         "skills": [
             "420739",
             "444250",
@@ -1158,7 +1253,20 @@ Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appe
             "419871",
             "424148",
             "444324"
-        ]
+        ],
+        "guide": {
+            "normal": [
+                {
+                    "phase": "Normal and Heroic difficulty",
+                    "description": "During the normal and heroic versions of the fight, Kyrioss uses a few abilities\n[419871] - Kyiross leaps to a location and unleashes a charged blast, inflicting Nature damage to players within 12 yards, knocking them away. Simply dodge this mechanic.\n\n[424148] - Kyrioss launches lightning that arcs to up to 3 players, inflicting Nature damage. This is a healer mechanic. Use a defensive if you must.\n\n[444324] - Kyrioss creates a raging storm that periodically unleashes a crash of lightning that strikes a player’s location inflicting Nature damage to players within 6 yards of the impact. Again, simply dodge this. \n\nAnd the final ability is [444250] - Upon reaching 100 energy, Kyrioss flies to the center of the room and unleashes 4 torrents of lightning. Touching these torrents inflicts Nature damage and stuns the target for 6 sec. The stun is dispellable so in case you do get hit and survive, request a dispel from the healer."
+                },
+                {
+                    "phase": "Mythic difficulty",
+                    "description": "On Mythic Kyrioss receives another ability called [420739] - Kyrioss suffuses a random player with electricity. Upon removal, the target unleashes an eruption of electrical energy, inflicting Nature damage to all players. The eruption can be discharged safely in the central tempest."
+                }
+            ],
+            "heroic": []
+        },
     },
     // Stormguard Gorren
     {
@@ -1250,6 +1358,7 @@ Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appe
         "instanceType": "Dungeon",
         "imageURL": "https://wow.zamimg.com/uploads/screenshots/normal/1184609-baron-braunpyke.jpg",
         "imageALT": "Baron Braunpyke",
+        "phases": 0,
         "skills": [
             "423015",
             "423076",
@@ -1259,7 +1368,20 @@ Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appe
             "423062",
             "446368",
             "446403"
-        ]
+        ],
+        "guide": {
+            "normal": [
+                {
+                    "phase": "Normal and Heroic difficulty",
+                    "description": "Baron Braunpyke starts with a handful of abilities in his arsenal. \nOne of his main abilities that affects all others is [422969] which causes the Baron to empower himself with the light, increasing his Physical damage by 25% and empowering each of his abilities.\n\n[423015] - The Baron hurls a holy shield at several players, inflicting moderate amounts of Holy damage and reducing movement speed by 50% for 5 sec upon impact. While empowered by [422969], [423015] hits 5 players. As a result of [423015] the Baron also casts [423019] causing an eruption from the impact locations of [423015], inflicting high amounts of Holy damage to players within 12 yards. Dodge this ability.\n\t\n[423051] is an interruptible spell causing the Baron to unleashes a burst of holy light, inflicting moderate amounts of Holy damage to all players and an additional 1801956 Holy damage every 2 sec for 12 sec. The burst of light also heals Braunpyke for 40% of his maximum health. While empowered by [422969], the cast time of [423051] is reduced.\n\n[423062] - Braunpyke calls searing light down on a player's location, inflicting high amounts of Holy damage to players within 3 yards. Hammers then spiral outwards from the impact location, inflicting 2702735 Holy damage to players in their path.  While empowered by [422969], [423062] hits 5 players."
+                },
+                {
+                    "phase": "Mythic difficulty",
+                    "description": "On Mythic difficulty the Baron gains another ability called [446368] which causes him to create a burning pyre containing 3 charges that last for 30 sec. Each time a player comes into contact with the pyre, a charge is consumed and the player is affected by [446403]. [446403] is a searing flame that inflicts 540547 Holy damage every 1 sec for 5 sec. This effect stacks. And while empowered by [422969], [446368] has 5 charges."
+                }
+            ],
+            "heroic": []
+        },
     },
     // Prioress Murrpray
     {
@@ -1293,6 +1415,7 @@ Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appe
         "instanceType": "Dungeon",
         "imageURL": "https://wow.zamimg.com/uploads/screenshots/normal/1185649-brew-master-aldryr.jpg",
         "imageALT": "Brew Master Aldryr",
+        "phases": 0,
         "skills": [
             "432198",
             "432182",
@@ -1302,7 +1425,20 @@ Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appe
             "432196",
             "442611",
             "445180"
-        ]
+        ],
+        "guide": {
+            "normal": [
+                {
+                    "phase": "Normal and Heroic difficulty",
+                    "description": "The fight is spread across 2 phases. The first phase and intermisssion which begins when Brew Master Aldryr reaches 100% energy beginning the [442525].\n\nDuring the first phase Brew Master Aldryr casts [432229] on the tank, inflicting high Physical damage and knocking them back. The keg splinters, forming [432196] on the ground for 1 min, inflicting small amounts of Fire damage every 1.5 sec to players standing within and reducing their movement speed by 50%. Do not stand in the [432196].\n\nOccasionally Brew Master Aldryr will cast {432198] which is a frontal cone that deals high amounts of damage. Dodge it.\n\nAnd finally his last ability is [432182]. The boss tosses hot Cinderbrew at players, inflicting moderate amounts of Fire damage every 1.5 sec for 9 sec and forming [432196] underneath. Try to position yourself so you don't cause too many [432196] pools to form in areas you will need to use during [442525].\n\n[442525] begins once Brew Master Aldryr reaches 100%. The boss leaps behind the counter to pour Cinderbrew for {215819}s. While pouring, he Disregards players reducing hsi damage taken by 99%. In the meantime {215819}s will cast [431896] slamming their table, inflicting small amounts of Physical damage to all players every 2 sec and reducing their haste by 25%. Players must give the {215819}s a mug of Cinderbrew which can be picked up from the counter behind which Brew Master Aldryr is currently standing and preparing the drinks. Once the Cinderbew sis given to the {215819}s they stop their tantrum. And once all Patrons are satisfied [442525] stops and Brew Master Aldryr returns back to phase 1."
+                },
+                {
+                    "phase": "Mythic difficulty",
+                    "description": "On Mythic difficulty, at the end of the [442525] [445180]s will occur. [445180] causes a brawl to break out in a flurry of fists and thick heads for 2 min. Players coming into contact with the brawl are stunned and suffer 900978 Physical damage every 1 sec for 3 sec."
+                }
+            ],
+            "heroic": []
+        },
     },
     // I'pa
     {
@@ -1400,6 +1536,7 @@ Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appe
         "instanceType": "Dungeon",
         "imageURL": "https://wow.zamimg.com/uploads/screenshots/normal/1185598-blazikon.jpg",
         "imageALT": "Blazikon",
+        "phases": 0,
         "skills": [
             "421638",
             "423099",
@@ -1409,7 +1546,20 @@ Once The Bloodhound Horror reaches 100% energy, it will cast [442530] which appe
             "422700",
             "424223",
             "425394"
-        ]
+        ],
+        "guide": {
+            "normal": [
+                {
+                    "phase": "Normal and Heroic difficulty",
+                    "description": "Blazikon is a very straight forward fight. It begins with the boss spawning in the middle of the room where he also must be tanked as he is not moving. In case no players are in melee range of the boss he will begin casting [443835] inflicting high amounts of damage to all players until there is a player in the melee zone. \n\nBlazikon will vast [425394] which summons strong winds, inflicting high amounts of Nature damage to all players and extinguishing all candles in the room. Healers must be ready for this mechanic with some AOE heals. \n\nThe boss will then cast [421638] hurling a torrent of flames at players, inflicting moderate amounts of Fire damage to players within 6 yards of each impact. The flames of [421638] will also ignite candles. The ignited candles will then spawn a large aoe fire around them - don't stand in it. \n\nFinally Blazikon will cast [423099]  unleashing a fiery burst towards each extinguished candle, reigniting that candle and inflicting very high amounts of Fire damage to all players in its path. [423099] is the main reason as to why players need to ignite at least 1-2 candlers during [421638]. Failure to do so will cause all players to be hit by  [423099] and possibly cause a wipe."
+                },
+                {
+                    "phase": "Mythic difficulty",
+                    "description": "On Mythic difficulty Blazikon will also cast [422700] which forms gusting winds to chase players for 30 sec. Tornadoes that reach players inflict moderate amounts of Nature damage and stun them for 4 sec. Additionally these tornadoes extinguish candles they touch so players must kite them around the room without touching the lit candles."
+                }
+            ],
+            "heroic": []
+        },
     },
     // The Candle King
     {

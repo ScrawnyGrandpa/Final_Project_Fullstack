@@ -171,7 +171,7 @@ export function DungeonBody({ dungeon, dungeonBosses }) {
                                     <div className="mt-4">
                                         {boss.guide.normal.map((phaseInfo, index) => (
                                             <div key={index} className="mb-4 p-4">
-                                                <h2 className="text-cyan-200 text-2xl font-bold mb-4">
+                                                <h2 className="text-purple-600 text-2xl font-bold mb-4">
                                                     {phaseInfo.phase}:
                                                 </h2>
                                                 <ReactMarkdown rehypePlugins={[rehypeRaw]}>

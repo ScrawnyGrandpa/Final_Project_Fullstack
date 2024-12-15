@@ -127,7 +127,7 @@ export default function Header() {
                             {/* TWW Dungeons with dropdown */}
                             <div className="relative" ref={twwRef}>
                                 <button
-                                    className={`pr-2 pl-2 text-md font-medium hover:bg-gray-700 px-3 py-2 rounded-sm focus:outline-none ${openDropdown === 'TWW' ? 'text-cyan-500' : ''}`}
+                                    className={`pr-2 pl-2 text-md font-medium hover:bg-gray-700 hover:text-cyan-500 px-3 py-2 rounded-sm focus:outline-none ${openDropdown === 'TWW' ? 'text-cyan-500' : ''}`}
                                     onClick={(e) => { toggleDropdown('TWW'); e.stopPropagation(); }}
                                 >
                                     TWW Dungeons
@@ -158,7 +158,7 @@ export default function Header() {
                             {/* S1 Dungeons with dropdown */}
                             <div className="relative" ref={s1Ref}>
                                 <button
-                                    className={`pr-2 pl-2 text-md font-medium hover:bg-gray-700 px-3 py-2 rounded-sm focus:outline-none ${openDropdown === 'S1' ? 'text-cyan-500' : ''}`}
+                                    className={`pr-2 pl-2 text-md font-medium hover:bg-gray-700 px-3 hover:text-cyan-500 py-2 rounded-sm focus:outline-none ${openDropdown === 'S1' ? 'text-cyan-500' : ''}`}
                                     onClick={(e) => { toggleDropdown('S1'); e.stopPropagation(); }}
                                 >
                                     S1 Dungeons
