@@ -11,6 +11,7 @@ export default function Form({
 }) {
     const [errors, setErrors] = useState({});
     const [data, setData] = useState(defaultValue);
+    const [isAdmin, setIsAdmin] = useState(false);
 
     const onChange = useCallback((name, value) => {
         if (name === 'skills' || name === 'NPCs') {
@@ -38,10 +39,15 @@ export default function Form({
     const isValid = useMemo(() => validateFields(), [validateFields]);
 
     const handleSubmit = useCallback((e) => {
+        e.preventDefault();
         if (isValid) {
-            submitCallback(data);
+            const submissionData = { ...data };
+            if (title === "Register" && isAdmin) {
+                submissionData.isAdmin = true;
+            }
+            submitCallback(submissionData);
         }
-    }, [data, isValid, submitCallback]);
+    }, [data, isAdmin, isValid, submitCallback, title]);
 
     useEffect(() => {
         changeCallback && changeCallback(data, isValid);
@@ -73,11 +79,33 @@ export default function Form({
         );
     };
 
+    const renderAdminCheckbox = () => {
+        if (title === "Register") {
+            return (
+                <div className="mb-4 flex items-center">
+                    <label htmlFor="isAdmin" className="block text-white mb-1 mr-2">
+                        Register as Admin
+                    </label>
+                    <input
+                        id="isAdmin"
+                        type="checkbox"
+                        checked={isAdmin}
+                        onChange={(e) => setIsAdmin(e.target.checked)}
+                        className="border border-cyan-700 p-2 text-white rounded bg-gray-800"
+                    />
+                </div>
+            );
+        }
+        return null;
+    };
+
+
     return (
         <form noValidate onSubmit={handleSubmit} className="max-w-95% mx-auto">
             <h1 className="text-center text-2xl font-bold text-white mb-6">{title}</h1>
             <div>
                 {Object.entries(schema.fields).map(([fieldName, fieldConfig]) => renderField(fieldName, fieldConfig))}
+                {renderAdminCheckbox()}
             </div>
             <div className="flex justify-center gap-4 mt-6">
                 <button

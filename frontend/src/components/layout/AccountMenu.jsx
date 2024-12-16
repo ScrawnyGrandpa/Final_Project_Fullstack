@@ -44,7 +44,7 @@ export function AccountMenu() {
                 aria-label="User Settings"
             >
                 <img
-                    src={user.avatarImgURL || "https://cdn.pixabay.com/photo/2016/04/20/08/21/entrepreneur-1340649_960_720.jpg"}
+                    src={user.avatarImgURL || "https://d.furaffinity.net/art/khatmedic/1598338509/1598338509.khatmedic_random.png"}
                     alt="User Avatar"
                     className="w-10 h-10 rounded-full object-cover border-[2px] border-cyan-600"
                 />
@@ -60,7 +60,7 @@ export function AccountMenu() {
                 >
                     <div className="p-3 flex items-center space-x-2">
                         <img
-                            src={user.avatarImgURL || "https://cdn.pixabay.com/photo/2016/04/20/08/21/entrepreneur-1340649_960_720.jpg"}
+                            src={user.avatarImgURL || "https://d.furaffinity.net/art/khatmedic/1598338509/1598338509.khatmedic_random.png"}
                             alt="User Avatar"
                             className="w-8 h-8 rounded-full object-cover"
                         />

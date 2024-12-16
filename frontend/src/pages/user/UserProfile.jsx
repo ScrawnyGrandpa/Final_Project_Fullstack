@@ -46,7 +46,7 @@ export default function UserProfile() {
                     <div className="flex flex-col md:flex-row justify-evenly gap-8 py-10">
                         <div className="flex justify-center items-center flex-1">
                             <img
-                                src={user?.avatarImgURL}
+                                src={user?.avatarImgURL || "https://d.furaffinity.net/art/khatmedic/1598338509/1598338509.khatmedic_random.png"}
                                 alt="User Avatar"
                                 className="w-4/5 h-auto object-cover rounded-lg"
                             />
