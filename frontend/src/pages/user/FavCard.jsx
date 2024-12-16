@@ -8,7 +8,7 @@ export default function FavCard({ object }) {
         : {};
 
     return (
-        <div className="border-2 border-black bg-black mb-3 rounded">
+        <div className="border-2 bg-black mb-3 rounded border-[#212930] transition-transform duration-300 ease-in-out transform scale-100 hover:scale-[1.04] hover:border-blue-500 opacity-80 hover:opacity-100">
             <Link
                 key={object._id}
                 to={object.skills ? `/boss/${object._id}` : `/dungeon/${object._id}`}

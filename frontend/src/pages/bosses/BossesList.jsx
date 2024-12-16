@@ -14,7 +14,7 @@ export default function BossesList({ bosses, instanceType = "Raid", filter = [] 
     }, {});
 
     return (
-        <div className="mb-7 p-3 rounded">
+        <div className="mb-7 p-3 rounded ">
             {Object.keys(groupedByLocation).length > 0 ? (
                 Object.keys(groupedByLocation).map((location) => {
                     const bossesAtLocation = groupedByLocation[location];
@@ -29,7 +29,7 @@ export default function BossesList({ bosses, instanceType = "Raid", filter = [] 
                                     <Link
                                         key={boss._id}
                                         to={`/boss/${boss._id}`}
-                                        className="relative flex items-center justify-center min-h-[350px]"
+                                        className="relative flex items-center justify-center min-h-[350px] border border-[#212930] transition-transform duration-300 ease-in-out transform scale-100 hover:scale-[1.04] hover:border-blue-500 rounded-sm opacity-80 hover:opacity-100"
                                     >
                                         <img
                                             src={boss.imageURL}

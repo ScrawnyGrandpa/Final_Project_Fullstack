@@ -7,6 +7,7 @@ import DungeonSection from './DungeonSection';
 import { usePageUI } from '../../providers/PageUIProvider';
 import BossModel from '../../models/BossModel';
 import DungeonModel from '../../models/DungeonModel';
+import { useSearch } from '../../providers/SearchProvider';
 
 export default function CRM() {
     const { user } = useAuthentication();
@@ -18,10 +19,15 @@ export default function CRM() {
     const [deleteBoss, setDeleteBoss] = useState('');
     const [editDungeon, setEditDungeon] = useState('');
     const [deleteDungeon, setDeleteDungeon] = useState('');
+    const { setShowSearch } = useSearch();
 
     useEffect(() => {
         if (user) setLoading(false);
     }, [user]);
+
+    useEffect(() => {
+        setShowSearch(false);
+    }, []);
 
     const isValidObjectId = (id) => /^[0-9a-fA-F]{24}$/.test(id);
 
@@ -55,8 +61,7 @@ export default function CRM() {
             handleNotification(`${entityName} ID does not exist.`);
             return false;
         }
-
-        return true; // Everything is valid
+        return true;
     };
 
     const handleDeleteEntity = async (id, model, entityName) => {
@@ -98,6 +103,7 @@ export default function CRM() {
     };
 
     const handleDeleteDungeon = () => handleDeleteEntity(deleteDungeon, DungeonModel, "Dungeon");
+    const toTutorial = () => { navigate(`${ROUTES.CRM_TUTORIAL}`) };
 
     if (!user) navigate(`${ROUTES.ROOT}`);
 
@@ -105,6 +111,7 @@ export default function CRM() {
         !loading && user.isAdmin && (
             <div className="flex flex-col">
                 <div>Welcome to your Control Center <span className='text-cyan-400'>{user.nickName}</span></div>
+                <button className="bg-purple-700 max-w-[20%] text-white text-sm px-3 py-1 mx-2 rounded-sm hover:bg-purple-600 my-2" onClick={toTutorial}>Strategy Guide Tutorial</button>
                 {/* Boss */}
                 <BossSection
                     editBoss={editBoss} setEditBoss={setEditBoss}
