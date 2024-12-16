@@ -14,7 +14,7 @@ export default function TwwDungeons() {
 
     const fetchDungeons = useLoadCallback(async () => {
         try {
-            const dungeons = await DungeonModel.loadAll();
+            const dungeons = await DungeonModel.loadAll(true);
             setAllDungeons(dungeons);
 
             const filteredTwwDungeons = dungeons.filter(dungeon =>

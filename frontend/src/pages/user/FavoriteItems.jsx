@@ -15,8 +15,8 @@ export default function FavoriteItems() {
     const { setSearchText, searchText, setShowSearch } = useSearch();
 
     const loadAll = useLoadCallback(async () => {
-        const bosses = await BossModel.loadAll();
-        const dungeons = await DungeonModel.loadAll();
+        const bosses = await BossModel.loadAll(true);
+        const dungeons = await DungeonModel.loadAll(true);
 
         if (user && user.likedNPCs.length > 0) {
             const favBosses = bosses.filter(boss => user.likedNPCs.includes(boss._id));

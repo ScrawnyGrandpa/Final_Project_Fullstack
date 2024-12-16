@@ -19,7 +19,6 @@ export default function RegisterPage() {
     const { setShowSearch } = useSearch();
 
     const onCancel = useCallback(() => {
-        console.log("Clicked Cancel");
         navigate(ROUTES.ROOT)
     }, []);
 

@@ -72,10 +72,8 @@ export default function CRM() {
             const entity = await model.load(id);
             await entity.delete();
             handleNotification(`${entityName} deleted successfully!`, "success");
-            console.log(`Deleted ${entityName}:`, entity);
         } catch (error) {
             handleNotification(`An error occurred while trying to delete the ${entityName}.`);
-            console.error(`Delete Error:`, error);
         }
     };
 

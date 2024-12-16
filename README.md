@@ -8,7 +8,7 @@ Before you begin, make sure you clear your local storage and have the following 
 
 - [VSCode](https://code.visualstudio.com/download)
 - [Node.js](https://nodejs.org/en/download/prebuilt-installer) (Recommended version: v16.x.x or later)
-- MongoDB Compass (optional)
+- MongoDB
 
 #### Installation:
 

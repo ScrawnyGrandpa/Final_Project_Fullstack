@@ -17,7 +17,6 @@ export default function Raids() {
                 )
             );
         } catch (error) {
-            console.error('Error fetching bosses:', error);
             setError(error.message);
         } finally {
             setLoading(false);

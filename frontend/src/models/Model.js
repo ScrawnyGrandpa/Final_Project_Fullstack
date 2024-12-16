@@ -2,17 +2,22 @@ export default class Model {
     static api;
     static cache;
 
-    static async loadAll() {
-        if (!this.cache.all) {
-            const all = await this.api.getAll();
+    static async loadAll(forceRefresh = false) {
+        if (forceRefresh || !this.cache.all) {
+            try {
+                const all = await this.api.getAll();
+                this.cache.all = [];
 
-            this.cache.all = [];
+                all.forEach(data => {
+                    const model = this.cache[data._id] || new this(data);
+                    this.cache[model._id] = model;
+                    this.cache.all.push(model);
+                });
 
-            all.forEach(data => {
-                const model = this.cache[data._id] || new this(data);
-                this.cache[model._id] = model;
-                this.cache.all.push(model);
-            });
+            } catch (error) {
+                console.error('Error fetching data from API:', error);
+                throw error;
+            }
         }
 
         return this.cache.all;
@@ -63,6 +68,7 @@ export default class Model {
     async save() {
         if (this._id) {
             await this.api.update(this._id, this);
+            this.cache[this._id] = this;
         } else {
             const { _id, createdAt, ...dataToSave } = this;
             const data = await this.api.create(dataToSave);
@@ -70,6 +76,7 @@ export default class Model {
             this.cache[this._id] = this;
             this.cache.all?.push(this);
         }
+        this.cache[this._id] = this;
         return this;
     }
 

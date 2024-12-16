@@ -19,21 +19,14 @@ export default function RegisterPage() {
     const { setShowSearch } = useSearch();
 
     const onCancel = useCallback(() => {
-        console.log("Clicked Cancel");
         navigate(ROUTES.ROOT)
     }, []);
 
     const onSubmit = useLoadCallback(async data => {
         const user = new UserModel(data);
         setDefaultValue(data);
-
         const newUser = user.cleanup();
-        console.log("saved newUser", newUser);
-
         await newUser.save();
-        console.log("Saving to Databse");
-
-
         setNotification({ message: "Registration complete", severity: "info" });
         await login(newUser.email, newUser.password);
     }, []);

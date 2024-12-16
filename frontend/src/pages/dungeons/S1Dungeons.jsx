@@ -13,7 +13,7 @@ export default function S1Dungeons() {
 
     const fetchDungeons = async () => {
         try {
-            const dungeons = await DungeonModel.loadAll();
+            const dungeons = await DungeonModel.loadAll(true);
             setAllDungeons(dungeons);
 
             const filteredS1Dungeons = dungeons.filter(dungeon =>

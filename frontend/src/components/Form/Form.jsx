@@ -54,7 +54,7 @@ export default function Form({
     }, [data, changeCallback, isValid]);
 
     const renderField = (fieldName, fieldConfig) => {
-        const { type, label, required } = fieldConfig;
+        const { type, label, required, placeholder } = fieldConfig;
         const inputType = type === "password" ? "password" : type === "number" ? "number" : "text";
 
         return (
@@ -67,7 +67,8 @@ export default function Form({
                     type={inputType}
                     value={data[fieldName] || ""}
                     required={required}
-                    className={`border border-cyan-700 p-2 w-full text-white rounded bg-gray-800 ${errors[fieldName] ? 'border-red-500' : ''}`}
+                    placeholder={placeholder || ""}
+                    className={`border border-cyan-700 p-2 w-full text-white rounded bg-gray-800 placeholder-opacity-60 placeholder-gray-500 ${errors[fieldName] ? 'border-red-500' : ''}`}
                     onChange={e => onChange(fieldName, e.target.value)}
                 />
                 {errors[fieldName] && (
@@ -78,6 +79,7 @@ export default function Form({
             </div>
         );
     };
+
 
     const renderAdminCheckbox = () => {
         if (title === "Register") {

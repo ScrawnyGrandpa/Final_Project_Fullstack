@@ -26,17 +26,14 @@ export default function BossForm() {
     }, [id]);
 
     const handleFormChange = (data, isValid) => {
-        console.log("Form valid?", isValid);
         setDefaultValue(data);
     };
 
     const handleReset = () => {
-        console.log('Resetting form');
         setDefaultValue(initialData);
     };
 
     const onSubmit = useLoadCallback(async (data) => {
-        console.log("Submitting form with data", data);
         setDefaultValue(data);
 
         const completeData = { ...data };

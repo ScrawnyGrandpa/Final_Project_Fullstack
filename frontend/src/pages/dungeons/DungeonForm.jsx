@@ -26,27 +26,19 @@ export default function DungeonForm() {
     }, [id]);
 
     const handleFormChange = (data, isValid) => {
-        console.log("Form valid?", isValid);
         setDefaultValue(data);
     };
 
     const handleReset = () => {
-        console.log('Resetting form');
         setDefaultValue(initialData);
     };
 
     const onSubmit = useLoadCallback(async (data) => {
-        console.log("Submitting form with data", data);
         setDefaultValue(data);
-
         const completeData = { ...data };
-
         const updatedDungeon = new DungeonModel(completeData);
-        console.log("Dungeon complete data", completeData);
-
         await updatedDungeon.save();
         setNotification({ message: "Dungeon profile updated", severity: "success" });
-
         navigate(`${ROUTES.DUNGEON_INFO}/${updatedDungeon._id}`);
     }, [id, dungeon]);
 
@@ -80,7 +72,6 @@ export default function DungeonForm() {
                     </h1>
                     <div className="flex flex-col gap-5">
                         <div className="flex-1">
-                            {/* Form Component */}
                             <Form
                                 title={`${id ? "Edit" : "Create"} Dungeon`}
                                 schema={schema}
@@ -98,7 +89,6 @@ export default function DungeonForm() {
                     <h1 className="text-left text-2xl font-bold mb-5">Dungeon Page</h1>
                     <div className="flex flex-col gap-5">
                         <div className="flex-1">
-                            {/* Form Component */}
                             <Form
                                 title={`${id ? "Edit" : "Create"} Dungeon`}
                                 schema={schema}
