@@ -11,7 +11,7 @@ import { ROUTES } from "../../router";
 import { useSearch } from "../../providers/SearchProvider";
 
 export default function RegisterPage() {
-    const [defaultValue, setDefaultValue] = useState(new UserModel().toObject());
+    const [defaultValue, setDefaultValue] = useState(new UserModel());
     const schema = useMemo(() => new RegisterSchema(), []);
     const { user, login } = useAuthentication();
     const { setNotification } = usePageUI();
