@@ -63,7 +63,19 @@ export default function HomePage() {
         setShowSearch(false);
     }, []);
 
+    if (loading) {
+        return (
+            <div className="flex justify-center items-center min-h-screen">
+                <div className="flex items-center space-x-2">
+                    <div className="w-10 h-10 border-4 border-t-4 border-blue-500 border-solid rounded-full animate-spin"></div>
+                    <span className="text-lg text-gray-600">Loading...</span>
+                </div>
+            </div>
+        );
+    }
+
     return (
+        !loading &&
         <>
             <h2 className="text-4xl font-bold md:text-5xl lg:text-5xl mb-10">
                 Welcome to ScrawnyGrandpa Guides
