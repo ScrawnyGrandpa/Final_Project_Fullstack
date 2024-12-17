@@ -65,15 +65,17 @@ export default function CRM() {
     };
 
     const handleDeleteEntity = async (id, model, entityName) => {
-        const isValid = await validateAndCheckId(id, model, entityName);
-        if (!isValid) return;
+        if (confirm(`Are you sure you want to remove ${entityName}?`)) {
+            const isValid = await validateAndCheckId(id, model, entityName);
+            if (!isValid) return;
 
-        try {
-            const entity = await model.load(id);
-            await entity.delete();
-            handleNotification(`${entityName} deleted successfully!`, "success");
-        } catch (error) {
-            handleNotification(`An error occurred while trying to delete the ${entityName}.`);
+            try {
+                const entity = await model.load(id);
+                await entity.delete();
+                handleNotification(`${entityName} deleted successfully!`, "success");
+            } catch (error) {
+                handleNotification(`An error occurred while trying to delete the ${entityName}.`);
+            }
         }
     };
 

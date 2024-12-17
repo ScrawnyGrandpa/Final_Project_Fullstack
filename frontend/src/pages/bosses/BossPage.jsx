@@ -86,6 +86,18 @@ export function BossBody({ boss }) {
         navigate(`${ROUTES.BOSS_GUIDE}/${boss._id}`)
     }
 
+    const deleteBoss = async () => {
+        if (confirm("Are you sure you want to delete Boss?")) {
+            try {
+                await boss.delete();
+                setNotification(`${boss.name} Deleted successfully!`, "success");
+                navigate(`${ROUTES.ROOT}`);
+            } catch (error) {
+                setNotification({ message: "Failed to delete Boss", severity: "error" });
+            }
+        }
+    };
+
     useEffect(() => {
         if (boss) {
             WH.Tooltips.refreshLinks();
@@ -123,6 +135,12 @@ export function BossBody({ boss }) {
                                             >
                                                 Edit Boss Strategy Guide
                                             </button>
+                                            <button
+                                                className="bg-gray-800 text-red text-sm px-3 py-1 rounded hover:bg-red-600 mb-2"
+                                                onClick={deleteBoss}
+                                            >
+                                                Delete Boss
+                                            </button>
                                         </>
                                     )}
                                 </div>
@@ -153,6 +171,12 @@ export function BossBody({ boss }) {
                                                 onClick={editBossGuide}
                                             >
                                                 Edit Boss Strategy Guide
+                                            </button>
+                                            <button
+                                                className="bg-gray-800 text-red-500 text-sm px-3 py-1 mx-2 rounded hover:bg-red-900"
+                                                onClick={deleteBoss}
+                                            >
+                                                Delete Boss
                                             </button>
                                         </>
                                     )}
