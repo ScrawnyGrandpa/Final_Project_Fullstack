@@ -7,6 +7,8 @@ import BossSchema from "../../schema/BossSchema";
 import Form from "../../components/Form/Form";
 import PageContent from "../../components/layout/PageContent";
 import { useSearch } from "../../providers/SearchProvider";
+import Popup from "../../components/helpers/Popup";
+
 
 export default function BossForm() {
     const [boss, setBoss] = useState(null);
@@ -17,6 +19,8 @@ export default function BossForm() {
     const schema = useMemo(() => new BossSchema(), []);
     const navigate = useNavigate();
     const { setShowSearch } = useSearch();
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const imageSrc = "/assets/bossExample.png";
 
     const onBossLoaded = useCallback(async () => {
         const data = id ? await BossModel.load(id) : new BossModel();
@@ -54,6 +58,14 @@ export default function BossForm() {
         setShowSearch(false);
     }, []);
 
+    const openPopup = () => {
+        setIsPopupOpen(true);
+    };
+
+    const closePopup = () => {
+        setIsPopupOpen(false);
+    };
+
     return (
         <PageContent>
             {boss ? (
@@ -68,11 +80,17 @@ export default function BossForm() {
                             >
                                 Back
                             </button>
+                            <button
+                                type="button"
+                                onClick={openPopup}
+                                className="bg-purple-800 text-white text-sm px-3 py-1 mx-2 rounded hover:bg-purple-900"
+                            >
+                                Example
+                            </button>
                         </div>
                     </h1>
                     <div className="flex flex-col gap-5">
                         <div className="flex-1">
-                            {/* Form Component */}
                             <Form
                                 title={`${id ? "Edit" : "Create"} Boss`}
                                 schema={schema}
@@ -90,7 +108,6 @@ export default function BossForm() {
                     <h1 className="text-left text-2xl font-bold mb-5">Boss Page</h1>
                     <div className="flex flex-col gap-5">
                         <div className="flex-1">
-                            {/* Form Component */}
                             <Form
                                 title={`${id ? "Edit" : "Create"} Boss`}
                                 schema={schema}
@@ -103,8 +120,8 @@ export default function BossForm() {
                         </div>
                     </div>
                 </div>
-                /*<Navigate to={ROUTES.ROOT} replace />*/
             )}
+            <Popup isOpen={isPopupOpen} closePopup={closePopup} imageSrc={imageSrc} />
         </PageContent>
     );
 }

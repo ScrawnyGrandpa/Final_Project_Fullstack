@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useLoadCallback, useLoadEffect, usePageUI } from "../../providers/PageUIProvider";
 import { ROUTES } from "../../router";
 import PageContent from "../../components/layout/PageContent";
@@ -7,6 +7,7 @@ import DungeonModel from "../../models/DungeonModel";
 import DungeonSchema from "../../schema/DungeonSchema";
 import Form from "../../components/Form/Form";
 import { useSearch } from "../../providers/SearchProvider";
+import Popup from "../../components/helpers/Popup";
 
 export default function DungeonForm() {
     const [dungeon, setDungeon] = useState(null);
@@ -17,6 +18,8 @@ export default function DungeonForm() {
     const schema = useMemo(() => new DungeonSchema(), []);
     const navigate = useNavigate();
     const { setShowSearch } = useSearch();
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const imageSrc = "/assets/dungeonExample.png";
 
     const onDungeonLoaded = useCallback(async () => {
         const data = id ? await DungeonModel.load(id) : new DungeonModel();
@@ -37,7 +40,7 @@ export default function DungeonForm() {
         setDefaultValue(data);
         const completeData = { ...data };
         const updatedDungeon = new DungeonModel(completeData);
-        await updatedDungeon.save().returnCatche();
+        await updatedDungeon.save();
         setNotification({ message: "Dungeon profile updated", severity: "success" });
         navigate(`${ROUTES.DUNGEON_INFO}/${updatedDungeon._id}`);
     }, [id, dungeon]);
@@ -54,6 +57,14 @@ export default function DungeonForm() {
         setShowSearch(false);
     }, []);
 
+    const openPopup = () => {
+        setIsPopupOpen(true);
+    };
+
+    const closePopup = () => {
+        setIsPopupOpen(false);
+    };
+
     return (
         <PageContent>
             {dungeon ? (
@@ -67,6 +78,13 @@ export default function DungeonForm() {
                                 className="bg-gray-800 text-white text-sm px-3 py-1 mx-2 rounded hover:bg-blue-600"
                             >
                                 Back
+                            </button>
+                            <button
+                                type="button"
+                                onClick={openPopup}
+                                className="bg-purple-800 text-white text-sm px-3 py-1 mx-2 rounded hover:bg-purple-900"
+                            >
+                                Example
                             </button>
                         </div>
                     </h1>
@@ -102,6 +120,7 @@ export default function DungeonForm() {
                     </div>
                 </div>
             )}
+            <Popup isOpen={isPopupOpen} closePopup={closePopup} imageSrc={imageSrc} />
         </PageContent>
     );
 }
