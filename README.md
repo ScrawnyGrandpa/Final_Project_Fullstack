@@ -12,7 +12,7 @@ Before you begin, make sure you clear your local storage and have the following 
 
 #### Installation:
 
-1. Download the project from Github at [ScrawnyGrandpa](https://github.com/ScrawnyGrandpa/Final_Project_Fullstack/tree/main) and unzip it into your chosen folder.
+1. Download the project from Github at [ScrawnyGrandpa](https://github.com/ScrawnyGrandpa/Final_Project_Fullstack) and unzip it into your chosen folder.
 2. Open the project in VSCode and open the terminal. Install the necessary dependencies in the following order. Please wait for each installation to complete before proceeding to the next one:
 
     - Install backend dependencies:
@@ -68,3 +68,87 @@ Before you begin, make sure you clear your local storage and have the following 
     ```
 
     This will start both the frontend and backend, and you can access the project via your localhost address recieved froom vite (default http://localhost:5173/).
+    Please make sure your MongoDB server is running in the background. If it isn't, it will cause timeout errors during project boot.
+
+## The Project
+#### API Documentation:
+
+[Boss Documentation](https://documenter.getpostman.com/view/37787175/2sAXxWbVSP)
+
+[Dungeon Documentation]()
+
+[User Documentation](https://documenter.getpostman.com/view/37787175/2sAXxWbVWo)
+
+* Base URL: http://localhost:3000/ **Please note that this URL will change depending on the PORT you used in the .env files**
+    
+    * Endpoints:
+        GET /boss
+        GET /boss:/id
+        POST /boss
+        PUT /boss/:id
+        PATCH /boss/:id
+        DELETE /boss/:id
+
+        GET /dungeon
+        GET /dungeon/:id
+        POST /dungeon
+        PUT /dungeon/:id
+        PATCH /dungeon/:id
+        DELETE /dungeon/:id
+
+        GET /user
+        GET /user/:id
+        POST /user
+        PUT /user/:id
+        PATCH /user/:id
+        DELETE /user/:id
+
+### Final Project Fullstack - Technologies Used
+
+This is a fullstack project consisting of a **frontend** and **backend** section. Below is a breakdown of the key technologies and libraries used in each section.
+
+---
+
+#### Backend Technologies
+
+- **Node.js**: JavaScript runtime used for building the backend API.
+- **Express.js**: Web framework to build the API and handle routing.
+- **MongoDB & Mongoose**: Database and ORM for managing data storage.
+- **JWT (jsonwebtoken)**: Used for secure authentication and authorization.
+- **Bcryptjs**: Password hashing for secure user authentication.
+- **dotenv**: Environment variable management.
+- **Joi**: Data validation for requests.
+- **Mongoose**: MongoDB object modeling.
+- **Nodemailer**: Sending emails from the backend.
+- **Cors**: Middleware to enable cross-origin requests.
+- **Morgan**: HTTP request logger for debugging.
+- **Chalk**: For colored output in the terminal (for logging).
+- **Lodash**: Utility functions for working with data structures.
+- **Cross-env**: Setting environment variables across platforms.
+
+---
+
+#### Frontend Technologies
+
+- **React**: Frontend library for building UI components.
+- **Vite**: Next-generation build tool for fast development and bundling.
+- **TailwindCSS**: Utility-first CSS framework for rapid UI design.
+- **Material UI**: React component library for pre-designed UI components.
+- **React Router DOM**: Routing library for navigating between pages in the app.
+- **Axios**: Promise-based HTTP client for API requests.
+- **JWT Decode**: Decodes JWT tokens for user session management.
+- **React Markdown**: Render Markdown content in React components.
+- **Emotion**: Library for writing CSS styles with JavaScript.
+
+---
+
+#### Development Tools
+
+- **Nodemon**: Automatically restarts the server during development for faster iteration.
+- **ESLint**: Linting tool for maintaining code quality and consistency.
+- **Prettier**: Code formatter to keep the codebase clean and readable.
+- **Concurrently**: Runs multiple npm scripts simultaneously (used for running both frontend and backend in development).
+
+---
+
+This setup combines modern JavaScript technologies to create a fast, scalable, and maintainable fullstack application.
