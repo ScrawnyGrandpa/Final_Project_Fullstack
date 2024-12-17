@@ -74,7 +74,7 @@ Before you begin, make sure you clear your local storage and have the following 
 
 ## The Project
 
-#### <span style="color: red;">Known Issues</span>
+#### :red_circle: Known Issues
 
 The following are known issues that still exist in the project and are being worked on.
 
@@ -98,27 +98,29 @@ The following are known issues that still exist in the project and are being wor
 - **Additionally all dungeon, user and boss IDs will be generated on your machine upon running the project for the first time. Which means the IDs present in the Postman documentation will be invalid. You will have to manually retrieve the new IDs from your MongoDB**
 (You can simply use the Create endpoint in Postman to create a dummy collection in order to test the endpoints)
     
-    * Endpoints:
-        GET /boss
-        GET /boss:/id
-        POST /boss
-        PUT /boss/:id
-        PATCH /boss/:id
-        DELETE /boss/:id
+#### Endpoints:
 
-        GET /dungeon
-        GET /dungeon/:id
-        POST /dungeon
-        PUT /dungeon/:id
-        PATCH /dungeon/:id
-        DELETE /dungeon/:id
+GET /boss  
+GET /boss/:id  
+POST /boss  
+PUT /boss/:id  
+PATCH /boss/:id  
+DELETE /boss/:id  
 
-        GET /user
-        GET /user/:id
-        POST /user
-        PUT /user/:id
-        PATCH /user/:id
-        DELETE /user/:id
+GET /dungeon  
+GET /dungeon/:id  
+POST /dungeon  
+PUT /dungeon/:id  
+PATCH /dungeon/:id  
+DELETE /dungeon/:id  
+
+GET /user  
+GET /user/:id  
+POST /user  
+PUT /user/:id  
+PATCH /user/:id  
+DELETE /user/:id
+
 
 ### Final Project Fullstack - Technologies Used
 
