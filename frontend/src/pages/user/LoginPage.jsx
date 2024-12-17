@@ -4,7 +4,6 @@ import { Navigate, useNavigate } from "react-router-dom";
 import UserModel from "../../models/UserModel";
 import { useAuthentication } from "../../providers/AuthenticationProvider";
 import { useLoadCallback, usePageUI } from "../../providers/PageUIProvider";
-import PageContent from "../../components/layout/PageContent";
 import Form from "../../components/Form/Form";
 import { ROUTES } from "../../router";
 import LoginSchema from "../../schema/LoginSchema";
@@ -33,7 +32,7 @@ export default function RegisterPage() {
     }, []);
 
     return (
-        <PageContent>
+        <>
             {user && <Navigate to={ROUTES.ROOT} replace />}
             {!user &&
                 <div className="max-w-4xl mx-auto p-6 w-[90vw]">
@@ -41,6 +40,6 @@ export default function RegisterPage() {
                     />
                 </div>
             }
-        </PageContent>
+        </>
     );
 }

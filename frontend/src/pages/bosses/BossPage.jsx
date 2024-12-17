@@ -3,7 +3,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import BossModel from "../../models/BossModel";
-import PageContent from "../../components/layout/PageContent";
 import { useErrorCallback, useLoadEffect, usePageUI } from "../../providers/PageUIProvider";
 import { SPELL, NPC } from "../../utils/wowheadLinks";
 import { ROUTES } from "../../router";
@@ -34,13 +33,13 @@ export default function BossPage() {
     }, []);
 
     return (
-        <PageContent>
+        <>
             {boss && !loading && (
                 <div className="flex flex-col items-center">
                     <BossBody boss={boss} />
                 </div>
             )}
-        </PageContent>
+        </>
     );
 }
 

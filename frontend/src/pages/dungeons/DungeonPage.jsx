@@ -3,7 +3,6 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import DungeonModel from "../../models/DungeonModel";
-import PageContent from "../../components/layout/PageContent";
 import { useErrorCallback, useLoadEffect, usePageUI } from "../../providers/PageUIProvider";
 import { SPELL, NPC } from "../../utils/wowheadLinks";
 import { ROUTES } from "../../router";
@@ -43,13 +42,13 @@ export default function DungeonPage() {
     }, []);
 
     return (
-        <PageContent>
+        <>
             {dungeon && !loading && (
                 <div className="flex flex-col items-center">
                     <DungeonBody dungeon={dungeon} dungeonBosses={filteredBosses} />
                 </div>
             )}
-        </PageContent>
+        </ >
     );
 }
 

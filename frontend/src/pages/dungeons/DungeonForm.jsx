@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useLoadCallback, useLoadEffect, usePageUI } from "../../providers/PageUIProvider";
 import { ROUTES } from "../../router";
-import PageContent from "../../components/layout/PageContent";
 import DungeonModel from "../../models/DungeonModel";
 import DungeonSchema from "../../schema/DungeonSchema";
 import Form from "../../components/Form/Form";
@@ -66,7 +65,7 @@ export default function DungeonForm() {
     };
 
     return (
-        <PageContent>
+        <>
             {dungeon ? (
                 <div className="max-w-3xl mx-auto p-5 md:w-[95vw]">
                     <h1 className="text-2xl font-bold mb-4 flex justify-between items-center">
@@ -121,6 +120,6 @@ export default function DungeonForm() {
                 </div>
             )}
             <Popup isOpen={isPopupOpen} closePopup={closePopup} imageSrc={imageSrc} />
-        </PageContent>
+        </>
     );
 }

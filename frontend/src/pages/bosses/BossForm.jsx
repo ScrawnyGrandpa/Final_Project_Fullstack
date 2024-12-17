@@ -5,7 +5,6 @@ import { ROUTES } from "../../router";
 import BossModel from "../../models/BossModel";
 import BossSchema from "../../schema/BossSchema";
 import Form from "../../components/Form/Form";
-import PageContent from "../../components/layout/PageContent";
 import { useSearch } from "../../providers/SearchProvider";
 import Popup from "../../components/helpers/Popup";
 
@@ -67,7 +66,7 @@ export default function BossForm() {
     };
 
     return (
-        <PageContent>
+        <>
             {boss ? (
                 <div className="max-w-3xl mx-auto p-5 md:w-[95vw]">
                     <h1 className="text-2xl font-bold mb-4 flex justify-between items-center">
@@ -122,6 +121,6 @@ export default function BossForm() {
                 </div>
             )}
             <Popup isOpen={isPopupOpen} closePopup={closePopup} imageSrc={imageSrc} />
-        </PageContent>
+        </>
     );
 }

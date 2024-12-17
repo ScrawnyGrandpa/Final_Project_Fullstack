@@ -4,7 +4,6 @@ import EditUserSchema from '../../schema/EditUserSchema';
 import { useAuthentication } from '../../providers/AuthenticationProvider';
 import { useLoadCallback, usePageUI } from '../../providers/PageUIProvider';
 import Form from '../../components/Form/Form';
-import PageContent from '../../components/layout/PageContent';
 import { ROUTES } from '../../router';
 import { useSearch } from "../../providers/SearchProvider";
 
@@ -37,7 +36,7 @@ export default function UserProfile() {
     }
 
     return (
-        <PageContent>
+        <>
             {defaultValue &&
                 <div>
                     <p className='text-4xl font-bold md:text-4xl lg:text-4xl mb-10'>{user.nickName}</p>
@@ -57,6 +56,6 @@ export default function UserProfile() {
                     </div>
                 </div>
             }
-        </PageContent>
+        </>
     );
 }

@@ -6,7 +6,6 @@ import { s1DungeonsList, twwDungeonsList } from '../utils/dungeonLists';
 import DungeonComponent from './dungeons/DungeonComponent';
 import { usePageUI } from '../providers/PageUIProvider';
 import { useSearch } from '../providers/SearchProvider';
-import PageContent from '../components/layout/PageContent';
 
 export default function HomePage() {
     const [isFirstLoad, setIsFirstLoad] = useState();
@@ -65,7 +64,7 @@ export default function HomePage() {
     }, []);
 
     return (
-        <PageContent>
+        <>
             <h2 className="text-4xl font-bold md:text-5xl lg:text-5xl mb-10">
                 Welcome to ScrawnyGrandpa Guides
             </h2>
@@ -82,6 +81,6 @@ export default function HomePage() {
 
             <div className="m-3 text-xl">Season 1 Dungeons</div>
             <DungeonComponent dungeons={s1Dungeons} />
-        </PageContent>
+        </>
     );
 }

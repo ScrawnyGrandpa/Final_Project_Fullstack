@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import PageContent from "../components/layout/PageContent";
 import { useSearch } from "../providers/SearchProvider";
 
 export default function AboutPage() {
@@ -11,7 +10,7 @@ export default function AboutPage() {
 
     return (
         <>
-            <PageContent>
+            <>
                 <div className="flex flex-col gap-3">
                     <h3 className="text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl mb-6">
                         About Us
@@ -80,7 +79,7 @@ export default function AboutPage() {
                         <p>Special thanks to Shir Raanan for all the help they provided throughout this wonderful journey.</p>
                     </div>
                 </div>
-            </PageContent>
+            </>
         </>
     );
 }

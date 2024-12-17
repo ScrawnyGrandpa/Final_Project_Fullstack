@@ -5,7 +5,6 @@ import DungeonModel from '../models/DungeonModel';
 import DungeonComponent from './dungeons/DungeonComponent';
 import { usePageUI } from '../providers/PageUIProvider';
 import { useSearch } from '../providers/SearchProvider';
-import PageContent from '../components/layout/PageContent';
 
 export default function AllCollectionsData() {
     const [isFirstLoad, setIsFirstLoad] = useState(true);
@@ -62,7 +61,7 @@ export default function AllCollectionsData() {
     }, [searchText, isFirstLoad, setNotification]);
 
     return (
-        <PageContent>
+        <>
             <h2 className="mb-2 font-bold text-purple-500">
                 Here you may find the entire database of available dungeons, dungeon-bosses, and raid-bosses.
             </h2>
@@ -87,6 +86,6 @@ export default function AllCollectionsData() {
             ) : (
                 <RaidComponent bosses={dungBosses} />
             )}
-        </PageContent>
+        </>
     );
 }

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import PageContent from '../../components/layout/PageContent';
 import { Navigate } from 'react-router-dom';
 import { useAuthentication } from '../../providers/AuthenticationProvider';
 import { useLoadCallback } from '../../providers/PageUIProvider';
@@ -44,7 +43,7 @@ export default function FavoriteItems() {
     }
 
     return (
-        <PageContent>
+        <>
             <div>
                 <p>Welcome to your Favorite dungeons & bosses {user.nickName}.</p>
                 <h3 className="my-3 text-purple-500 text-xl font-bold">Your Favorite Bosses:</h3>
@@ -75,6 +74,6 @@ export default function FavoriteItems() {
                     </div>
                 )}
             </div>
-        </PageContent>
+        </>
     );
 }
