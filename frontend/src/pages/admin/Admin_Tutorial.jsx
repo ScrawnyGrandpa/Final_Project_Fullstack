@@ -8,12 +8,16 @@ export default function Admin_Tutorial() {
     const [loading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        if (user) {
+        if (user !== undefined) {
             setIsLoading(false);
         }
     }, [user]);
 
-    if (loading || !user || !user.isAdmin) {
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    if (!user || !user.isAdmin) {
         return <Navigate to="/" replace />;
     }
 
