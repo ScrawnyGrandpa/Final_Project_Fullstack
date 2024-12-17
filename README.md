@@ -155,4 +155,9 @@ This is a fullstack project consisting of a **frontend** and **backend** section
 ---
 
 This setup combines modern JavaScript technologies to create a fast, scalable, and maintainable fullstack application.
-![Form](./frontend/public/assets/bossExample.png)
+
+[Site Homepage](./frontend/public/assets/homePage.png)
+[Boss Page](./frontend/public/assets/raidBossPage.png)
+[Dungeons Page](./frontend/public/assets/dungeonsPage.png)
+[Admin Panel](./frontend/public/assets/adminPortalPage.png)
+[Favorites Page](./frontend/public/assets/favsPage.png)
