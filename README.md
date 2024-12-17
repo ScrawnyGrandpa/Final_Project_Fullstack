@@ -75,13 +75,17 @@ Before you begin, make sure you clear your local storage and have the following 
 ## The Project
 #### API Documentation:
 
-[Boss Documentation](https://documenter.getpostman.com/view/37787175/2sAXxWbVSP)
+[Boss Documentation](https://documenter.getpostman.com/view/37787175/2sAYHzJ4Ff)
 
-[Dungeon Documentation]()
+[Dungeon Documentation](https://documenter.getpostman.com/view/37787175/2sAYHzJ4Fi)
 
-[User Documentation](https://documenter.getpostman.com/view/37787175/2sAXxWbVWo)
+[User Documentation](https://documenter.getpostman.com/view/37787175/2sAYHzJ4Ky)
 
-* Base URL: http://localhost:3000/ **Please note that this URL will change depending on the PORT you used in the .env files**
+* Base URL: http://localhost:3000/ 
+
+**Please note that this URL will change depending on the PORT you used in the .env files**
+**Additionally all dungeon, user and boss IDs will be generated on your machine upon running the project for the first time. Which means the IDs present in the Postman documentation will be invalid. You will have to manually retrieve the new IDs from your MongoDB**
+(You can simply use the Create endpoint in Postman to create a dummy collection)
     
     * Endpoints:
     ```plaintext
