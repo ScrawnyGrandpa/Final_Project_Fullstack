@@ -93,6 +93,9 @@ export default function Header() {
                     <Link to={ROUTES.ROOT} className={navLinkStyle} onClick={isMenuOpen ? toggleMobileMenu : null}>
                         Home
                     </Link>
+                    <Link to={ROUTES.ALLDATA} className={navLinkStyle} onClick={isMenuOpen ? toggleMobileMenu : null}>
+                        All
+                    </Link>
                     <Link to={ROUTES.RAIDS} className={navLinkStyle} onClick={isMenuOpen ? toggleMobileMenu : null}>
                         Raids
                     </Link>

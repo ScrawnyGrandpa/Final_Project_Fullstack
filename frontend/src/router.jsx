@@ -16,7 +16,7 @@ import FavoriteItems from "./pages/user/FavoriteItems";
 import UserProfile from "./pages/user/UserProfile";
 import ErrorPage from "./pages/ErrorPage";
 import Admin_Tutorial from "./pages/admin/Admin_Tutorial";
-
+import AllCollectionsData from "./pages/AllCollectionsData";
 
 export const ROUTES = {
     ROOT: "/",
@@ -32,6 +32,7 @@ export const ROUTES = {
     NERUBAR: "/raids/nerubar",
     TWWDUNGEONS: "/tww-dungeons",
     S1DUNGEONS: "/s1-dungeonss",
+    ALLDATA: "/all-data",
     FAVORITES: "/liked-items",
     SIGNUP: "/signup",
     LOGIN: "/login",
@@ -49,6 +50,7 @@ export default function Router() {
             <Route path={ROUTES.RAIDS} element={<Raids />} />
             <Route path={ROUTES.TWWDUNGEONS} element={<TwwDungeons />} />
             <Route path={ROUTES.S1DUNGEONS} element={<S1Dungeons />} />
+            <Route path={ROUTES.ALLDATA} element={<AllCollectionsData />} />
             <Route path={ROUTES.BOSS_INFO + "/:id"} element={<BossPage />} />
             <Route path={ROUTES.BOSS_CREATE} element={<BossForm />} />
             <Route path={ROUTES.BOSS_FORM + "/:id"} element={<BossForm />} />

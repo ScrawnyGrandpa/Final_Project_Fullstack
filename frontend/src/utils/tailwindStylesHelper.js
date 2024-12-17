@@ -13,3 +13,6 @@ export const dungeonLinkStyle = "block px-4 py-2 text-sm hover:bg-gray-700 borde
 
 // Account Menu
 export const accMenuButton = "flex items-center p-3 text-white hover:bg-gray-700 w-full text-left";
+
+// Tutorial
+export const imageClassStyle = "border border-gray-600 my-3 max-w-[700px] transition-transform duration-300 ease-in-out transform scale-100 hover:scale-[1.2] hover:border-blue-500"

@@ -163,3 +163,28 @@ This setup combines modern JavaScript technologies to create a fast, scalable, a
 [Dungeons Page](./frontend/public/assets/dungeonsPage.png)
 [Admin Panel](./frontend/public/assets/adminPortalPage.png)
 [Favorites Page](./frontend/public/assets/favsPage.png)
+
+--- 
+
+#### User Options
+
+A **Non-Registered** user may do the following:
+
+- View all available Bosses & Dungeons.
+
+A **Registered** user may do the following:
+
+- View all available Bosses & Dungeons.
+- Access all available Bosses & Dungeons via the User Menu.
+- Add and Remove Bosses & Dungeons to Favorites. 
+- Edit own user profile.
+
+An **Admin** user may do the following:
+
+- View all available Bosses & Dungeons.
+- Access all available Bosses & Dungeons via the User Menu.
+- Add and Remove Bosses & Dungeons to Favorites. 
+- Edit own user profile.
+- Create, Delete and Edit all Bosss & Dungeons.
+- Create, Delete and Edit all Boss Strategy-Guides.
+- Have access to the CRM panel (Admin Portal) which grants quick access to all of the above.

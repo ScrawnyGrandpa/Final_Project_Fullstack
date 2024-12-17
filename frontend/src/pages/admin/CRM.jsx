@@ -109,7 +109,7 @@ export default function CRM() {
         !loading && user.isAdmin && (
             <div className="flex flex-col">
                 <div>Welcome to your Control Center <span className='text-cyan-400'>{user.nickName}</span></div>
-                <button className="bg-purple-700 max-w-[20%] text-white text-sm px-3 py-1 mx-2 rounded-sm hover:bg-purple-600 my-2" onClick={toTutorial}>Strategy Guide Tutorial</button>
+                <button className="bg-purple-700 max-w-[20%] text-white text-sm px-3 py-1 mx-2 rounded-sm hover:bg-purple-600 my-2" onClick={toTutorial}>How to use this page?</button>
                 {/* Boss */}
                 <BossSection
                     editBoss={editBoss} setEditBoss={setEditBoss}
@@ -125,16 +125,6 @@ export default function CRM() {
                     handleCreateDungeon={handleCreateDungeon} handleEditDungeon={handleEditDungeon}
                     handleDeleteDungeon={handleDeleteDungeon}
                 />
-                <div>
-                    <h3 className='mb-2 font-bold text-purple-500'>Quick Admin-Panel Tutorial</h3>
-                    <p>In order to edit or delete a boss or a dungeon you must first provide a valid ID for the item you wish to affect. You can do so by either checking the objectID in your MongoDB Compass database - under the name scrawnyGrandpaGuides, and find the item within the requested collection. Or by going to the boss / dungeon URL and copying the ID from the URL line itself. See images below for reference.</p>
-                    <br />
-                    <p className='mb-3'>MongoDB Compass</p>
-                    <img className="border border-[#212930]" src="/assets/mongoDBCompassID.png" alt="MongoDB Compass objectID" />
-                    <br />
-                    <p className='mb-3'>Boss/Dungeon URL ID</p>
-                    <img className="border border-[#212930]" src="/assets/URLID.png" alt="URL ID" />
-                </div>
             </div>
         )
     );
