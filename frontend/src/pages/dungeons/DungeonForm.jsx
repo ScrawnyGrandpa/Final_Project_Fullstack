@@ -90,6 +90,7 @@ export default function DungeonForm() {
                     <div className="flex flex-col gap-5">
                         <div className="flex-1">
                             <Form
+                                key={dungeon._id}
                                 title={`${id ? "Edit" : "Create"} Dungeon`}
                                 schema={schema}
                                 defaultValue={defaultValue}

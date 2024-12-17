@@ -23,7 +23,7 @@ export default function BossForm() {
 
     const onBossLoaded = useCallback(async () => {
         const data = id ? await BossModel.load(id) : new BossModel();
-        setBoss(data);
+        setBoss(data)
         setDefaultValue(data);
         setInitialData(data);
     }, [id]);
@@ -91,6 +91,7 @@ export default function BossForm() {
                     <div className="flex flex-col gap-5">
                         <div className="flex-1">
                             <Form
+                                key={boss._id}
                                 title={`${id ? "Edit" : "Create"} Boss`}
                                 schema={schema}
                                 defaultValue={defaultValue}
