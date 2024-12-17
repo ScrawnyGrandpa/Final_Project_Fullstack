@@ -12,7 +12,7 @@ const checkUserAccess = (req, res, next) => {
     next();
 };
 
-// Boss / Trash API Section
+// Boss / Dungeon API Section
 const checkAdminAccess = (req, res, next) => {
     const { isAdmin } = req.user;
 
