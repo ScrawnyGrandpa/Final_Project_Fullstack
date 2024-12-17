@@ -69,7 +69,7 @@ Before you begin, make sure you clear your local storage and have the following 
     npm start
     ```
 
-    This will start both the frontend and backend, and you can access the project via your localhost address recieved froom vite (default http://localhost:5173/).
+    This will start both the frontend and backend, and you can access the project via your localhost address recieved from vite (default http://localhost:5173/).
     Please make sure your MongoDB server is running in the background. If it isn't, it will cause timeout errors during project boot.
 
 ## The Project
@@ -81,11 +81,11 @@ Before you begin, make sure you clear your local storage and have the following 
 
 [User Documentation](https://documenter.getpostman.com/view/37787175/2sAYHzJ4Ky)
 
-* Base URL: http://localhost:3000/ 
+* Base documentation URL: http://localhost:3000/ 
 
-**Please note that this URL will change depending on the PORT you used in the .env files**
-**Additionally all dungeon, user and boss IDs will be generated on your machine upon running the project for the first time. Which means the IDs present in the Postman documentation will be invalid. You will have to manually retrieve the new IDs from your MongoDB**
-(You can simply use the Create endpoint in Postman to create a dummy collection)
+- **Please note that the documentation URL will change depending on the PORT you used in the .env files so you may need to change it in your postman.**
+- **Additionally all dungeon, user and boss IDs will be generated on your machine upon running the project for the first time. Which means the IDs present in the Postman documentation will be invalid. You will have to manually retrieve the new IDs from your MongoDB**
+(You can simply use the Create endpoint in Postman to create a dummy collection in order to test the endpoints)
     
     * Endpoints:
         GET /boss
@@ -175,16 +175,15 @@ A **Non-Registered** user may do the following:
 A **Registered** user may do the following:
 
 - View all available Bosses & Dungeons.
-- Access all available Bosses & Dungeons via the User Menu.
 - Add and Remove Bosses & Dungeons to Favorites. 
 - Edit own user profile.
 
 An **Admin** user may do the following:
 
 - View all available Bosses & Dungeons.
-- Access all available Bosses & Dungeons via the User Menu.
 - Add and Remove Bosses & Dungeons to Favorites. 
 - Edit own user profile.
-- Create, Delete and Edit all Bosss & Dungeons.
+- Create, Delete and Edit all Bosses & Dungeons.
 - Create, Delete and Edit all Boss Strategy-Guides.
 - Have access to the CRM panel (Admin Portal) which grants quick access to all of the above.
+- Have access to the Admin Tutorial via a "How to use this page?" button in the CRM area.
