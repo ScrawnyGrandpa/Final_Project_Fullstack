@@ -88,7 +88,6 @@ Before you begin, make sure you clear your local storage and have the following 
 (You can simply use the Create endpoint in Postman to create a dummy collection)
     
     * Endpoints:
-    ```plaintext
         GET /boss
         GET /boss:/id
         POST /boss
@@ -109,7 +108,6 @@ Before you begin, make sure you clear your local storage and have the following 
         PUT /user/:id
         PATCH /user/:id
         DELETE /user/:id
-    ```
 
 ### Final Project Fullstack - Technologies Used
 
