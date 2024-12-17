@@ -73,6 +73,17 @@ Before you begin, make sure you clear your local storage and have the following 
     Please make sure your MongoDB server is running in the background. If it isn't, it will cause timeout errors during project boot.
 
 ## The Project
+
+#### <span style="color: red;">Known Issues</span>
+
+The following are known issues that still exist in the project and are being worked on.
+
+- Search text not reseting when changing page.
+- Form Validation displays a generic error message rather than the designated message.
+- Cache system does not update display of edited / deleted / changed items on main pages. Currently bypassed by forcing a new API request instead of forcing F5.
+- NavBar items do not update in case of edited / deleted / changed items currently only updates by forcing a new API request or F5.
+- (Backend) Need to rewrite the DungeonModel or the BossModelto accept better strategy information.
+
 #### API Documentation:
 
 [Boss Documentation](https://documenter.getpostman.com/view/37787175/2sAYHzJ4Ff)
