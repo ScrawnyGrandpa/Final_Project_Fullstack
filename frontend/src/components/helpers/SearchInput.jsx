@@ -6,7 +6,7 @@ export default function SearchInput({ defaultValue, onChange }) {
             <input
                 type="text"
                 className="w-full border-cyan-700 text-white bg-gray-800 rounded-sm py-2 pl-4 pr-10 text-sm border focus:outline-none focus:ring-1 focus:ring-blue-500"
-                placeholder="Search cards"
+                placeholder="Search ..."
                 defaultValue={defaultValue}
                 onChange={(e) => onChange(e.target.value)}
             />
