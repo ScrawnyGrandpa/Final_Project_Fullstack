@@ -10,6 +10,8 @@ Before you begin, make sure you clear your local storage and have the following 
 - [Node.js](https://nodejs.org/en/download/prebuilt-installer) (Recommended version: v16.x.x or later)
 - MongoDB
 
+---
+
 #### Installation:
 
 1. Download the project from Github at [ScrawnyGrandpa](https://github.com/ScrawnyGrandpa/Final_Project_Fullstack) and unzip it into your chosen folder.
@@ -82,6 +84,7 @@ Before you begin, make sure you clear your local storage and have the following 
 * Base URL: http://localhost:3000/ **Please note that this URL will change depending on the PORT you used in the .env files**
     
     * Endpoints:
+    ```plaintext
         GET /boss
         GET /boss:/id
         POST /boss
@@ -102,6 +105,7 @@ Before you begin, make sure you clear your local storage and have the following 
         PUT /user/:id
         PATCH /user/:id
         DELETE /user/:id
+    ```
 
 ### Final Project Fullstack - Technologies Used
 
@@ -119,7 +123,6 @@ This is a fullstack project consisting of a **frontend** and **backend** section
 - **dotenv**: Environment variable management.
 - **Joi**: Data validation for requests.
 - **Mongoose**: MongoDB object modeling.
-- **Nodemailer**: Sending emails from the backend.
 - **Cors**: Middleware to enable cross-origin requests.
 - **Morgan**: HTTP request logger for debugging.
 - **Chalk**: For colored output in the terminal (for logging).
@@ -152,3 +155,4 @@ This is a fullstack project consisting of a **frontend** and **backend** section
 ---
 
 This setup combines modern JavaScript technologies to create a fast, scalable, and maintainable fullstack application.
+![Form](./frontend/public/assets/bossExample.png)
