@@ -62,6 +62,7 @@ export function DungeonBody({ dungeon, dungeonBosses }) {
     const { setNotification } = usePageUI();
     const [isFavDungeon, setIsFavDungeon] = useState(user ? user.likedDungeons.includes(dungeon._id) : false);
     const [isSmallScreen, setIsSmallScreen] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         if (user && dungeon) {
@@ -84,11 +85,9 @@ export function DungeonBody({ dungeon, dungeonBosses }) {
         const updatedUser = await user.toggleLikeDungeon(dungeon._id);
         setIsFavDungeon(updatedUser.likedDungeons.includes(dungeon._id));
 
-        if (isFavDungeon) {
-            setNotification({ message: "Dungeon added to favorites", severity: "info" });
-        } else {
+        !isFavDungeon ?
+            setNotification({ message: "Dungeon added to favorites", severity: "info" }) :
             setNotification({ message: "Dungeon removed from favorites", severity: "error" });
-        }
     }, [dungeon, isFavDungeon]);
 
     const editDungeon = () => {
@@ -108,118 +107,128 @@ export function DungeonBody({ dungeon, dungeonBosses }) {
         }
     };
 
+    useEffect(() => {
+        if (dungeonBosses && dungeon) {
+            WH.Tooltips.refreshLinks();
+        }
+        setLoading(false);
+    }, [dungeonBosses, dungeon]);
+
     return (
-        <div className="w-[95vw] p-6 text-white rounded-lg">
-            <div>
-                {isSmallScreen ? (
-                    <>
-                        <h2 className="text-2xl font-bold mb-4">{dungeon.name}</h2>
-                        {user && (
-                            <div className="text-right flex flex-col gap-2">
-                                <button
-                                    onClick={toggleFav}
-                                    className={`${isFavDungeon ? 'bg-red-600' : 'bg-gray-600'} text-white text-sm px-3 py-1 rounded`}
-                                >
-                                    {isFavDungeon ? "Remove from Favs" : "Add to Favs"}
-                                </button>
+        (dungeonBosses && dungeon && !loading) &&
+        <>
+            <div className="w-[95vw] p-6 text-white rounded-lg">
+                <div>
+                    {isSmallScreen ? (
+                        <>
+                            <h2 className="text-2xl font-bold mb-4">{dungeon.name}</h2>
+                            {user && (
+                                <div className="text-right flex flex-col gap-2">
+                                    <button
+                                        onClick={toggleFav}
+                                        className={`${isFavDungeon ? 'bg-red-600' : 'bg-gray-600'} text-white text-sm px-3 py-1 rounded`}
+                                    >
+                                        {isFavDungeon ? "Remove from Favs" : "Add to Favs"}
+                                    </button>
 
-                                {user?.isAdmin && (
-                                    <>
-                                        <button
-                                            className="bg-blue-500 text-white text-sm px-3 py-1 rounded hover:bg-blue-600 mb-2"
-                                            onClick={editDungeon}
-                                        >
-                                            Edit Dungeon Info
-                                        </button>
-                                        <button
-                                            className="bg-gray-800 text-red text-sm px-3 py-1 rounded hover:bg-red-600 mb-2"
-                                            onClick={deleteDungeon}
-                                        >
-                                            Delete Dungeon
-                                        </button>
-                                    </>
-                                )}
-                            </div>
-                        )}
-                    </>
-                ) : (
-                    <h2 className="text-2xl font-bold mb-4 flex justify-between items-center">
-                        {dungeon.name}
-                        {user && (
-                            <div className="flex items-center">
-                                <button
-                                    onClick={toggleFav}
-                                    className={`${isFavDungeon ? 'bg-red-600' : 'bg-gray-600'} text-white text-sm px-3 py-1 mx-2 rounded`}
-                                >
-                                    {isFavDungeon ? "Remove from Favs" : "Add to Favs"}
-                                </button>
-                                {user?.isAdmin && (
-                                    <>
-                                        <button
-                                            className="bg-blue-500 text-white text-sm px-3 py-1 mx-2 rounded hover:bg-blue-600"
-                                            onClick={editDungeon}
-                                        >
-                                            Edit Dungeon Info
-                                        </button>
-                                        <button
-                                            className="bg-gray-800 text-red-500 text-sm px-3 py-1 mx-2 rounded hover:bg-red-900"
-                                            onClick={deleteDungeon}
-                                        >
-                                            Delete Dungeon
-                                        </button>
-                                    </>
-                                )}
-                            </div>
-                        )}
-                    </h2>
-                )}
-            </div>
-            <p className="mb-2"><b>Location:</b></p>
-            <p className="mb-4">{dungeon.location}</p>
-            <img
-                src={dungeon.imageURL}
-                alt={dungeon.name}
-                className="w-full h-[40vh] object-cover rounded-lg mb-4"
-            />
-            <p className="mb-2"><b>Description:</b></p>
-            <p className="mb-4">{dungeon.description}</p>
-
-            {/* Strategy Guide Section */}
-            <div>
-                <h2 className="text-2xl font-bold mb-4">Dungeon Strategy Guide</h2>
-                {dungeonBosses && dungeonBosses.length > 0 ? (
-                    dungeonBosses.map((boss) => (
-                        <div key={boss._id} className="mb-8">
-                            <Link to={`/boss/${boss._id}`} className="text-cyan-200 text-2xl font-bold mb-4">{boss.name}</Link>
-                            {boss.guide && boss.guide.normal && boss.guide.normal.length > 0 ? (
-                                <div className="mt-4">
-                                    {boss.guide.normal.map((phaseInfo, index) => (
-                                        <div key={index} className="mb-4 p-4">
-                                            <h2 className="text-purple-600 text-2xl font-bold mb-4">
-                                                {phaseInfo.phase}:
-                                            </h2>
-                                            <ReactMarkdown rehypePlugins={[rehypeRaw]}>
-                                                {phaseInfo.description
-                                                    .replace(/\[(\d+)\]/g, (match, skillId) => {
-                                                        return `<a href="${SPELL}${skillId}" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">${skillId}</a>`;
-                                                    })
-                                                    .replace(/{(\d+)}/g, (match, npcId) => {
-                                                        return `<a href="${NPC}${npcId}" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">${npcId}</a>`;
-                                                    })
-                                                    .replace(/\n/g, '<br />')}
-                                            </ReactMarkdown>
-                                        </div>
-                                    ))}
+                                    {user?.isAdmin && (
+                                        <>
+                                            <button
+                                                className="bg-blue-500 text-white text-sm px-3 py-1 rounded hover:bg-blue-600 mb-2"
+                                                onClick={editDungeon}
+                                            >
+                                                Edit Dungeon Info
+                                            </button>
+                                            <button
+                                                className="bg-gray-800 text-red text-sm px-3 py-1 rounded hover:bg-red-600 mb-2"
+                                                onClick={deleteDungeon}
+                                            >
+                                                Delete Dungeon
+                                            </button>
+                                        </>
+                                    )}
                                 </div>
-                            ) : (
-                                <p className="mt-2 text-gray-500">No guide available or is <span className="text-red-600">under construction</span>.</p>
                             )}
-                        </div>
-                    ))
-                ) : (
-                    <p className="mt-2 text-gray-500">No bosses found in this dungeon.</p>
-                )}
+                        </>
+                    ) : (
+                        <h2 className="text-2xl font-bold mb-4 flex justify-between items-center">
+                            {dungeon.name}
+                            {user && (
+                                <div className="flex items-center">
+                                    <button
+                                        onClick={toggleFav}
+                                        className={`${isFavDungeon ? 'bg-red-600' : 'bg-gray-600'} text-white text-sm px-3 py-1 mx-2 rounded`}
+                                    >
+                                        {isFavDungeon ? "Remove from Favs" : "Add to Favs"}
+                                    </button>
+                                    {user?.isAdmin && (
+                                        <>
+                                            <button
+                                                className="bg-blue-500 text-white text-sm px-3 py-1 mx-2 rounded hover:bg-blue-600"
+                                                onClick={editDungeon}
+                                            >
+                                                Edit Dungeon Info
+                                            </button>
+                                            <button
+                                                className="bg-gray-800 text-red-500 text-sm px-3 py-1 mx-2 rounded hover:bg-red-900"
+                                                onClick={deleteDungeon}
+                                            >
+                                                Delete Dungeon
+                                            </button>
+                                        </>
+                                    )}
+                                </div>
+                            )}
+                        </h2>
+                    )}
+                </div>
+                <p className="mb-2"><b>Location:</b></p>
+                <p className="mb-4">{dungeon.location}</p>
+                <img
+                    src={dungeon.imageURL}
+                    alt={dungeon.name}
+                    className="w-full h-[40vh] object-cover rounded-lg mb-4"
+                />
+                <p className="mb-2"><b>Description:</b></p>
+                <p className="mb-4">{dungeon.description}</p>
+
+                {/* Strategy Guide Section */}
+                <div>
+                    <h2 className="text-2xl font-bold mb-4">Dungeon Strategy Guide</h2>
+                    {dungeonBosses && dungeonBosses.length > 0 ? (
+                        dungeonBosses.map((boss) => (
+                            <div key={boss._id} className="mb-8">
+                                <Link to={`/boss/${boss._id}`} className="text-cyan-200 text-2xl font-bold mb-4">{boss.name}</Link>
+                                {boss.guide && boss.guide.normal && boss.guide.normal.length > 0 ? (
+                                    <div className="mt-4">
+                                        {boss.guide.normal.map((phaseInfo, index) => (
+                                            <div key={index} className="mb-4 p-4">
+                                                <h2 className="text-purple-600 text-2xl font-bold mb-4">
+                                                    {phaseInfo.phase}:
+                                                </h2>
+                                                <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+                                                    {phaseInfo.description
+                                                        .replace(/\[(\d+)\]/g, (match, skillId) => {
+                                                            return `<a href="${SPELL}${skillId}" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">${skillId}</a>`;
+                                                        })
+                                                        .replace(/{(\d+)}/g, (match, npcId) => {
+                                                            return `<a href="${NPC}${npcId}" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">${npcId}</a>`;
+                                                        })
+                                                        .replace(/\n/g, '<br />')}
+                                                </ReactMarkdown>
+                                            </div>
+                                        ))}
+                                    </div>
+                                ) : (
+                                    <p className="mt-2 text-gray-500">No guide available or is <span className="text-red-600">under construction</span>.</p>
+                                )}
+                            </div>
+                        ))
+                    ) : (
+                        <p className="mt-2 text-gray-500">No bosses found in this dungeon.</p>
+                    )}
+                </div>
             </div>
-        </div>
+        </>
     );
 }
