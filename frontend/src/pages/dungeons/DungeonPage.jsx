@@ -68,6 +68,7 @@ export function DungeonBody({ dungeon, dungeonBosses }) {
         if (user && dungeon) {
             setIsFavDungeon(user.likedDungeons.includes(dungeon._id));
         }
+        setLoading(false);
     }, [user, dungeon]);
 
     useEffect(() => {
@@ -108,14 +109,12 @@ export function DungeonBody({ dungeon, dungeonBosses }) {
     };
 
     useEffect(() => {
-        if (dungeonBosses && dungeon) {
+        if (!loading) {
             WH.Tooltips.refreshLinks();
         }
-        setLoading(false);
-    }, [dungeonBosses, dungeon]);
+    }, [dungeon, dungeonBosses, loading]);
 
     return (
-        (dungeonBosses && dungeon && !loading) &&
         <>
             <div className="w-[95vw] p-6 text-white rounded-lg">
                 <div>
@@ -195,7 +194,7 @@ export function DungeonBody({ dungeon, dungeonBosses }) {
                 {/* Strategy Guide Section */}
                 <div>
                     <h2 className="text-2xl font-bold mb-4">Dungeon Strategy Guide</h2>
-                    {dungeonBosses && dungeonBosses.length > 0 ? (
+                    {!loading && dungeonBosses && dungeonBosses.length > 0 ? (
                         dungeonBosses.map((boss) => (
                             <div key={boss._id} className="mb-8">
                                 <Link to={`/boss/${boss._id}`} className="text-cyan-200 text-2xl font-bold mb-4">{boss.name}</Link>
