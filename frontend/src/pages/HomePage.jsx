@@ -9,6 +9,7 @@ import { useSearch } from '../providers/SearchProvider';
 import PageContent from '../components/layout/PageContent';
 
 export default function HomePage() {
+    const [isFirstLoad, setIsFirstLoad] = useState();
     const [bosses, setBosses] = useState([]);
     const [allDungeons, setAllDungeons] = useState([]);
     const [twwDungeons, setTwwDungeons] = useState([]);
@@ -17,7 +18,16 @@ export default function HomePage() {
     const [error, setError] = useState(null);
     const [location, setLocation] = useState("Nerub'ar Palace");
     const { setNotification } = usePageUI();
-    const { setShowSearch } = useSearch();
+    const { showSearch, setShowSearch } = useSearch();
+
+    useEffect(() => {
+        if (isFirstLoad) {
+            setIsFirstLoad(false);
+        } else {
+            fetchHomePage();
+            setNotification({ message: "Homepage Loaded", severity: "info" });
+        }
+    }, []);
 
     const fetchHomePage = async () => {
         try {
@@ -45,11 +55,6 @@ export default function HomePage() {
     };
 
     useEffect(() => {
-        fetchHomePage();
-        setNotification({ message: "Homepage Loaded", severity: "info" });
-    }, []);
-
-    useEffect(() => {
         if (!loading) {
             WH.Tooltips.refreshLinks();
         }
@@ -58,14 +63,6 @@ export default function HomePage() {
     useEffect(() => {
         setShowSearch(false);
     }, []);
-
-    if (loading) {
-        return <div>Loading...</div>;
-    }
-
-    if (error) {
-        return <div>Error: {error}</div>;
-    }
 
     return (
         <PageContent>

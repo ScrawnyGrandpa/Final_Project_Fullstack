@@ -37,7 +37,7 @@ export default function DungeonForm() {
         setDefaultValue(data);
         const completeData = { ...data };
         const updatedDungeon = new DungeonModel(completeData);
-        await updatedDungeon.save();
+        await updatedDungeon.save().returnCatche();
         setNotification({ message: "Dungeon profile updated", severity: "success" });
         navigate(`${ROUTES.DUNGEON_INFO}/${updatedDungeon._id}`);
     }, [id, dungeon]);

@@ -39,10 +39,6 @@ export default function FavoriteItems() {
         setShowSearch(true);
     }, [setShowSearch]);
 
-    useEffect(() => {
-        setSearchText("");
-    }, [setSearchText]);
-
     if (!user) {
         return <Navigate to="/" replace />;
     }

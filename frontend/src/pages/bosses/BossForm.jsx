@@ -35,13 +35,10 @@ export default function BossForm() {
 
     const onSubmit = useLoadCallback(async (data) => {
         setDefaultValue(data);
-
         const completeData = { ...data };
-
         const updatedBoss = new BossModel(completeData);
         await updatedBoss.save();
         setNotification({ message: "Boss profile updated", severity: "success" });
-
         navigate(`${ROUTES.BOSS_INFO}/${updatedBoss._id}`);
     }, [id, boss]);
 
